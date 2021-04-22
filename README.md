@@ -37,6 +37,10 @@ ID Names
 
 Age
 
+### Stretch Atrributes (may not be implemented)
+
+- Stimululus/happiness index (non spreader)
+
 
 ## Archetypes 
 
@@ -109,11 +113,18 @@ creating a rumour can dock you status-points [function of risk]
 ## Objects 
 
 - `rumour_object`
+-   `rumour_id`
 -   `rumour_instegation_counter`
 - 	`rumour_persistence` success means trending to 1. Failure means trending to 0. 
 - 	`rumour_points` how much points a rumour is worth 
 - 	`rumour_environment_multiplier` too many rumours reduce this value.
 - 	`rumour_replication_multiplier` more people = higher rumour value
+
+- `citizen_object`
+- `all_known_rumours`
+
+- `rumour_tracker`
+- historical tracker over time 
 
 ## Databases 
 
@@ -122,6 +133,11 @@ Rumour Database
 Time Function 
 
 
+
+## Ideal Features
+
+- Visualise it in a game format 
+- Visualise it in a datapipeline 
 
 
 ## Additional Resources
