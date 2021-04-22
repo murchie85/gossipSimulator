@@ -21,6 +21,35 @@ In this project I (Adam McMurchie) plan to build a series of bots which will sim
 Another optimiser will be tasked with gaining as much points by abusing the system to their benefit (it might not mean spreading it far and wide).
 
 
+# MVP  
+
+## Simulation Flow  
+    
+### 1. Create Simulation  
+  
+create_citizens function 
+
+Initialisation 
+
+- `Id` = uniqueValue
+- `create_gossip_probability` = random int 0-100
+- `spread_gossip_probability` = random int 0-100
+- `friends` = empty
+- `rumour_tracker` empty
+
+
+  
+
+
+
+
+
+  
+**All Things below are the full features to be considered**  
+
+
+
+
 
 ## SOE
 
@@ -28,9 +57,11 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
 - MVP
 - Pygame
 
-## Considerations 
+## Considerations Features
 
 - Include end-of-day review?  
+- Friendly fire
+- Guilt by association
 
 Objectives
 -----------
@@ -137,8 +168,10 @@ creating a rumour can dock you status-points [function of risk]
 - 	`rumour_replication_multiplier` more people = higher rumour value
 
 - `citizen_object`
+-   `create_gossip_probability`
+-   `spread_gossip_probability`
 - 	`all_known_rumours`
-- 	`known citizen list`
+- 	`known citizen list` / `friends`
 - 	`rumour_tracker`
 -		`who told who this rumour` (stretch goal - to contain ID)
 - historical tracker over time 
