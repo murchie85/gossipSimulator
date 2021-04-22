@@ -29,7 +29,7 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
   
 create_citizens function 
 
-Initialisation 
+Citizen Initialisation 
 
 - `Id` = uniqueValue
 - `create_gossip_probability` = random int 0-100
@@ -37,14 +37,36 @@ Initialisation
 - `friends` = empty
 - `rumour_tracker` empty
 
+### 2. Rumour Tracker 
 
-  
+- `Action: [created, spreaded]`
+- `rumour: [id]`
+- `target: [id]`
+- `associated: [id]`
+
+
+### 2. Simulation Start 
+
+- Time Ticks an increment
+- Each Person processes a move
+
+
+### 3. Rumour Creation  
+
+1. If user rumour creation Value * randint(0-50) > 100 create rumour
+
+
+
+- 
+
+
+(will need to remove a given rumour from everyone if it dissapears.... or just stop it propagating)
 
 
 
 
 
-  
+
 **All Things below are the full features to be considered**  
 
 
