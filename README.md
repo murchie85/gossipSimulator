@@ -16,7 +16,9 @@ In this project I (Adam McMurchie) plan to build a series of bots which will sim
  - Propagate Rumours
  - Gain Status by generating Rumors
 
- This may seem like the same thing, but one AI will be tasked with keeping 
+ This may seem like the same thing, but one AI Optimiser will be tasked with keeping a rumour going and spreading it to as many people as possible. 
+
+Another optimiser will be tasked with gaining as much points by abusing the system to their benefit (it might not mean spreading it far and wide).
 
 
 
@@ -49,7 +51,7 @@ Instigator
 
 Can create rumour about one or multiple targets
 
-[0][0] 
+negative rumour positive-status-points positive-risk	
 
 
 
@@ -66,6 +68,17 @@ Target
 ## Functions 
 
 - `create_rumour.py`
+- `modify_rumour.py`
+- `create_citizen.py`
+- `modify_status_points.py`
+
+## Objects 
+
+- `rumour points` how much points a rumour is worth 
+- `rumour_environment_multiplier` too many rumours reduce this value.
+- `rumour_replication_multiplier` more people = higher rumour value
+
+## Databases 
 
 Rumour Database 
 
