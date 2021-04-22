@@ -22,12 +22,24 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
 
 
 
+## SOE
+
+- Create Versions
+- MVP
+- Pygame
+
+## Considerations 
+
+- Include end-of-day review?  
+
 Objectives
 -----------
 
 Simulate Gossip Utility in Society
 
 
+[-10] did you know ID is having an affair with ID 
+[]
 
 ## Main Attributes
 
@@ -37,9 +49,11 @@ ID Names
 
 Age
 
-### Stretch Atrributes (may not be implemented)
 
-- Stimululus/happiness index (non spreader)
+
+### STRETCH Atrributes (may not be implemented)
+
+- Stimululus/happiness index (non-spreader)
 
 
 ## Archetypes 
@@ -47,6 +61,7 @@ Age
 - Creator of rumour
 - Peristor of rumour 
 - Target of Rumour [take statuspoint damage/benefit for rumour value.]
+- Non-participant
 
 
 
@@ -114,6 +129,7 @@ creating a rumour can dock you status-points [function of risk]
 
 - `rumour_object`
 -   `rumour_id`
+-   `target_citezen` (could be null)
 -   `rumour_instegation_counter`
 - 	`rumour_persistence` success means trending to 1. Failure means trending to 0. 
 - 	`rumour_points` how much points a rumour is worth 
@@ -121,9 +137,10 @@ creating a rumour can dock you status-points [function of risk]
 - 	`rumour_replication_multiplier` more people = higher rumour value
 
 - `citizen_object`
-- `all_known_rumours`
-
-- `rumour_tracker`
+- 	`all_known_rumours`
+- 	`known citizen list`
+- 	`rumour_tracker`
+-		`who told who this rumour` (stretch goal - to contain ID)
 - historical tracker over time 
 
 ## Databases 
@@ -133,11 +150,38 @@ Rumour Database
 Time Function 
 
 
+## Risk 
+
+Rumour can backfire if boring
+Rumour can backfire if 
+Creating gossping about a high status point person increases risk (top 70-95%)
+Gossping about top 95-100% is fun, doesn't generate much status points or risk. 
+
+
+Retaliation 
 
 ## Ideal Features
 
 - Visualise it in a game format 
 - Visualise it in a datapipeline 
+
+
+## Environment 
+
+to get it going, just create rumours with any other id != self
+
+Stretch
+
+Location 
+move about
+can only create rumour or spread rumour or recieve rumour if x < 10 meters of another citizen 
+
+Environment locations affect rumour score
+
+office X2 
+home x1
+dock street -x1
+Neutral Location scores: 
 
 
 ## Additional Resources
