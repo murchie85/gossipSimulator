@@ -38,9 +38,11 @@ Environment has a time engine.
 
 Rumour can be created
 
-Rumour can be positive or nega
+Rumour can be positive or negative
 
 Rumour has a shelf life
+
+Too much Rumour creation lowers the value of a rumour. 
 
 
 Instigator
@@ -55,6 +57,19 @@ Can create rumour about one or multiple targets
 Speader
 
 Target
+
+
+
+## Application Design
+-----------------
+
+## Functions 
+
+- `create_rumour.py`
+
+Rumour Database 
+
+Time Function 
 
 
 
