@@ -29,6 +29,49 @@ Simulate Gossip Utility in Society
 
 
 
+## Main Attributes
+
+Status-Points
+
+ID Names
+
+Age
+
+
+## Archetypes 
+
+- Creator of rumour
+- Peristor of rumour 
+- Target of Rumour [take statuspoint damage/benefit for rumour value.]
+
+
+
+- Instigator function
+
+Can create rumour about one or multiple targets
+
+negative rumour positive-status-points positive-risk	
+
+- Speader function
+
+- Target
+
+Is affected by a rumour 
+
+
+
+## Bot Behaviour
+
+- creator boolean on/off
+- Spreader boolean on/off
+
+
+
+## AI Optimisers
+
+1. Spread rumour as far and wide as possible and/or to get it to last forever [AI DAVE]
+2. Selfish create rumour to gain status points. [AI BOB]
+3. Generic optimizer - looks for trends and copies the most succesful
 
 
 
@@ -40,25 +83,16 @@ Environment has a time engine.
 
 Rumour can be created
 
-Rumour can be positive or negative
+Rumour can be positive or negative (in terms of impact to targ)
 
-Rumour has a shelf life
+Rumour has a shelf life (value decreases to 0)
 
 Too much Rumour creation lowers the value of a rumour. 
 
 
-Instigator
+creating a rumour can gain you status-points
+creating a rumour can dock you status-points [function of risk]
 
-Can create rumour about one or multiple targets
-
-negative rumour positive-status-points positive-risk	
-
-
-
-
-Speader
-
-Target
 
 
 
@@ -67,16 +101,19 @@ Target
 
 ## Functions 
 
-- `create_rumour.py`
+- `create_rumour.py` 
 - `modify_rumour.py`
 - `create_citizen.py`
 - `modify_status_points.py`
 
 ## Objects 
 
-- `rumour points` how much points a rumour is worth 
-- `rumour_environment_multiplier` too many rumours reduce this value.
-- `rumour_replication_multiplier` more people = higher rumour value
+- `rumour_object`
+-   `rumour_instegation_counter`
+- 	`rumour_persistence` success means trending to 1. Failure means trending to 0. 
+- 	`rumour_points` how much points a rumour is worth 
+- 	`rumour_environment_multiplier` too many rumours reduce this value.
+- 	`rumour_replication_multiplier` more people = higher rumour value
 
 ## Databases 
 
