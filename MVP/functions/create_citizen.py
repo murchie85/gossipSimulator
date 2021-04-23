@@ -20,9 +20,8 @@ Citizen Initialisation
 
 
 import names 
-import time
 import random
-from utils import med_print
+
 
 
 ## To be used later to prevent drift
@@ -37,6 +36,7 @@ def catalogue():
 
 def createCitizen():
 	name            = str(names.get_first_name() + names.get_last_name())
+	location        = random.randint(0,1000)
 	sp              = random.randint(0,100)
 	cgp             = random.randint(0,100)
 	sgp             = random.randint(0,100)
@@ -44,56 +44,51 @@ def createCitizen():
 	friends         = {}
 	knownRumours    = {}
 
-	citizen = {"name": name, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "knownRumours": knownRumours}
+	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "knownRumours": knownRumours}
 	return(citizen)
 
 
+def generateCitizens(citizen_count):
 
-med_print('Generating World...')
+	citizen_list  = {}
 
-citizen_count = 15
+	for citizen in range(0,citizen_count):
+		print('----------------')
+		print('Creating Citizen')
+		print('----------------')
+		citizen = createCitizen()
+		citizen_list.update({ str(citizen['name']): citizen})
 
-for citizen in range(0,citizen_count):
-	print('----------------')
-	print('Creating Citizen')
-	print('----------------')
-	citizen = createCitizen()
+		print("The Full Citizen Object is : ")
+		print(citizen)  
+		print(' ')  
 
-	print("The Full Citizen Object is : ")
-	print(citizen)  
-	print(' ')  
+		print("Citizen name is {}".format(citizen['name']))
+		print(' ')
 
-	print("Citizen name is {}".format(citizen['name']))
-	print(' ')
+		print("Citizen's age is {}".format(citizen['age']))
+		print(' ')
 
-	print("Citizen's age is {}".format(citizen['age']))
-	print(' ')
+		print("Citizen's location is {}".format(citizen['location']))
+		print(' ')
 
-	print("Citizen's status points are {}".format(citizen['SP']))
-	print(' ')
+		print("Citizen's status points are {}".format(citizen['SP']))
+		print(' ')
 
-	print("Citizen's create gossip probability is {}".format(citizen['CGP']))
-	print(' ')
+		print("Citizen's create gossip probability is {}".format(citizen['CGP']))
+		print(' ')
 
-	print("Citizen's spread gossip probability is {}".format(citizen['SGP']))
-	print(' ')
+		print("Citizen's spread gossip probability is {}".format(citizen['SGP']))
+		print(' ')
 
-	print("Citizen's friends are {}".format(citizen['friends']))
-	print(' ')
+		print("Citizen's friends are {}".format(citizen['friends']))
+		print(' ')
 
-	print("Citizen's known rumours are {}".format(citizen['knownRumours']))
-	print(' ')  
+		print("Citizen's known rumours are {}".format(citizen['knownRumours']))
+		print(' ')  
+		#time.sleep(1)
 
-	time.sleep(1)
+	return(citizen_list)
 
-print("\033c")
-print('************************************************')
-print('    😏😏😏  GOSSIP SIMULATOR      😏😏😏       ')
-print('************************************************') 
-print('')
-med_print("World Complete")
-print(' ')
-med_print('Number of Citizens: ' + str(citizen_count))
-print('')
-print('')
-input('Press any button to begin simulation')
+
+

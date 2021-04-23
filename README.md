@@ -71,7 +71,11 @@ You get four main different types of people.
 
 # OBJECTS
 -------------
-
+## Environment 
+  
+- `time`
+- `time_interval` a sleep value 
+  
 
 ## Citizen 
 
@@ -83,6 +87,7 @@ Initialisation
 - `spread_gossip_probability` = random int 0-100
 - `age` = 0
 - `friends` = empty
+- `position` = random int 0-1000
 - `subjective_rumour_tracker` empty
 
 #### 2. Subjective Rumour Tracker 
@@ -103,14 +108,38 @@ Initialisation
 
 # Functions 
 --------------------
+
+
+## main.py 
+
+- calls create citizens function
+- increments time
   
 ## create_citizens function   
+
+
+## Check Near Citizen   
+
+- If no citizens within 20: moveProb = create_gossip_probability + spread_gossip_probability
+
+- if within 20 of citizen: chance 
+
+## Movement Function 
+
+- move random value (-10,10)
+- if pos > 1000: pos = pos - 1000
+- if pos < 0: pos = 1000 - pos
+
 
 
 ## create_rumour_function
 
 - Can only create a rumour when in contact with one or more people. 
 
+
+## send_rumour_function
+
+- check if in vicinity of citizen(s) 
 
 
 
@@ -166,9 +195,11 @@ Initialisation
 - Include end-of-day review?  
 - Create Versions
 - MVP
+- Boredom 
 - Pygame
 - Friendly fire
 - Guilt by association
+
 
 ## STRETCH Atrributes (may not be implemented)
 
