@@ -31,33 +31,47 @@ create_citizens function
 
 Citizen Initialisation 
 
-- `Id` = uniqueValue
+- `Id` = uniqueValue (use random name generator so can be in json and prevent duplicates)
+- `status_points` = random(0,100)
 - `create_gossip_probability` = random int 0-100
 - `spread_gossip_probability` = random int 0-100
+- `age` = 0
 - `friends` = empty
-- `rumour_tracker` empty
+- `subjective_rumour_tracker` empty
 
-### 2. Rumour Tracker 
+### 2. Subjective Rumour Tracker 
 
 - `Action: [created, spreaded]`
 - `rumour: [id]`
 - `target: [id]`
 - `associated: [id]`
 
+### 3. Objective Rumour Database 
 
-### 2. Simulation Start 
+- `rumour: [id]`
+- `target: [id]`
+- `rumour: string`
+- `risk: int[0,2000]`
+- `persistence: int(-1,1)`
+- `associated: [id]`
+
+
+### 4. Simulate Citizen
 
 - Time Ticks an increment
 - Each Person processes a move
+- If user rumour creation Value * randint(0-50) > 100 create rumour
+
+### 5. Simulate Environment
+
+- After given time increment end round
+- Kill rumours below a certain persistence
+- Kill citizen if below a certain status point
+- Kill citizen if above a certain age 
+
+- After certain time increment inject new citizens
 
 
-### 3. Rumour Creation  
-
-1. If user rumour creation Value * randint(0-50) > 100 create rumour
-
-
-
-- 
 
 
 (will need to remove a given rumour from everyone if it dissapears.... or just stop it propagating)
