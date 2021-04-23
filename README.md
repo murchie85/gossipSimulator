@@ -1,11 +1,12 @@
-# Gossip Simulator 
+#               Gossip Simulator
 
-## Building Digital Fishwives 
+![](sprites/concept/Noseytown.png)
 
+In Yuval Harai's pivotal book [Sapiens](https://www.ynharari.com/book/sapiens-2/) the author explains how Story Telling and collective belief define the human race. In fact these uniquely human characteristics may have helped differentiate Sapiens from their historical competitors and allowed us to thrive into the technological society we have today. 
 
 ![](https://cf.girlsaskguys.com/q3478164/primary-share.png?33)
 
-In Yuval Harai's pivotal book [Sapiens](https://www.ynharari.com/book/sapiens-2/) the author explains how Story Telling and collective belief define the human race. In fact these uniquely human characteristics may have helped differentiate Sapiens from their historical competitors and allowed us to thrive into the technological society we have today. 
+## Building Digital Fishwives 
 
 In this project I (Adam McMurchie) plan to build a series of bots which will simulate how a world will evolve overtime via a colection of rules which defines risks and rewards of rumour creation. These rules will be set at three tiers, environmental level, social level and household level. 
 
@@ -21,7 +22,52 @@ In this project I (Adam McMurchie) plan to build a series of bots which will sim
 Another optimiser will be tasked with gaining as much points by abusing the system to their benefit (it might not mean spreading it far and wide).
 
 
+
+# Objectives
+-----------
+
+1. Simulate Gossip Utility in Society
+2. Create a world with bots and AIs who interact and talk 
+3. Observe how rumours can be used to increase status points. 
+
+
 # MVP  
+-----------------
+
+## Rules
+ 
+
+- Environment has a time engine. 
+- Rumour can be created
+- Rumour can be positive or negative (in terms of impact to target)
+- Rumour can be about one or multiple targets. Even about no targets.
+- Rumour has an associated risk. 
+- Rumour has a shelf life/popularity (value decreases to 0)
+- Rumours will be associated to citizens who spread or create it.
+
+Too much Rumour creation lowers the value of a rumour. 
+
+
+creating a rumour can gain you status-points
+creating a rumour can dock you status-points [function of risk]
+
+
+## Citizen Archetypes 
+
+You get four main different types of people. 
+
+- Creator of rumour
+- Peristor of rumour 
+- Target of Rumour [take statuspoint damage/benefit for rumour value.]
+- Non-participant
+
+
+## Core Citizen Attributes
+
+- Status-Points
+- ID Names
+- Age
+
 
 ## Simulation Flow  
     
@@ -43,17 +89,17 @@ Citizen Initialisation
 
 - `Action: [created, spreaded]`
 - `rumour: [id]`
-- `target: [id]`
-- `associated: [id]`
+- `my_associated: [id]`
 
 ### 3. Objective Rumour Database 
 
 - `rumour: [id]`
 - `target: [id]`
+- `sentiment: int(-1,1)`
 - `rumour: string`
 - `risk: int[0,2000]`
-- `persistence: int(-1,1)`
-- `associated: [id]`
+- `persistence: int(0,100)`
+- `associated_citizens: [id]`
 
 
 ### 4. Simulate Citizen
@@ -65,16 +111,13 @@ Citizen Initialisation
 ### 5. Simulate Environment
 
 - After given time increment end round
-- Kill rumours below a certain persistence
+- Tick down rumour popularity rating
 - Kill citizen if below a certain status point
 - Kill citizen if above a certain age 
 
 - After certain time increment inject new citizens
 
 
-
-
-(will need to remove a given rumour from everyone if it dissapears.... or just stop it propagating)
 
 
 
@@ -87,54 +130,34 @@ Citizen Initialisation
 
 
 
-## SOE
+# Feature BackLog
+--------------
 
+
+- Include end-of-day review?  
 - Create Versions
 - MVP
 - Pygame
-
-## Considerations Features
-
-- Include end-of-day review?  
 - Friendly fire
 - Guilt by association
 
-Objectives
------------
-
-Simulate Gossip Utility in Society
-
-
-[-10] did you know ID is having an affair with ID 
-[]
-
-## Main Attributes
-
-Status-Points
-
-ID Names
-
-Age
-
-
-
-### STRETCH Atrributes (may not be implemented)
+## STRETCH Atrributes (may not be implemented)
 
 - Stimululus/happiness index (non-spreader)
 
 
-## Archetypes 
 
-- Creator of rumour
-- Peristor of rumour 
-- Target of Rumour [take statuspoint damage/benefit for rumour value.]
-- Non-participant
+
+
+
+
+
 
 
 
 - Instigator function
 
-Can create rumour about one or multiple targets
+
 
 negative rumour positive-status-points positive-risk	
 
