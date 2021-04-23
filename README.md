@@ -69,13 +69,13 @@ You get four main different types of people.
 - Age
 
 
-## Simulation Flow  
-    
-### 1. Create Simulation  
-  
-create_citizens function 
+# OBJECTS
+-------------
 
-Citizen Initialisation 
+
+## Citizen 
+
+Initialisation 
 
 - `Id` = uniqueValue (use random name generator so can be in json and prevent duplicates)
 - `status_points` = random(0,100)
@@ -85,13 +85,13 @@ Citizen Initialisation
 - `friends` = empty
 - `subjective_rumour_tracker` empty
 
-### 2. Subjective Rumour Tracker 
+#### 2. Subjective Rumour Tracker 
 
 - `Action: [created, spreaded]`
 - `rumour: [id]`
 - `my_associated: [id]`
 
-### 3. Objective Rumour Database 
+## 3. Objective Rumour Database 
 
 - `rumour: [id]`
 - `target: [id]`
@@ -101,14 +101,47 @@ Citizen Initialisation
 - `persistence: int(0,100)`
 - `associated_citizens: [id]`
 
+# Functions 
+--------------------
+  
+## create_citizens function   
 
-### 4. Simulate Citizen
+
+## create_rumour_function
+
+- Can only create a rumour when in contact with one or more people. 
+
+
+
+
+
+
+
+## Utils 
+
+# Simulation Flow
+--------------------
+
+1. Initialise Citizens 
+2. Intialise rumour db
+3. Tick Time increments
+
+
+| Step        | Requirements |
+| ----------- | ----------- |
+| Initialise Citizens      | `create_citizen.py`       |
+| Initialise Rumour DB   | `create_rumour_db.py`        |
+
+    
+### 1. Create Simulation  
+
+### 2. Simulate Citizen
 
 - Time Ticks an increment
 - Each Person processes a move
 - If user rumour creation Value * randint(0-50) > 100 create rumour
 
-### 5. Simulate Environment
+### 3. Simulate Environment
 
 - After given time increment end round
 - Tick down rumour popularity rating
@@ -116,10 +149,6 @@ Citizen Initialisation
 - Kill citizen if above a certain age 
 
 - After certain time increment inject new citizens
-
-
-
-
 
 
 
