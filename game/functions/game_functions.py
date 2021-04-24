@@ -18,6 +18,19 @@ def initialiseSprites(tileSize):
 	return(Ark)
 
 
+def moveSprite(keys_pressed,ark_pos,VEL):
+	if keys_pressed[pygame.K_a]:
+		ark_pos.x -= VEL
+	if keys_pressed[pygame.K_d]:
+		ark_pos.x += VEL
+	if keys_pressed[pygame.K_w]:
+		ark_pos.y -= VEL
+	if keys_pressed[pygame.K_s]:
+		ark_pos.y += VEL
+
+	return(ark_pos)
+
+
 def events(run):
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:run = False

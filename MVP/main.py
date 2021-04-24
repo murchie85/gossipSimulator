@@ -30,7 +30,7 @@ time_increment = 1
 # gossip
 gossipObject      = ""
 gossipUpdates     = []
-displayGossipTime = 5
+displayGossipTime = 2
 
 # print vars 
 message           = ""
