@@ -103,15 +103,20 @@ for i in range(0, month_len):
 		gossipObject                   = {} # flush every time 
 
 		# later can make actins all within personality functions  
-		
-		# MOVE CITIZEN 
+
+		# ACTION:   ------WALK------
 		citizen_list[key]['location']  = moveCitizen(citizen,position)
 
-		# CREATE GOSSIP
+		# ACTION    ------CREATE GOSSIP------
 		myVar = random.randint(0,100)
 		if(myVar == 8):
 			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
 		
+		
+
+
+
+		# UPATES
 		if (len(gossipObject) > 0): gossipUpdates.append(gossipObject)
 
 	time.sleep(0.5)	
