@@ -1,6 +1,6 @@
 #               Gossip Simulator
 
-![concept art](sprites/concept/noseyTown.png)
+![concept art](sprites/concept/head.png)
 
 In Yuval Harai's pivotal book [Sapiens](https://www.ynharari.com/book/sapiens-2/) the author explains how Story Telling and collective belief define the human race. In fact these uniquely human characteristics may have helped differentiate Sapiens from their historical competitors and allowed us to thrive into the technological society we have today. 
 
