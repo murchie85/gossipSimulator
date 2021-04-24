@@ -1,5 +1,6 @@
 from functions.create_citizen import *
 from functions.utils import med_print
+from functions.printer import *
 import time
 
 # Set up Time
@@ -15,28 +16,13 @@ citizen_list = generateCitizens(15)
 
 
 
-#------------PRINT FUNCTIONS -----------------
-med_print('Generating World...')
-print("\033c")
-print('************************************************')
-print('    😏😏😏  GOSSIP SIMULATOR      😏😏😏       ')
-print('************************************************') 
-print('')
-med_print("World Complete")
-print(' ')
-med_print('Number of Citizens: ' + str(citizen_count))
-print('')
-print('')
-print(citizen_list)
-input('Press any button to begin simulation')
 
 
 
 
 
-# Print Citizen 
-def printCitizen(citizen):
-	print(str(citizen['name']) + "    Location: " + str(citizen['location']))
+# Print start 
+startMesssage(citizen_count,citizen_list)
 
 
 
@@ -49,11 +35,11 @@ for i in range(0, month_len):
 	print('********************************************************************************************************************')
 	game_time +=1
 
+	citizenArray = []
 	for key in citizen_list:
-		printCitizen(citizen_list[key])
+		citizenArray.append(citizen_list[key])
 
-
-
+	printCitizen(citizenArray)
 
 
 

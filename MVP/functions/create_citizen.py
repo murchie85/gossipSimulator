@@ -35,7 +35,7 @@ def catalogue():
 
 
 def createCitizen():
-	name            = str(names.get_first_name() + names.get_last_name())
+	name            = str(names.get_first_name() + ' ' + names.get_last_name())
 	location        = random.randint(0,1000)
 	sp              = random.randint(0,100)
 	cgp             = random.randint(0,100)
