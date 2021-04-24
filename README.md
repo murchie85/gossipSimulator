@@ -8,16 +8,16 @@ In Yuval Harai's pivotal book [Sapiens](https://www.ynharari.com/book/sapiens-2/
 
 ## Building Digital Fishwives 
 
-In this project I (Adam McMurchie) plan to build a series of bots which will simulate how a world will evolve overtime via a colection of rules which defines risks and rewards of rumour creation. These rules will be set at three tiers, environmental level, social level and household level. 
+In this project I (Adam McMurchie) plan to build a series of bots which will simulate how a world will evolve overtime via a colection of rules which defines risks and rewards of gossip creation. These rules will be set at three tiers, environmental level, social level and household level. 
 
  Dumb rules based optimisers will play part of the relatively disengaged population who partake in occasional gossiping. 
 
  The Digital Fishwife: will be AI optimisers designed with two main optimisers in consideration:
 
- - Propagate Rumours
+ - Propagate Gossips
  - Gain Status by generating Rumors
 
- This may seem like the same thing, but one AI Optimiser will be tasked with keeping a rumour going and spreading it to as many people as possible. 
+ This may seem like the same thing, but one AI Optimiser will be tasked with keeping a gossip going and spreading it to as many people as possible. 
 
 Another optimiser will be tasked with gaining as much points by abusing the system to their benefit (it might not mean spreading it far and wide).
 
@@ -28,7 +28,7 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
 
 1. Simulate Gossip Utility in Society
 2. Create a world with bots and AIs who interact and talk 
-3. Observe how rumours can be used to increase status points. 
+3. Observe how gossips can be used to increase status points. 
 
   
 
@@ -36,37 +36,39 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
 # MVP  
 -----------------  
   
-**Coding Paradigm:** Functions First Personality Later!
+**Coding Paradigm:** 
+*Functions First Personality Later!*
+*All state must be kept in main.py*
 
 ## Rules
  
 
 - Environment has a time engine. 
-- Rumour can be created
-- Rumour can be positive or negative (in terms of impact to target)
-- Rumour can be about one or multiple targets. Even about no targets.
-- Rumour has an associated risk. 
-- Rumour has a shelf life/popularity (value decreases to 0)
-- Rumours will be associated to citizens who spread or create it.
-- Citizens can only create or share rumours when near other people
+- Gossip can be created
+- Gossip can be positive or negative (in terms of impact to target)
+- Gossip can be about one or multiple targets. Even about no targets.
+- Gossip has an associated risk. 
+- Gossip has a shelf life/popularity (value decreases to 0)
+- Gossips will be associated to citizens who spread or create it.
+- Citizens can only create or share gossips when near other people
 - Citizens age and die
 - Citizens (normally) want more status points
-- Creating rumours gain you status points or removes some
+- Creating gossips gain you status points or removes some
 
-Too much Rumour creation lowers the value of a rumour. 
+Too much Gossip creation lowers the value of a gossip. 
 
 
-creating a rumour can gain you status-points
-creating a rumour can dock you status-points [function of risk]
+creating a gossip can gain you status-points
+creating a gossip can dock you status-points [function of risk]
 
 
 ## Citizen Archetypes 
 
 You get four main different types of people. 
 
-- Creator of rumour
-- Peristor of rumour 
-- Target of Rumour [take statuspoint damage/benefit for rumour value.]
+- Creator of gossip
+- Peristor of gossip 
+- Target of Gossip [take statuspoint damage/benefit for gossip value.]
 - Non-participant
 
 
@@ -85,37 +87,58 @@ You get four main different types of people.
 - `time_interval` a sleep value 
   
 
-## Citizen 
+## citizen_list 
 
-Initialisation 
+Each citizen has: 
 
-- `Id` = uniqueValue (use random name generator so can be in json and prevent duplicates)
-- `status_points` = random(0,100)
-- `create_gossip_probability` = random int 0-100
-- `spread_gossip_probability` = random int 0-100
-- `age` = 0
-- `friends` = empty
-- `position` = random int 0-1000
-- `subjective_rumour_tracker` empty
+| Object                      | Values |
+| ----------- | ----------- |
+| **name (Pkey)**                        | uniqueValue (use random name generator so can be in json and prevent duplicates) |
+| **status_points**             | initialised as `random(0,100)`|
+| **create_gossip_probability** | initialised as `random(0,100)` |
+| **spread_gossip_probability** | initialised as `random(0,100)` |
+| **age**                       | random int 0-100 |
+| **friends**                   | initialised as `int(0)` |
+| **position**                  | initialised as `random(0,1000)` |
+| **subjective_gossip_tracker** | `empty {}`|
 
-#### 2. Subjective Rumour Tracker 
+## 2. Objective Gossip Database 
 
+To be referenced by individuals, they wont have access to all values.  
+
+| Object                      | Values |
+| ----------- | ----------- |
+| **gossipID (key)**              | `string( int(value) )` value increments |
+| **creator**                     | [citizen_list]name (Pkey) |
+| **target**                      | [citizen_list]name (Pkey) |
+| **sentiment** | `random(0,100)` |
+| **rumour**                      | `string` |
+| **risk**                        | `random(0,100)`|
+| **persistence**                 | `random(0,100)` |
+| **spread_count**              | `int(value)`value increments |
+| **associated_citizens**         | initialised as `random(0,1000)` |
+
+#### 3. Subjective Gossip Tracker 
+
+This tracker is a sub database in the `citizen_list`, it can be used as a key to access the core gossip database for certain info.
+
+- `gossipID (key): [id]`
 - `Action: [created, spreaded]`
-- `rumour: [id]`
-- `my_associated: [id]`
+- `my_associated: [id]` 
 
-## 3. Objective Rumour Database 
 
-- `rumour: [id]`
-- `target: [id]`
-- `sentiment: int(-1,1)`
-- `rumour: string`
-- `risk: int[0,2000]`
-- `persistence: int(0,100)`
-- `associated_citizens: [id]`
 
-# Functions 
+# Function List
 --------------------
+1. `Main.py`
+2. `create_citizens.py`
+3. `walk.py`
+  
+
+A. `printer.py`
+B. `utils.py`
+
+
 
 
 ## main.py 
@@ -138,12 +161,12 @@ Initialisation
 
 
 
-## create_rumour_function
+## create_gossip_function
 
-- Can only create a rumour when in contact with one or more people. 
+- Can only create a gossip when in contact with one or more people. 
 
 
-## send_rumour_function
+## send_gossip_function
 
 - check if in vicinity of citizen(s) 
 
@@ -158,14 +181,14 @@ Initialisation
 --------------------
 
 1. Initialise Citizens 
-2. Intialise rumour db
+2. Intialise gossip db
 3. Tick Time increments
 
 
 | Step        | Requirements |
 | ----------- | ----------- |
 | Initialise Citizens      | `create_citizen.py`       |
-| Initialise Rumour DB   | `create_rumour_db.py`        |
+| Initialise Gossip DB   | `create_gossip_db.py`        |
 
     
 ### 1. Create Simulation  
@@ -174,12 +197,12 @@ Initialisation
 
 - Time Ticks an increment
 - Each Person processes a move
-- If user rumour creation Value * randint(0-50) > 100 create rumour
+- If user gossip creation Value * randint(0-50) > 100 create gossip
 
 ### 3. Simulate Environment
 
 - After given time increment end round
-- Tick down rumour popularity rating
+- Tick down gossip popularity rating
 - Kill citizen if below a certain status point
 - Kill citizen if above a certain age 
 
@@ -198,6 +221,8 @@ Initialisation
 --------------
 
 
+- Allow target to be more than one
+- Status Multiplier
 - Include end-of-day review?  
 - Create Versions
 - MVP
@@ -225,18 +250,19 @@ Initialisation
 
 
 
-negative rumour positive-status-points positive-risk	
+negative gossip positive-status-points positive-risk	
 
 - Speader function
 
 - Target
 
-Is affected by a rumour 
+Is affected by a gossip 
 
 
 
-## Bot Behaviour
+# Bot Behaviour
 
+### This will be set by citizen personality
 - creator boolean on/off
 - Spreader boolean on/off
 
@@ -244,8 +270,8 @@ Is affected by a rumour
 
 ## AI Optimisers
 
-1. Spread rumour as far and wide as possible and/or to get it to last forever [AI DAVE]
-2. Selfish create rumour to gain status points. [AI BOB]
+1. Spread gossip as far and wide as possible and/or to get it to last forever [AI DAVE]
+2. Selfish create gossip to gain status points. [AI BOB]
 3. Generic optimizer - looks for trends and copies the most succesful
 
 
@@ -256,62 +282,28 @@ Rules
 
 Environment has a time engine. 
 
-Rumour can be created
+Gossip can be created
 
-Rumour can be positive or negative (in terms of impact to targ)
+Gossip can be positive or negative (in terms of impact to targ)
 
-Rumour has a shelf life (value decreases to 0)
+Gossip has a shelf life (value decreases to 0)
 
-Too much Rumour creation lowers the value of a rumour. 
-
-
-creating a rumour can gain you status-points
-creating a rumour can dock you status-points [function of risk]
+Too much Gossip creation lowers the value of a gossip. 
 
 
+creating a gossip can gain you status-points
+creating a gossip can dock you status-points [function of risk]
 
 
-## Application Design
------------------
 
-## Functions 
 
-- `create_rumour.py` 
-- `modify_rumour.py`
-- `create_citizen.py`
-- `modify_status_points.py`
 
-## Objects 
-
-- `rumour_object`
--   `rumour_id`
--   `target_citezen` (could be null)
--   `rumour_instegation_counter`
-- 	`rumour_persistence` success means trending to 1. Failure means trending to 0. 
-- 	`rumour_points` how much points a rumour is worth 
-- 	`rumour_environment_multiplier` too many rumours reduce this value.
-- 	`rumour_replication_multiplier` more people = higher rumour value
-
-- `citizen_object`
--   `create_gossip_probability`
--   `spread_gossip_probability`
-- 	`all_known_rumours`
-- 	`known citizen list` / `friends`
-- 	`rumour_tracker`
--		`who told who this rumour` (stretch goal - to contain ID)
-- historical tracker over time 
-
-## Databases 
-
-Rumour Database 
-
-Time Function 
 
 
 ## Risk 
 
-Rumour can backfire if boring
-Rumour can backfire if 
+Gossip can backfire if boring
+Gossip can backfire if 
 Creating gossping about a high status point person increases risk (top 70-95%)
 Gossping about top 95-100% is fun, doesn't generate much status points or risk. 
 
@@ -326,15 +318,15 @@ Retaliation
 
 ## Environment 
 
-to get it going, just create rumours with any other id != self
+to get it going, just create gossips with any other id != self
 
 Stretch
 
 Location 
 move about
-can only create rumour or spread rumour or recieve rumour if x < 10 meters of another citizen 
+can only create gossip or spread gossip or recieve gossip if x < 10 meters of another citizen 
 
-Environment locations affect rumour score
+Environment locations affect gossip score
 
 office X2 
 home x1
@@ -342,6 +334,25 @@ dock street -x1
 Neutral Location scores: 
 
 
-## Additional Resources
+## Additional Reading
 
 1. [sapienship](https://www.sapienship.co/activities/storytelling)
+2. [Gossip Protocal](https://en.wikipedia.org/wiki/Gossip_protocol) 
+
+
+Gossip Protocal has some shared concepts used in this simulation, such as the following: 
+ 
+- Reliable communication is not assumed.
+- The information exchanged during these interactions is of bounded size.
+ 
+But differs in many aspects, a few are: 
+
+-  There is some form of randomness in the peer selection. Peers might be selected from the full set of nodes or from a smaller set of neighbors. (Not in this case, it will be determined by location and personality of the citien)
+- Due to the replication there is an implicit redundancy of the delivered information. (Not in this case, humans/agents will mutate the information as it replicates) 
+
+## Core Axioms  
+  
+- Reliable communication is not assumed.
+- The information exchanged during these interactions is of bounded size.
+- Gossip has an underlying driver (possibly status points)
+

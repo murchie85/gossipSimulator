@@ -64,3 +64,18 @@ def startMesssage(citizen_count,citizen_list):
 	print('')
 	print(citizen_list)
 	input('Press any button to begin simulation')
+
+
+#  this will print a messages for a given time.
+#  it counts down a timer to keep printing message
+def printNotification(message, messageTime):
+	if message == "":
+		return('free',messageTime)
+
+	if messageTime >= 0:
+		print(message)
+		messageTime -=1
+		return('running',messageTime)
+
+	if messageTime < 0:
+		return('free',messageTime)
