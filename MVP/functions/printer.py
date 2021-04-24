@@ -38,7 +38,7 @@ def printCitizen(citizen):
 		
 		print( stringMod("Status Points: " + str(citizen[i]['SP'])) + 
 			   stringMod("Status Points: " + str(citizen[i + 1]['SP']))  + 
-			   stringMod("Status Points: " + str(citizen[i + 2]['location']))     )
+			   stringMod("Status Points: " + str(citizen[i + 2]['SP']))     )
 		
 		print( stringMod("Known Rumours: " + str(len(citizen[i]['knownRumours']))) + 
 			   stringMod("Known Rumours: " + str(len(citizen[i + 1]['knownRumours'])))  + 

@@ -30,9 +30,13 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
 2. Create a world with bots and AIs who interact and talk 
 3. Observe how rumours can be used to increase status points. 
 
+  
+
 
 # MVP  
------------------
+-----------------  
+  
+**Coding Paradigm:** Functions First Personality Later!
 
 ## Rules
  
@@ -44,6 +48,10 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
 - Rumour has an associated risk. 
 - Rumour has a shelf life/popularity (value decreases to 0)
 - Rumours will be associated to citizens who spread or create it.
+- Citizens can only create or share rumours when near other people
+- Citizens age and die
+- Citizens (normally) want more status points
+- Creating rumours gain you status points or removes some
 
 Too much Rumour creation lowers the value of a rumour. 
 
@@ -118,14 +126,12 @@ Initialisation
 ## create_citizens function   
 
 
-## Check Near Citizen   
-
-- If no citizens within 20: moveProb = create_gossip_probability + spread_gossip_probability
-
-- if within 20 of citizen: chance 
 
 ## Movement Function 
 
+- Check if near citizen (seperate function)
+	- If no citizens within 20: moveProb = create_gossip_probability + spread_gossip_probability
+	- if within 20 of citizen: chance 
 - move random value (-10,10)
 - if pos > 1000: pos = pos - 1000
 - if pos < 0: pos = 1000 - pos
