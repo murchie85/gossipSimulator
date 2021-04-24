@@ -36,9 +36,9 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
 # MVP  
 -----------------  
   
-**Coding Paradigm:** 
-*Functions First Personality Later!*
-*All state must be kept in main.py*
+**Coding Paradigm:**   
+*Functions First Personality Later!*  
+*All state must be kept in main.py*  
 
 ## Rules
  

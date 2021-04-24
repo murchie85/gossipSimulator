@@ -13,6 +13,7 @@
 
 ## Internal libraries
 from functions.create_citizen import *
+from functions.update_citizen import *
 from functions.utils import med_print
 from functions.printer import *
 from functions.walk import *
@@ -54,6 +55,8 @@ gossip_database = {}
 startMesssage(citizen_count,citizen_list)
 
 
+
+
 # This clears the screen
 print("\033c")
 
@@ -78,15 +81,16 @@ for i in range(0, month_len):
 
 
 
-	#print(citizenArray)
+
 	noticationStatus,messageTime = printNotification(message, messageTime)
-	print(gossip_database)
 	
 
+	if(noticationStatus != "running"):
+		print('length gossip DB: ' + str(len(gossip_database)))
+
 	if((len(gossipUpdates) > 0) and (noticationStatus == "free")):
-		print('****new gossip***')
 		chosenGossip = random.choice(gossipUpdates)
-		message = str(chosenGossip['creator']) + " : " + str(chosenGossip['rumour'])
+		message = '****new gossip*** \n' + str(chosenGossip['creator']) + " : " + str(chosenGossip['rumour'])
 		messageTime = 5
 		gossipUpdates = []
 
@@ -107,11 +111,11 @@ for i in range(0, month_len):
 		# ACTION:   ------WALK------
 		citizen_list[key]['location']  = moveCitizen(citizen,position)
 
-		# ACTION    ------CREATE GOSSIP------
+		# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
 		myVar = random.randint(0,100)
 		if(myVar == 8):
 			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
-		
+			citizen_list = updateKnownRumours(citizen_list,key, gossipObject, type='create')
 		
 
 

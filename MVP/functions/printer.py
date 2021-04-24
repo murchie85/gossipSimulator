@@ -5,6 +5,8 @@ This function prints row of 3 boxed
 
 """
 import math
+import time
+from art import *
 from .utils import med_print
 
 blockLen     = 50
@@ -48,22 +50,57 @@ def printCitizen(citizen):
 
 
 
-
-def startMesssage(citizen_count,citizen_list):
 #------------PRINT FUNCTIONS -----------------
+def startMesssage(citizen_count,citizen_list):
+	print("\033c")
 	med_print('Generating World...')
 	print("\033c")
 	print('************************************************')
 	print('    😏😏😏  GOSSIP SIMULATOR      😏😏😏       ')
 	print('************************************************') 
 	print('')
-	med_print("World Complete")
+	print("World Complete")
 	print(' ')
 	print('Number of Citizens: ' + str(citizen_count))
 	print('')
 	print('')
 	print(citizen_list)
-	input('Press any button to begin simulation')
+	#input('Press any button to begin simulation')
+	print("\033c")
+	print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+	starting  =text2art("                                              Starting") 
+	simulation=text2art("                                              Simulation") 
+
+	print(starting)
+	print('')
+	print(simulation)
+	time.sleep(3)
+	print("\033c")
+	three=text2art("                                                                  3") 
+	two  =text2art("                                                                  2") 
+	one  =text2art("                                                                  1") 
+	start  =text2art("                                                   start") 
+
+	print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+	print(three)
+	time.sleep(1)
+	print("\033c")
+
+	print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+	print(two)
+	time.sleep(1)
+	print("\033c")
+
+	print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+	print(one)
+	time.sleep(1)
+	print("\033c")
+
+	print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+	print(start)
+	time.sleep(1)
+	print("\033c")
+
 
 
 #  this will print a messages for a given time.
