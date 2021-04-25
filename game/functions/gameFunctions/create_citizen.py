@@ -43,11 +43,11 @@ def createCitizen():
 	sgp             = random.randint(0,100)
 	age             = random.randint(0,80)
 	friends         = {}
-	beaviour        = {}
+	behaviour        = {}
 	knownRumours    = {}
 	sprite          = {}
 
-	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "beaviour":beaviour, "knownRumours": knownRumours, "sprite":sprite}
+	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "behaviour":behaviour, "knownRumours": knownRumours, "sprite":sprite}
 	return(citizen)
 
 

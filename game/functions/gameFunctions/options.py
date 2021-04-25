@@ -8,8 +8,12 @@ def options(FPS,SCREEN,myfont,menuFont,citizen_list):
 	backgroundArray = []
 	backgroundFrame = 0
 	nextFrame       = pygame.time.get_ticks()
+	nextSelect      = pygame.time.get_ticks()
 	clock = pygame.time.Clock()
 	optionRun = True
+	spriteSelected = 0
+
+
 
 
 
@@ -27,10 +31,30 @@ def options(FPS,SCREEN,myfont,menuFont,citizen_list):
 
 	while optionRun:
 		gameClock   = pygame.time.get_ticks()
+		citizenPrintArray = []
+		
+		keys_pressed = pygame.key.get_pressed()
+		# INCREMENT CHARACTER SELECTOR 
+		if (gameClock > nextSelect):
+			if (keys_pressed[pygame.K_RIGHT]): spriteSelected +=1
+			if (keys_pressed[pygame.K_LEFT]): spriteSelected -=1
+			nextSelect += 200
+
+		if(spriteSelected > len(citizen_list) - 1): spriteSelected=0
+		if(spriteSelected < 0): spriteSelected=len(citizen_list) - 1
+
 
 		for key in citizen_list:
 			citizen = citizen_list[key]
-			
+			citizenName     = "Name          : " + str(citizen['name'])
+			citizenAge      = "Age           : " + str(citizen['age'])
+			citizenLocation = "Location      : " + str(citizen['location'])
+			citizenRumours  = "Known Rumours : " + str(len(citizen['knownRumours']))
+			citizenSprite   = citizen['sprite']
+
+			tempDict = {"citizenName": citizenName,"citizenAge": citizenAge,"citizenLocation": citizenLocation,"citizenRumours": citizenRumours,"citizenSprite": citizenSprite}
+			citizenPrintArray.append(tempDict)
+
 
 		# ------------TICK FRAMES
 
@@ -43,7 +67,21 @@ def options(FPS,SCREEN,myfont,menuFont,citizen_list):
 		# -------------DRAW
 
 		draw_back(SCREEN,backgroundArray[backgroundFrame],x=0,y=0)
-		drawText(SCREEN,myfont,'menu', 100,100)
+		drawText(SCREEN,menuFont,'menu', 0.5*WIDTH,100)
+
+
+		# this pulles from an array of dicts, using spriteselected as index (this is incremented pushing left or right keys)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenName'], 0.1*WIDTH,0.2*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenAge'], 0.1*WIDTH,0.25*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenLocation'], 0.1*WIDTH,0.3*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenRumours'], 0.1*WIDTH,0.35*HEIGHT)
+		
+		draw_sprite(SCREEN,citizenPrintArray[spriteSelected]['citizenSprite'],pygame.Rect(WIDTH/2,0.8*HEIGHT,16,16),0,"down",0)
+
+
+
+
+
 		drawText(SCREEN,menuFont,'[B] Back', 0.8*WIDTH,0.9*HEIGHT)
 
 

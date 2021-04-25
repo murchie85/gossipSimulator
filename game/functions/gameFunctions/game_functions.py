@@ -72,7 +72,7 @@ def moveBotSprite(pos,botDirection,VEL,botfacing,citizen,citizen_list):
 	for key in citizen_list:
 		otherCitizen = citizen_list[key]
 		if otherCitizen != citizen:
-			if pos.colliderect(otherCitizen['beaviour']['pos']):
+			if pos.colliderect(otherCitizen['behaviour']['pos']):
 				backoff = 1
 
 

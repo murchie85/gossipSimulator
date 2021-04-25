@@ -34,8 +34,9 @@ VEL    = 3
 BOTVEL = 1
 Ark    = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/ArkJ.gif')
 
-
-
+mainBackPath = "/Users/adammcmurchie/2021/fishwives/sprites/backgrounds/grass.png"
+mainBack     = pygame.image.load(mainBackPath)
+mainBack     = pygame.transform.scale(mainBack, (WIDTH, HEIGHT))
 
 
 
@@ -120,7 +121,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 	# initialise bot characteristics
 	for key in citizen_list:
 		citizen  = citizen_list[key]
-		citizen['beaviour'] =  {"pos": pygame.Rect(WIDTH/random.randint(2,6),HEIGHT/random.randint(2,6),tileSize/2,tileSize/2),
+		citizen['behaviour'] =  {"pos": pygame.Rect(WIDTH/random.randint(2,6),HEIGHT/random.randint(2,6),tileSize/2,tileSize/2),
 								"direction": 'none',
 								"walkDuration": 0,
 								"facing": 'down',
@@ -147,30 +148,36 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 		timeCounter = round(pygame.time.get_ticks()/1200)
 		gameClock   = pygame.time.get_ticks()
 
-		#-- BOT ACTIONS
+
+		#************************************************************************************
+		#              -------------PROCESS CITIZEN---------------                          *
+		#************************************************************************************
 		citizenArray = []
 		for key in citizen_list: citizenArray.append(citizen_list[key])
 		# Loop Citizens 
 		for key in citizen_list:
 			citizen                        = citizen_list[key]
-			position                       = citizen['location']
+			position                       = citizen['behaviour']['pos']
 			gossipObject                   = {} # flush every time 
 
+
+			# Updating top level location value (not rect vals)
+			citizen['location']             = [position.x,position.y]
+
 			# ---------WALK THE BOTS
-			citizen['beaviour']['direction'] ,citizen['beaviour']['walkDuration'] = botWalkBehaviour(citizen['beaviour']['direction'] ,citizen['beaviour']['walkDuration'])
-			citizen['beaviour']['pos'], citizen['beaviour']['direction'], citizen['beaviour']['facing'] = moveBotSprite(citizen['beaviour']['pos'],citizen['beaviour']['direction'],BOTVEL,citizen['beaviour']['facing'],citizen,citizen_list)
-			if(citizen['beaviour']['direction']!= 'none'):
-				citizen['beaviour']['moving'] =1
+			citizen['behaviour']['direction'] ,citizen['behaviour']['walkDuration'] = botWalkBehaviour(citizen['behaviour']['direction'] ,citizen['behaviour']['walkDuration'])
+			citizen['behaviour']['pos'], citizen['behaviour']['direction'], citizen['behaviour']['facing'] = moveBotSprite(citizen['behaviour']['pos'],citizen['behaviour']['direction'],BOTVEL,citizen['behaviour']['facing'],citizen,citizen_list)
+			if(citizen['behaviour']['direction']!= 'none'):
+				citizen['behaviour']['moving'] =1
 			else:
-				citizen['beaviour']['moving']=0
+				citizen['behaviour']['moving']=0
 
-
-		# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
-		myVar = random.randint(0,200)
-		if(myVar == 8):
-			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
-			citizen_list = updateKnownRumours(citizen_list,key, gossipObject, type='create')
-		
+			# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
+			myVar = random.randint(0,200)
+			if(myVar == 8):
+				gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
+				citizen_list = updateKnownRumours(citizen_list,key, gossipObject, type='create')
+			
 
 
 
@@ -191,7 +198,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 
 		#---MENU
 		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont,menuFont,citizen_list)
-		if keys_pressed[pygame.K_q]: run = False
+		if keys_pressed[pygame.K_c]: run = False     # QUIT GAME
 
 
 
@@ -209,13 +216,14 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 
 
 		drawWindow(SCREEN)
+		#draw_back(SCREEN,mainBack,x=0,y=0)
 
 		#-----DRAW SPRITES
 
 		draw_sprite(SCREEN, Ark,ark_pos,moving,facing,sprite_frame)
 		for key in citizen_list:
 			citizen  = citizen_list[key]
-			draw_sprite(SCREEN, citizen['sprite'],citizen['beaviour']['pos'],citizen['beaviour']['moving'],citizen['beaviour']['facing'],sprite_frame)
+			draw_sprite(SCREEN, citizen['sprite'],citizen['behaviour']['pos'],citizen['behaviour']['moving'],citizen['behaviour']['facing'],sprite_frame)
 
 
 
