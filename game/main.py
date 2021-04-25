@@ -1,6 +1,7 @@
 import pygame
 import os
 import time
+import math
 
 ## Internal game libraries
 from functions.config import *
@@ -18,25 +19,21 @@ from functions.create_gossip import *
 
 #-----------------GAME VARIABLES-------------------
 pygame.font.init()
-myfont = pygame.font.SysFont('Comic Sans MS', 30)
-WIN = pygame.display.set_mode((WIDTH,HEIGHT))
+SCREEN = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("Celestus")
-font = pygame.font.Font(pygame.font.get_default_font(), 36)
-tileSize = 32
+myfont = pygame.font.Font("resources/PAPYRUS.TTF", 16)
 
-VEL = 10
-Ark = initialiseSprites(tileSize)
+
+
+
+VEL   = 10
+Ark   = initialiseSprites(tileSize)
 
 
 
 
 
 #----------------------------------------------------
-
-
-
-
-
 
 
 
@@ -85,31 +82,70 @@ gossip_database = {}
 
 
 def main():
-	ark_pos = pygame.Rect(100,300,tileSize,tileSize)
+	# Initialisation
+	SCREEN.fill((0,0,0))
+	ark_pos = pygame.Rect(0,300,tileSize/2,tileSize/2)
 	clock = pygame.time.Clock()
 	run = True
 	gameCounter = 0
-	FPS = 100 
-	citizen_list = generateCitizens(15)
+	FPS = 60 
+	facing = 'down'
+
+
 
 	while run:
-		clock.tick(FPS)
 		gameCounter += 1
+
+		#-- ACTIONS
+		keys_pressed = pygame.key.get_pressed()
+		if keys_pressed[pygame.K_o]:
+			options(FPS)
+		pos, facing = moveSprite(keys_pressed,ark_pos,VEL,facing)
+
+
+		#--DRAW
+
+		drawWindow(SCREEN)
+		draw_sprite(SCREEN, Ark[facing],ark_pos)
+		current_time = str(math.floor(gameCounter/30))
+		drawText(SCREEN,myfont,current_time)
+		
+		update()
 		run = events(run)
 
-		keys_pressed = pygame.key.get_pressed()
-		moveSprite(keys_pressed,ark_pos,VEL)
 
-		
-		draw(WIN, Ark,ark_pos)
-		update()
-
+		clock.tick(FPS)
 
 
 
 
 	pygame.quit()
 	print('Exiting...')
+
+def options(FPS):
+	# Initialisation
+	SCREEN.fill((0,0,0))
+	clock = pygame.time.Clock()
+	optionRun = True
+
+
+
+	while optionRun:
+		drawText(SCREEN,myfont,'menu')
+
+		#-- ACTIONS
+		keys_pressed = pygame.key.get_pressed()
+		if keys_pressed[pygame.K_g]:
+			optionRun = False
+
+
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:optionRun = False
+
+		update()
+		clock.tick(FPS)
+
+
 
 
 

@@ -15,7 +15,7 @@
 from functions.create_citizen import *
 from functions.update_citizen import *
 from functions.utils import med_print
-from functions.printer import *
+from functions.draw import *
 from functions.walk import *
 from functions.create_gossip import *  
 
@@ -64,11 +64,7 @@ print("\033c")
 for i in range(0, month_len):
 
 	##---------------printing first, so updates wont be captured until next round
-	print('********************************************************************************************************************')
-	print('*                                                                                                                  *')
-	print('*    Welcome to Celestus Town         Day: ' + str(round(game_time/day_len)) + "                                  	  time: " + str(game_time)      )   
-	print('*                                                                                                                  *')
-	print('********************************************************************************************************************')
+	drawHeader(game_time,day_len)
 	citizenArray = []
 	for key in citizen_list: citizenArray.append(citizen_list[key])
 	# Add in happy/sad emoji based on status array

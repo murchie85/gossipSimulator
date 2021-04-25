@@ -12,6 +12,16 @@ from .utils import med_print
 blockLen     = 50
 blocksPerRow = 3
 
+
+def drawHeader(game_time,day_len):
+	print('********************************************************************************************************************')
+	print('*                                                                                                                  *')
+	print('*    Welcome to Celestus Town         Day: ' + str(round(game_time/day_len)) + "                                  	  time: " + str(game_time)      )   
+	print('*                                                                                                                  *')
+	print('********************************************************************************************************************')
+	
+
+
 def stringMod(string,blockLen=50):
 	allowedLen = blockLen - 4 # allow for | 
 	difference = allowedLen - len(string)
