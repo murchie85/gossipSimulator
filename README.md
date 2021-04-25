@@ -39,9 +39,13 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
 
 - [Objectives](#Objectives)
 - [MVP](#MVP)
-- [MVP Rules](#Rules)
-
-
+- [Rules](#Rules)
+- [Citizen Archetypes](#Citizen-Archetypes)
+- [OBJECTS](#OBJECTS)
+- [Function-List](#Function-List)
+- [Feature BackLog](#Feature-BackLog) 
+- [Additional Reading](#Additional-Reading)
+- [Second Brain Storming Round](#Second-Brain-Storming-Round)
 
 # Objectives
 -----------
@@ -59,7 +63,7 @@ As such we want to be able to test rigously various parameters from both agent f
   
 
 
-# MVP  
+# MVP
 -----------------  
   
 **Coding Paradigm:**   
@@ -156,10 +160,11 @@ This tracker is a sub database in the `citizen_list`, it can be used as a key to
 
 # Function List
 --------------------
+**Needs Updating** a lot more has been added since.  
+
 1. `Main.py`
 2. `create_citizens.py`
 3. `walk.py`
-  
 
 A. `printer.py`
 B. `utils.py`
@@ -255,7 +260,17 @@ B. `utils.py`
 - Boredom 
 - Pygame
 - Friendly fire
-- Guilt by association
+- Guilt by association. 
+- Risk calculation must take into account the status of the spreader
+- Combined status of your group 
+- Environment [office, home,library, school, shop]
+- Rumour Mutates (and mutate subjective sentiment and global ) FEEDBACK EFFECT (IMPACTS SPREADERS)
+- Citizen Relationships [family, friends, partner,enemy,admired]
+- order of rumour 
+- Allow people to play multiplayer 5 to 10 people
+- ` statuspoints <-> maximum age`
+- subjects/ politcs, sport etc to be included.  
+
 
 
 ## STRETCH Atrributes (may not be implemented)
