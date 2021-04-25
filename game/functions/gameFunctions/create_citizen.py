@@ -37,15 +37,17 @@ def catalogue():
 
 def createCitizen():
 	name            = str(names.get_first_name() + ' ' + names.get_last_name())
-	location        = random.randint(0,1000)
+	location        = [random.randint(0,100),random.randint(0,100)]
 	sp              = random.randint(0,100)
 	cgp             = random.randint(0,100)
 	sgp             = random.randint(0,100)
 	age             = random.randint(0,80)
 	friends         = {}
+	beaviour        = {}
 	knownRumours    = {}
+	sprite          = {}
 
-	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "knownRumours": knownRumours}
+	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "beaviour":beaviour, "knownRumours": knownRumours, "sprite":sprite}
 	return(citizen)
 
 
@@ -60,6 +62,7 @@ def generateCitizens(citizen_count):
 		citizen = createCitizen()
 		citizen_list.update({ str(citizen['name']): citizen})
 
+		"""
 		print("The Full Citizen Object is : ")
 		print(citizen)  
 		print(' ')  
@@ -87,7 +90,7 @@ def generateCitizens(citizen_count):
 
 		print("Citizen's known rumours are {}".format(citizen['knownRumours']))
 		print(' ')  
-		#time.sleep(1)
+		"""
 
 	return(citizen_list)
 

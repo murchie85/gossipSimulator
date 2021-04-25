@@ -30,7 +30,9 @@ myfont = pygame.font.Font("resources/nokiafc.ttf", 8)
 
 
 VEL   = 5
-Ark   = initialiseSprites(tileSize)
+Ark   = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/ArkJ.gif')
+
+
 
 
 
@@ -59,9 +61,11 @@ message           = ""
 messageTime       = 5
 
 # Citizens
-numberOfCitizens = 15
+numberOfCitizens = 5
 # Files
 gossip_file = "gossip/mvpGossip.txt"
+spritePath  = '/Users/adammcmurchie/2021/fishwives/sprites/characters/'
+spriteNames = ['ArkJ.gif','claude.gif','Diane.gif','Doug.gif','Eberle.gif','Ileyda.gif','Jean.gif','Philis.gif','rick.gif','Telmia.gif','Vanrose.gif','Yurald.gif']
 
 #--------------------
 ## DATABASE CREATION 
@@ -71,35 +75,75 @@ citizen_list = {}
 gossip_database = {}
 
 
-#----------------------------------------------------
-
-
-# Print start 
-#startMesssage(citizen_count,citizen_list)
+#---------------CREATING BOT SPRITES------------------------
 
 
 
+botSprites = []
+for i in range(len(spriteNames)):
+	botSprites.append(initialiseSprites(tileSize,str(str(path) + str(spriteNames[i])   )))
+
+
+botSprite = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/rick.gif')
 
 
 
 
 
-def main(citizen_list,numberOfCitizens):
+
+
+def main(citizen_list,numberOfCitizens,sprite_frame=0):
+	#************************************************************************************
+	#
+	#              ---------------INITIALISATION--------------                          *
+	#
+	#************************************************************************************
+
 	gossip_database = {}
+	moving = 0
 	# Initialisation
 	SCREEN.fill((0,0,0))
-	ark_pos = pygame.Rect(0,300,tileSize/2,tileSize/2)
-	clock = pygame.time.Clock()
-	run = True
-	gameCounter = 0
-	FPS = 60 
-	facing = 'down'
+	# Starting Position 
+	ark_pos              = pygame.Rect(WIDTH/2,HEIGHT/2,tileSize/2,tileSize/2)
+	
+	clock       = pygame.time.Clock()
+	run         = True                 # When False game exits
+	gameCounter = 0                    # loop count 
+	frameSwitch = 0                    # var to let us know the frame has been switched and to wait
+	FPS         = 60                   # PS
+	facing      = 'down'               # direction facing as a number
+	nextFrame   = pygame.time.get_ticks()
 
 	citizen_list = startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens)
+	# initialise bot characteristics
+	for key in citizen_list:
+		citizen  = citizen_list[key]
+		citizen['beaviour'] =  {"pos": pygame.Rect(WIDTH/random.randint(2,6),HEIGHT/random.randint(2,6),tileSize/2,tileSize/2),
+								"direction": 'none',
+								"walkDuration": 0,
+								"facing": 'down',
+								"moving": 0}
+		citizen['sprite'] = botSprite
+
+
+
+
+
+
+
+
+	#************************************************************************************
+	#
+	#              ---------------IN GAME---------------                          *
+	#
+	#************************************************************************************
+
 
 
 	while run:
 		gameCounter += 1
+		timeCounter = round(pygame.time.get_ticks()/1200)
+		gameClock   = pygame.time.get_ticks()
 
 		#-- BOT ACTIONS
 		citizenArray = []
@@ -110,10 +154,14 @@ def main(citizen_list,numberOfCitizens):
 			position                       = citizen['location']
 			gossipObject                   = {} # flush every time 
 
-			# later can make actins all within personality functions  
+			# ---------WALK THE BOTS
+			citizen['beaviour']['direction'] ,citizen['beaviour']['walkDuration'] = botWalkBehaviour(citizen['beaviour']['direction'] ,citizen['beaviour']['walkDuration'] )
+			citizen['beaviour']['pos'], citizen['beaviour']['direction'], citizen['beaviour']['facing'] = moveBotSprite(citizen['beaviour']['pos'],citizen['beaviour']['direction'],VEL,citizen['beaviour']['facing'])
+			if(citizen['beaviour']['direction']!= 'none'):
+				citizen['beaviour']['moving'] =1
+			else:
+				citizen['beaviour']['moving']=0
 
-			# ACTION:   ------WALK------
-			citizen_list[key]['location']  = moveCitizen(citizen,position)
 
 		# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
 		myVar = random.randint(0,200)
@@ -126,29 +174,68 @@ def main(citizen_list,numberOfCitizens):
 
 
 
-		#-- USER ACTIONS
+
+		#************************************************************************************
+		#
+		#              ---------------USER ACTIONS----------------                          *
+		#
+		#************************************************************************************
+
+
+
+		#-- GET KEYPRESS
 		keys_pressed = pygame.key.get_pressed()
-		
-		#---KEYS
+		ark_pos, facing, moving = moveSprite(keys_pressed,ark_pos,VEL,facing,moving)
+
+		#---MENU
 		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont)
 		if keys_pressed[pygame.K_q]: run = False
 
 
-		pos, facing = moveSprite(keys_pressed,ark_pos,VEL,facing)
 
 
-		#--DRAW
+		#************************************************************************************
+		#
+		#              ---------------DRAW SECTION----------------                          *
+		#
+		#************************************************************************************
+		# SPRITE 
+		# This was hard to do, you have to put next frame forward a certain amount
+		if (gameClock > nextFrame):
+			sprite_frame = (sprite_frame+1)%3
+			nextFrame += 120
+
 
 		drawWindow(SCREEN)
-		draw_sprite(SCREEN, Ark[facing],ark_pos)
-		current_time = str(math.floor(gameCounter/30))
-		drawText(SCREEN,myfont,current_time,0.05*WIDTH, 0.1*HEIGHT)
-		#print(citizen_list[[*citizen_list][0]]['knownRumours'])
+
+		#-----DRAW SPRITES
+
+		draw_sprite(SCREEN, Ark,ark_pos,moving,facing,sprite_frame)
 		for key in citizen_list:
-			out = citizen_list[key]['knownRumours']
-			
-		drawText(SCREEN,myfont,str(out),0.05*WIDTH, 0.2*HEIGHT)
+			citizen  = citizen_list[key]
+			draw_sprite(SCREEN, citizen['sprite'],citizen['beaviour']['pos'],citizen['beaviour']['moving'],citizen['beaviour']['facing'],sprite_frame)
+
+
+
+
+
+
+		#************************************************************************************
+		#
+		#              ---------------DEBUG PRINT----------------                          *
+		#
+		#************************************************************************************
+
+		drawText(SCREEN,myfont,str("TIME: " + str(timeCounter)),0.05*WIDTH, 0.1*HEIGHT)
+		for key in citizen_list:
+			kt = sum(len(x['knownRumours']) for x in citizen_list.values() if x)
+			out = 'Known Rumours: ' + str(kt)
+			#out = "known Rumours are: " + str(len(citizen_list[key]['knownRumours']))	
+		drawText(SCREEN,myfont,str(out),0.05*WIDTH, 0.14*HEIGHT)
 		
+
+
+
 		update()
 		run = events(run)
 
