@@ -24,6 +24,8 @@ In this project I (Adam McMurchie) plan to build a series of bots which will sim
 
  Dumb rules based optimisers will play part of the relatively disengaged population who partake in occasional gossiping. 
 
+![](resources/mvpRun.png)
+
  The Digital Fishwife: will be AI optimisers designed with two main optimisers in consideration:
 
  - Propagate Gossips

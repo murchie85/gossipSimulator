@@ -129,8 +129,12 @@ def draw_sprite(SCREEN,Ark,ark_pos,moving,facing,sprite_frame):
 	else:
 		Ark = Ark[facing][sprite_frame]
 		
-
 	SCREEN.blit(Ark, (ark_pos.x,ark_pos.y))
+
+
+def draw_back(SCREEN,image,x=0,y=0):
+	SCREEN.blit(image, (x,y))
+
 
 def drawText(SCREEN,myfont, value,x,y):
 	textsurface = myfont.render(value, False, (255, 255, 255))

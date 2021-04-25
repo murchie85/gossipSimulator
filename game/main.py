@@ -24,7 +24,8 @@ pygame.font.init()
 SCREEN = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("Celestus")
-myfont = pygame.font.Font("resources/nokiafc.ttf", 8)
+myfont   = pygame.font.Font("resources/nokiafc.ttf", 8)
+menuFont = pygame.font.Font("resources/nokiafc.ttf", 16)
 
 
 
@@ -189,7 +190,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 		ark_pos, facing, moving = moveSprite(keys_pressed,ark_pos,VEL,facing,moving)
 
 		#---MENU
-		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont)
+		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont,menuFont,citizen_list)
 		if keys_pressed[pygame.K_q]: run = False
 
 
