@@ -22,15 +22,16 @@ from functions.create_gossip import *
 #-----------------GAME VARIABLES-------------------
 pygame.font.init()
 SCREEN = pygame.display.set_mode((WIDTH,HEIGHT))
-#pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("Celestus")
 myfont = pygame.font.Font("resources/nokiafc.ttf", 8)
 
 
 
 
-VEL   = 5
-Ark   = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/ArkJ.gif')
+VEL    = 3
+BOTVEL = 1
+Ark    = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/ArkJ.gif')
 
 
 
@@ -81,7 +82,7 @@ gossip_database = {}
 
 botSprites = []
 for i in range(len(spriteNames)):
-	botSprites.append(initialiseSprites(tileSize,str(str(path) + str(spriteNames[i])   )))
+	botSprites.append(initialiseSprites(tileSize,str(str(spritePath) + str(spriteNames[i])   )))
 
 
 botSprite = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/rick.gif')
@@ -123,7 +124,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 								"walkDuration": 0,
 								"facing": 'down',
 								"moving": 0}
-		citizen['sprite'] = botSprite
+		citizen['sprite'] = random.choice(botSprites)
 
 
 
@@ -155,8 +156,8 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 			gossipObject                   = {} # flush every time 
 
 			# ---------WALK THE BOTS
-			citizen['beaviour']['direction'] ,citizen['beaviour']['walkDuration'] = botWalkBehaviour(citizen['beaviour']['direction'] ,citizen['beaviour']['walkDuration'] )
-			citizen['beaviour']['pos'], citizen['beaviour']['direction'], citizen['beaviour']['facing'] = moveBotSprite(citizen['beaviour']['pos'],citizen['beaviour']['direction'],VEL,citizen['beaviour']['facing'])
+			citizen['beaviour']['direction'] ,citizen['beaviour']['walkDuration'] = botWalkBehaviour(citizen['beaviour']['direction'] ,citizen['beaviour']['walkDuration'])
+			citizen['beaviour']['pos'], citizen['beaviour']['direction'], citizen['beaviour']['facing'] = moveBotSprite(citizen['beaviour']['pos'],citizen['beaviour']['direction'],BOTVEL,citizen['beaviour']['facing'],citizen,citizen_list)
 			if(citizen['beaviour']['direction']!= 'none'):
 				citizen['beaviour']['moving'] =1
 			else:

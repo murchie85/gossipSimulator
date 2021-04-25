@@ -2,6 +2,18 @@
 
 ![concept art](sprites/concept/head.png)
 
+
+## Author 
+ 
+- Adam McMurchie
+  
+## Contributors  
+
+- Adam McMurchie
+- HaoYu Chen 
+
+
+
 In Yuval Harai's pivotal book [Sapiens](https://www.ynharari.com/book/sapiens-2/) the author explains how Story Telling and collective belief define the human race. In fact these uniquely human characteristics may have helped differentiate Sapiens from their historical competitors and allowed us to thrive into the technological society we have today. 
 
 ![](https://cf.girlsaskguys.com/q3478164/primary-share.png?33)
@@ -22,13 +34,27 @@ In this project I (Adam McMurchie) plan to build a series of bots which will sim
 Another optimiser will be tasked with gaining as much points by abusing the system to their benefit (it might not mean spreading it far and wide).
 
 
+  
+# Table Of Contents. 
+
+- [Objectives](#Objectives)
+- [MVP](#MVP)
+- [MVP Rules](#Rules)
+
+
 
 # Objectives
 -----------
 
-1. Simulate Gossip Utility in Society
+1. Simulate Gossip Utility in Society 
 2. Create a world with bots and AIs who interact and talk 
-3. Observe how gossips can be used to increase status points. 
+3. Observe how gossips can be used to increase status points, life expectivity and other realtionships.
+  
+We want to observe `emergence` , this means having as little interference in the rules as much as possible to see how the agents change and adapt to produce complex behaviours. 
+
+We also want to observe the opposite, by enforcing complex rules how agents develop solutions. 
+
+As such we want to be able to test rigously various parameters from both agent flexibility and creativity to explore the connections between gossip and other fundamentals as we change the parameters. 
 
   
 
@@ -111,7 +137,7 @@ To be referenced by individuals, they wont have access to all values.
 | **gossipID (key)**              | `string( int(value) )` value increments |
 | **creator**                     | [citizen_list]name (Pkey) |
 | **target**                      | [citizen_list]name (Pkey) |
-| **sentiment** | `random(0,100)` |
+| **sentiment** | `random(-100,100)` |
 | **rumour**                      | `string` |
 | **risk**                        | `random(0,100)`|
 | **persistence**                 | `random(0,100)` |
@@ -355,4 +381,45 @@ But differs in many aspects, a few are:
 - Reliable communication is not assumed.
 - The information exchanged during these interactions is of bounded size.
 - Gossip has an underlying driver (possibly status points)
+
+
+
+
+
+## Second Brain Storming Round 
+
+
+
+FEATURES TO DO 
+--------------
+1. Risk calculation must take into account the status of the spreader
+2. Combined status of your group 
+3. Environment [office, home,library, school, shop]
+4. Rumour Mutates (and mutate subjective sentiment and global ) FEEDBACK EFFECT (IMPACTS SPREADERS)
+5. Citizen Relationships [family, friends, partner,enemy,admired]
+6. order of rumour 
+7. Allow people to play multiplayer 5 to 10 people
+8. ` statuspoints <-> maximum age`
+9. subject/ politcs 
+
+INFO
+-------
+- How do we define Risk 
+1. Chose random values
+ ` Risk <-> statuspoints` relationship
+2. Chose parameters based upon reseach
+3. Use an AI genetic algorithm to train it to match a natural state. 
+   (Im gonna need some real data)
+4. We want to sample/try/test different optimised labels
+
+
+maximumAgeg = random.noraml(0,100) * StatusPoints
+
+Run number 1: Target Label = Age
+Run number 2: Target Label = StatusPoints
+
+
+Run number 999: Target Label = StatusPoints
+
+
 

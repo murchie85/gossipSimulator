@@ -66,19 +66,33 @@ def moveSprite(keys_pressed,pos,VEL,facing,moving):
 
 
 
-def moveBotSprite(pos,botDirection,VEL,botfacing):
+def moveBotSprite(pos,botDirection,VEL,botfacing,citizen,citizen_list):
 	moving = 0
+	backoff = 0
+	for key in citizen_list:
+		otherCitizen = citizen_list[key]
+		if otherCitizen != citizen:
+			if pos.colliderect(otherCitizen['beaviour']['pos']):
+				backoff = 1
+
+
+
+
 	if (botDirection=='left') and pos.x - VEL > 0:
 		pos.x -= VEL
+		if(backoff): pos.x += 2 * VEL 
 		botfacing = 'left'
 	if (botDirection=='right') and pos.x + VEL + tileSize < WIDTH:
 		pos.x += VEL
+		if(backoff): pos.x -= 2 * VEL 
 		botfacing = 'right'
 	if (botDirection=='up') and pos.y - VEL > 0:
 		pos.y -= VEL
+		if(backoff): pos.y += 2 * VEL 
 		botfacing = 'up'
 	if (botDirection=='down') and pos.y + VEL + tileSize < HEIGHT:
 		pos.y += VEL
+		if(backoff): pos.y -= 2 * VEL 
 		botfacing = 'down'
 
 	return(pos,botDirection,botfacing)
