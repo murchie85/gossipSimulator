@@ -50,9 +50,9 @@ def events(run):
 def draw_sprite(SCREEN,Ark,ark_pos):
 	SCREEN.blit(Ark, (ark_pos.x,ark_pos.y))
 
-def drawText(SCREEN,myfont, value):
+def drawText(SCREEN,myfont, value,x,y):
 	textsurface = myfont.render(value, False, (255, 255, 255))
-	SCREEN.blit(textsurface,(0,0))
+	SCREEN.blit(textsurface,(x,y))
 
 def drawWindow(SCREEN):
 	SCREEN.fill(BLACK)

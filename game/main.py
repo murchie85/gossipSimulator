@@ -2,13 +2,15 @@ import pygame
 import os
 import time
 import math
+import random
 
 ## Internal game libraries
-from functions.config import *
-from functions.game_functions import *
-
+from functions.gameFunctions.config import *
+from functions.gameFunctions.game_functions import *
+from functions.gameFunctions.options import *
+from functions.gameFunctions.start_game import *
+from functions.gameFunctions.create_citizen import *
 ## Internal libraries
-from functions.create_citizen import *
 from functions.update_citizen import *
 from functions.utils import med_print
 from functions.printer import *
@@ -20,13 +22,14 @@ from functions.create_gossip import *
 #-----------------GAME VARIABLES-------------------
 pygame.font.init()
 SCREEN = pygame.display.set_mode((WIDTH,HEIGHT))
+#pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("Celestus")
-myfont = pygame.font.Font("resources/PAPYRUS.TTF", 16)
+myfont = pygame.font.Font("resources/nokiafc.ttf", 8)
 
 
 
 
-VEL   = 10
+VEL   = 5
 Ark   = initialiseSprites(tileSize)
 
 
@@ -56,8 +59,7 @@ message           = ""
 messageTime       = 5
 
 # Citizens
-citizen_count = 15
-
+numberOfCitizens = 15
 # Files
 gossip_file = "gossip/mvpGossip.txt"
 
@@ -65,6 +67,7 @@ gossip_file = "gossip/mvpGossip.txt"
 ## DATABASE CREATION 
 #--------------------
 #citizen_list = generateCitizens(15)
+citizen_list = {}
 gossip_database = {}
 
 
@@ -81,7 +84,8 @@ gossip_database = {}
 
 
 
-def main():
+def main(citizen_list,numberOfCitizens):
+	gossip_database = {}
 	# Initialisation
 	SCREEN.fill((0,0,0))
 	ark_pos = pygame.Rect(0,300,tileSize/2,tileSize/2)
@@ -91,15 +95,45 @@ def main():
 	FPS = 60 
 	facing = 'down'
 
+	citizen_list = startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens)
 
 
 	while run:
 		gameCounter += 1
 
-		#-- ACTIONS
+		#-- BOT ACTIONS
+		citizenArray = []
+		for key in citizen_list: citizenArray.append(citizen_list[key])
+		# Loop Citizens 
+		for key in citizen_list:
+			citizen                        = citizen_list[key]
+			position                       = citizen['location']
+			gossipObject                   = {} # flush every time 
+
+			# later can make actins all within personality functions  
+
+			# ACTION:   ------WALK------
+			citizen_list[key]['location']  = moveCitizen(citizen,position)
+
+		# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
+		myVar = random.randint(0,200)
+		if(myVar == 8):
+			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
+			citizen_list = updateKnownRumours(citizen_list,key, gossipObject, type='create')
+		
+
+
+
+
+
+		#-- USER ACTIONS
 		keys_pressed = pygame.key.get_pressed()
-		if keys_pressed[pygame.K_o]:
-			options(FPS)
+		
+		#---KEYS
+		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont)
+		if keys_pressed[pygame.K_q]: run = False
+
+
 		pos, facing = moveSprite(keys_pressed,ark_pos,VEL,facing)
 
 
@@ -108,7 +142,12 @@ def main():
 		drawWindow(SCREEN)
 		draw_sprite(SCREEN, Ark[facing],ark_pos)
 		current_time = str(math.floor(gameCounter/30))
-		drawText(SCREEN,myfont,current_time)
+		drawText(SCREEN,myfont,current_time,0.05*WIDTH, 0.1*HEIGHT)
+		#print(citizen_list[[*citizen_list][0]]['knownRumours'])
+		for key in citizen_list:
+			out = citizen_list[key]['knownRumours']
+			
+		drawText(SCREEN,myfont,str(out),0.05*WIDTH, 0.2*HEIGHT)
 		
 		update()
 		run = events(run)
@@ -122,32 +161,15 @@ def main():
 	pygame.quit()
 	print('Exiting...')
 
-def options(FPS):
-	# Initialisation
-	SCREEN.fill((0,0,0))
-	clock = pygame.time.Clock()
-	optionRun = True
 
 
 
-	while optionRun:
-		drawText(SCREEN,myfont,'menu')
-
-		#-- ACTIONS
-		keys_pressed = pygame.key.get_pressed()
-		if keys_pressed[pygame.K_g]:
-			optionRun = False
 
 
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:optionRun = False
-
-		update()
-		clock.tick(FPS)
 
 
 
 
 
 if __name__ == '__main__':
-	main()
+	main(citizen_list,numberOfCitizens)

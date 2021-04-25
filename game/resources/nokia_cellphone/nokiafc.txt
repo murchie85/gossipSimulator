@@ -1,0 +1,57 @@
+NOKIA CELLPHONE SMALL
+=====================
+
+Info
+====
+
+This is a font that emulates the bitmap font used by Nokia-based cell phones.
+As the name implies ("Nokia Cellphone Small"), this is the "Small" font - used
+on some menus, not the data fields (which it used a "big" font).
+
+Modifications
+=============
+
+VERSION 4 - Fixed the WORDSPACE and LEADING size. Thanks to Gustavo Rodrigues
+(from www.escritaurbana.com.br) for pointing me my mistakes. I also fixed some
+mistakes on the documentation (this file).
+
+VERSION 2 - Optimized for Macromedia Flash usage (no hollows) and with
+a MAC TTF version provided by Chris Moritz (fieldofaction3@home.com). Many
+thanks to him for this conversion that seems to work 100%. You can visit him
+at http://members.home.net/fieldofaction3/ .
+
+Reason + process
+================
+
+This was done because 1) I needed to use it on some projects and 2) I saw lots
+of people asking for a font like this. So I had some experience in creating
+bitmap-emulating truetype fonts (that is, a truetype, vector-based font that
+works as if it was a bitmap-based font) and then I decided to do this thingie.
+I send a message to my Nokia 6120 cell phone with every characters that the
+cell phone had and then scanned the cellphone screens to rebuild it using
+fontlab 3.
+
+BE SURE TO USE THIS FONT IN SIZE 8 ON PHOTOSHOP (consider you're using 72dpi).
+Since it is a vector-based font that EMULATES a BITMAP font, it's very easy
+for this font to appear all wrong. TEST SIZES until it is perfect (not all
+blocky), but most probably 8 IS THE SIZE TO BE USED (or multiples of it - 16,
+24, 32 and so on).
+
+Copyright and stuff
+===================
+
+This is a free font/file, distribute as you wish to who you wish. Do NOT sell
+this font within a CD or any other media; it's not yours and you can't make
+money of it.
+
+I don't know if the original Nokia font has some copyright or stuff. Hope not.
+Anyways, buy a Nokia, and I think everything's gonna be alright. :)
+
+Author
+======
+
+This font was done by Zeh Fernando on Fontlab on a PC.
+
+Zeh Fernando
+rorshack@fatorcaos.com.br
+www.fatorcaos.com.br

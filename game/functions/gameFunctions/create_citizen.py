@@ -18,7 +18,8 @@ Citizen Initialisation
 
 """
 
-
+import pygame
+from .game_functions import *
 import names 
 import random
 
