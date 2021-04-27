@@ -19,7 +19,6 @@ Citizen Initialisation
 """
 
 import pygame
-from .game_functions import *
 import names 
 import random
 
@@ -61,7 +60,7 @@ def generateCitizens(citizen_count):
 		print('----------------')
 		citizen = createCitizen()
 		citizen_list.update({ str(citizen['name']): citizen})  
-		"""
+
 
 	return(citizen_list)
 

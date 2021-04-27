@@ -43,8 +43,9 @@ def createCitizen():
 	age             = random.randint(0,80)
 	friends         = {}
 	knownRumours    = {}
+	emotion         = '😐'
 
-	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "knownRumours": knownRumours}
+	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "knownRumours": knownRumours, 'emotion':emotion}
 	return(citizen)
 
 

@@ -13,15 +13,15 @@ blockLen     = 50
 blocksPerRow = 3
 
 
-def drawHeader(game_time,day_len):
-	print('********************************************************************************************************************')
-	print('*                                                                                                                  *')
-	print('*    Welcome to Celestus Town         Day: ' + str(round(game_time/day_len)) + "                                  	  time: " + str(game_time)      )   
-	print('*                                                                                                                  *')
-	print('********************************************************************************************************************')
+def drawHeader(game_time,day_len,gossip_database):
+	print('****************************************************************************************************************************************************')
+	print('*                                                                                                                                                  *')
+	print('*    Welcome to Celestus Town         Day: ' + str(round(game_time/day_len)) + "      time: " + str(game_time)  + '    Gossip Count: ' + str(len(gossip_database))     )   
+	print('*                                                                                                                                                  *')
+	print('****************************************************************************************************************************************************')
 	
 
-
+# prints out exactly 50 lines
 def stringMod(string,blockLen=50):
 	allowedLen = blockLen - 4 # allow for | 
 	difference = allowedLen - len(string)
@@ -40,9 +40,10 @@ def printCitizen(citizen):
 	iterations = math.floor(len(citizen)/blocksPerRow)
 	print("-------------------------------------------------------------------------------------------------------------------------------------------------------")
 	for i in range(0, len(citizen), 3):
-		print( stringMod("Name[" +str(i) + "] : " + str(citizen[i]['name'])) + 
-			   stringMod("Name[" +str(i + 1) + "] : "  + str(citizen[i + 1]['name']))  + 
-			   stringMod("Name[" +str(i + 2) + "] : "  + str(citizen[i + 2]['name']))     )
+		print( stringMod("Name[" +str(i)     + "] : " + str(citizen[i]['name'] + " " + str(citizen[i]['emotion'])),49) + 
+			   stringMod("Name[" +str(i + 1) + "] : "  + str(citizen[i + 1]['name'] + " " + str(citizen[i]['emotion'])),49)  + 
+			   stringMod("Name[" +str(i + 2) + "] : "  + str(citizen[i + 2]['name'] + " " + str(citizen[i]['emotion'])),49) 
+			   )
 		
 		print( stringMod("Location: " + str(citizen[i]['location'])) + 
 			   stringMod("Location: " + str(citizen[i + 1]['location']))  + 
@@ -61,9 +62,11 @@ def printCitizen(citizen):
 
 
 #------------PRINT FUNCTIONS -----------------
-def startMesssage(citizen_count,citizen_list):
+def startMesssage(citizen_count,citizen_list,skip='no'):
+	if(skip=='yes'):
+		return
 	print("\033c")
-	med_print('Generating World...')
+	print('Generating World...')
 	print("\033c")
 	print('************************************************')
 	print('    😏😏😏  GOSSIP SIMULATOR      😏😏😏       ')
@@ -84,7 +87,7 @@ def startMesssage(citizen_count,citizen_list):
 	print(starting)
 	print('')
 	print(simulation)
-	time.sleep(3)
+	time.sleep(1.5)
 	print("\033c")
 	three=text2art("                                                                  3") 
 	two  =text2art("                                                                  2") 

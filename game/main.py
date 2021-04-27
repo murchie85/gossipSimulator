@@ -3,78 +3,43 @@ import os
 import time
 import math
 import random
-
+ 
 ## Internal game libraries
-from functions.gameFunctions.config import *
-from functions.gameFunctions.game_functions import *
-from functions.gameFunctions.options import *
-from functions.gameFunctions.start_game import *
-from functions.gameFunctions.create_citizen import *
+from functions._game_config import *
+from functions._game_functions import *
+from functions._game_options import *
+from functions._game_start_game import *
+
 ## Internal libraries
-from functions.update_citizen import *
-from functions.utils import med_print
+from functions.utils import *
 from functions.printer import *
-from functions.walk import *
-from functions.create_gossip import *  
+from functions.processGossip import *  
+from functions.create_citizen import *
+from functions.botDecisionTree import *
 
 
 
 #-----------------GAME VARIABLES-------------------
-pygame.font.init()
-SCREEN  = pygame.display.set_mode((WIDTH,HEIGHT))
-pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+#pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("Celestus")
-myfont   = pygame.font.Font("resources/nokiafc.ttf", 8)
-menuFont = pygame.font.Font("resources/nokiafc.ttf", 16)
-
-
-
-
-VEL    = 3
-BOTVEL = 0.2
-#Ark    = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/ArkJ.gif')
-Ark    = initialiseImageSpriteGroups('/Users/adammcmurchie/2021/fishwives/sprites/characters/ark/ark',12,32,32)
-mainBackPath = "/Users/adammcmurchie/2021/fishwives/sprites/backgrounds/grass.png"
-mainBack     = pygame.image.load(mainBackPath).convert()
-mainBack     = pygame.transform.scale(mainBack, (WIDTH, HEIGHT))
 
 
 
 
 
-#----------------------------------------------------
+#**************************************  
+#    ---------SIM VARIABLES  -----  
+#*************************************** 
 
-
-
-#---------------CREATING BOT SPRITES------------------------
-
-spritePath  = '/Users/adammcmurchie/2021/fishwives/sprites/characters/'
-spriteNames = ['ark','claude','Diane','Doug','Eberle','Ileyda','Jean','Philis','rick','Telmia','Vanrose','Yurald']
-botSprites = []
-for i in range(len(spriteNames)):
-	path = spritePath + spriteNames[i] +'/' + spriteNames[i] 
-	botSprite = initialiseImageSpriteGroups(path,9,32,32)
-	botSprites.append(botSprite)
-
-
-
-
-
-#-----------------SIM VARIABLES-------------------
 # Set up Time
 game_time      = 0
 day_len        = 60
 month_len      = 28 * day_len
 time_increment = 1
 
-# gossip
-gossipObject      = ""
-gossipUpdates     = []
-displayGossipTime = 5
 
-# print vars 
-message           = ""
-messageTime       = 5
+
+
 
 # Citizens
 numberOfCitizens = 15
@@ -101,11 +66,16 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 	#
 	#************************************************************************************
 
-	# MVP FIELDS
+	# -----DOS FIELDS
 	gossip_database = {}
+	message           = ""
+	messageTime       = 5
+	# gossip
+	gossipObject      = ""
+	gossipUpdates     = []
+	displayGossipTime = 5
 
-
-	# PYGAME FIELDS
+	# ------PYGAME FIELDS
 	moving = 0
 	SCREEN.fill((0,0,0))
 	ark_pos     = pygame.Rect(WIDTH/2,HEIGHT/2,tileSize/2,tileSize/2)
@@ -115,22 +85,14 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 	gameCounter = 0                    # loop count 
 	frameSwitch = 0                    # var to let us know the frame has been switched and to wait
 	FPS         = 60                   # PS
-	facing      = 'down'               # direction facing as a number
+	facing      = 'down'
 	nextFrame   = pygame.time.get_ticks()
-	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens)
+	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens, WIDTH,HEIGHT)
 	
 	# initialise bot characteristics
 	for key in citizen_list:
 		citizen  = citizen_list[key]
-		citizen['movement'] =  {"pos": pygame.Rect(random.randint(int(0.1*WIDTH),int(0.9*WIDTH)),random.randint(int(0.1*HEIGHT),int(0.9*HEIGHT)),tileSize/2,tileSize/2),
-								"direction": 'none',
-								"walkDuration": 0,
-								"facing": 'down',
-								"moving": 0}
-		citizen['sprite'] = random.choice(botSprites)
-
-
-
+		citizen = initializeMovement(citizen,botSprites)
 
 
 
@@ -151,7 +113,9 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 
 
 		#************************************************************************************
-		#              -------------PROCESS CITIZEN---------------                          *
+		#
+		#              ---------------BOT ACTIONS---------------                          *
+		#
 		#************************************************************************************
 		citizenArray = []
 		for key in citizen_list: citizenArray.append(citizen_list[key])
@@ -161,24 +125,25 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 			position                       = citizen['movement']['pos']
 			gossipObject                   = {} # flush every time 
 
+			#  ------WALK------
+			citizen = processMovement(citizen,citizen_list,position,BOTVEL,WIDTH,HEIGHT)
+			# ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
+			citizen,citizen_list,gossip_database,gossipObject = gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,citizen['location'])
 
-			# Updating top level location value (not rect vals)
-			citizen['location']             = [position.x,position.y]
 
-			# ---------WALK THE BOTS
-			citizen['movement']['direction'] ,citizen['movement']['walkDuration'] = botWalkBehaviour(citizen['movement']['direction'] ,citizen['movement']['walkDuration'])
-			citizen['movement']['pos'], citizen['movement']['direction'], citizen['movement']['facing'] = moveBotSprite(citizen['movement']['pos'],citizen['movement']['direction'],BOTVEL,citizen['movement']['facing'],citizen,citizen_list)
-			if(citizen['movement']['direction']!= 'none'):
-				citizen['movement']['moving'] =1
-			else:
-				citizen['movement']['moving']=0
 
-			# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
-			myVar = random.randint(0,200)
-			if(myVar == 8):
-				gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
-				citizen_list = updateKnownRumours(citizen_list,key, gossipObject, type='create')
-			
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -191,14 +156,12 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 		#
 		#************************************************************************************
 
-
-
 		#-- GET KEYPRESS
 		keys_pressed = pygame.key.get_pressed()
-		ark_pos, facing, moving = moveSprite(keys_pressed,ark_pos,VEL,facing,moving)
+		ark_pos, facing, moving = moveSprite(keys_pressed,ark_pos,VEL,facing,moving,WIDTH,HEIGHT)
 
 		#---MENU
-		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database)
+		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT)
 		if keys_pressed[pygame.K_c]: run = False     # QUIT GAME
 
 		# SPRITE 
@@ -243,19 +206,57 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 		drawText(SCREEN,myfont,str(out),0.05*WIDTH, 0.14*HEIGHT)
 		
 
+		#************************************************************************************
+		#
+		#              ---------------NOTIFICATIONS----------------                          *
+		#
+		#************************************************************************************
+
+
+		# ------UPDATE NOTIFICATION TIMER 
+		noticationStatus,messageTime = printNotification(message, messageTime)
+
+		# PRINT A NOTIFICATION
+		if((len(gossipUpdates) > 0)):
+			if(noticationStatus == "free"):
+				with open('logs/gossip.txt', 'r') as f:
+					lines = f.read().splitlines()
+					last_line = lines[-1]
+					message = str('😲😲**new gossip**😲😲 \n') +  last_line
+					messageTime = 5
+					gossipUpdates = []
+					f.close()
+
+
+
+
+
+
+
+
+
+
 
 
 		update()
 		run = events(run)
-
-
 		clock.tick(FPS)
-
-
-
 
 	pygame.quit()
 	print('Exiting...')
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

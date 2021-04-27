@@ -169,30 +169,33 @@ This tracker is a sub database in the `citizen_list`, it can be used as a key to
 **Needs Updating** because this project is constantly in flux with functions being created and destroyed, a full list to be provided at the end. For not this will cover the functions on the pseudo/abstract level. 
 
 
-## Create Gossip
+If within range of other person (one for now)
+update cit['action'] = gossiping
+only move if 'action' = idle
+create gossip
+spread gossip
 
-A function to:  
- 
-- Add gossip to gossip database
-- Update creators subjective gossip database
 
 
-## Spreading Gossip  
-  
-Challenge is
+## Create & Share Gossip
 
-The spreader and recievers have to be within vicinity of each other.
+### SIMPLE LOGIC FLOW 
 
-They also all need to stop processing other functions at this time to ensure no conflict.
+- `Check if Citizen nearby`
+- `apply chance factor + CGP probability`
+- `create gossip`
+- `add gossip to global database`
+- `add gossip to internal gossip tracker`
+- `Audience to update their gossip tracker`
+- `Audience updates 'shared' field in global tracker`
+- `in game mode a marker to stop players moving for 5 seconds`
+- `Audience awards status points`
 
-Probably best to do this all within the one loop.
 
-For the game, there can just be an after step where all people stay in the same place until a speech bubble has displayed for X seconds.
 
-Solution:
+## Spreading Gossip
 
-Citizen Dict to include a Action: 'rumour_transfer'
-
+ Similar as above, but using the SGP
 
 
 

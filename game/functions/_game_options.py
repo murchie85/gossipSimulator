@@ -1,8 +1,8 @@
 
 import pygame
-from .game_functions import *
+from ._game_functions import *
 
-def options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database):
+def options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT):
 	# Initialisation
 	SCREEN.fill((0,0,0))
 	backgroundArray = []

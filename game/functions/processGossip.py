@@ -77,3 +77,66 @@ def createRumour(gossip_database, citizen_list, creator,gossip_file):
 
 
 
+
+def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, type):
+
+
+	# the creator knows he/she created it
+	if type=='create':
+		gossipID      = gossipObject['gossipID']
+		action        = 'created'
+		associated    = receivingAudience['name']
+		trust         = 100
+
+		subjectiveGossip = {str(gossipID): {'action': action, 'associated': associated, 'trust': trust}}
+		# use the source name as key update spreader
+		citizen_list[spreader['name']]['knownRumours'].update(subjectiveGossip)
+
+
+
+	# the spreader knows who they spread it too
+	if type=='spread':
+		gossipID      = gossipObject['gossipID']
+		action        = 'spreaded'
+		associated    = receivingAudience['name']
+		trust         = random.randint(40,70)
+
+		subjectiveGossip = {str(gossipID): {'action': action, 'associated': associated, 'trust': trust}}
+		#update spreader 
+		citizen_list[spreader['name']]['knownRumours'].update(subjectiveGossip)
+
+
+
+
+	# the reciever knows the source
+	if type=='acceptRumour':
+		gossipID      = gossipObject['gossipID']
+		action        = 'received'
+		associated    = spreader['name']
+		trust         = random.randint(0,65)
+		subjectiveGossip = {str(gossipID): {'action': action, 'associated': associated, 'trust': trust}}
+		# update reciever 
+		citizen_list[receivingAudience['name']]['knownRumours'].update(subjectiveGossip)
+
+		# award status points
+		targetCitizensSP = citizen_list[spreader['name']]['SP']
+		awardedSP        = round((1/random.randint(1,9)) * trust) # a fraction of trust
+		totalSP          = targetCitizensSP + awardedSP 
+
+		#print(citizen_list[spreader['name']]['SP'])
+		citizen_list[spreader['name']]['SP'] = totalSP
+
+
+		#print(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They recieved ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP))
+
+		f = open('logs/gossip.txt', 'a')
+		f.write(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n')
+		f.close()
+
+
+
+
+	return(citizen_list)
+
+
+

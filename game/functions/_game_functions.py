@@ -1,46 +1,11 @@
 import pygame 
-from .sprite_sheet import *
-from .config import *
+from ._game_config import *
 import random
 
 WHITE  = (255,255,255)
 BLACK  = (0,0,0)
 STC      = 32
-
-def initialiseSprites(tileSize,spriteLocation,spriteCols=3):
-
-	# -------------sprites-------------------
-	ss          = spritesheet(spriteLocation)
-	spriteArray = []
-
-	# GET DOWN ROW
-	for i in range(spriteCols):
-		spriteArray.append(ss.image_at((i*STC, 0, STC, STC)))
-	facingDown = spriteArray
-	spriteArray = []
-
-	# GET LEFT ROW
-	for i in range(spriteCols):
-		spriteArray.append(ss.image_at((i*STC, 2*STC, STC, STC)))
-	facingLeft = spriteArray
-	spriteArray = []
-
-	# GET UP ROW
-	for i in range(spriteCols):
-		spriteArray.append(pygame.transform.flip(ss.image_at((i*STC, 4*STC, STC, STC)),True,False))
-	
-	facingUP = spriteArray
-	spriteArray = []
-	
-	# GET RIGHT ROW
-	for i in range(spriteCols):
-		spriteArray.append(pygame.transform.flip(ss.image_at((i*STC, 2*STC, STC, STC)),True,False))
-	facingRight = spriteArray
-	spriteArray = []
-
-
-	sprite = {"left": facingLeft, "right": facingRight, "up": facingUP, "down": facingDown}
-	return(sprite)
+tileSize = 32
 
 
 def initialiseImageSpriteGroups(path,imageTotal,xscale,yscale):
@@ -95,7 +60,7 @@ def initialiseImageSpriteGroups(path,imageTotal,xscale,yscale):
 
 
 
-def moveSprite(keys_pressed,pos,VEL,facing,moving):
+def moveSprite(keys_pressed,pos,VEL,facing,moving,WIDTH,HEIGHT):
 	moving = 0
 	if keys_pressed[pygame.K_LEFT] and pos.x - VEL > 0:
 		pos.x -= VEL
@@ -118,7 +83,7 @@ def moveSprite(keys_pressed,pos,VEL,facing,moving):
 
 
 
-def moveBotSprite(pos,botDirection,VEL,botfacing,citizen,citizen_list):
+def moveBotSprite(pos,botDirection,VEL,botfacing,citizen,citizen_list,WIDTH,HEIGHT):
 	moving = 0
 	backoff = 0
 	for key in citizen_list:

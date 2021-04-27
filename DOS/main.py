@@ -13,13 +13,17 @@
 
 ## Internal libraries
 from functions.create_citizen import *
-from functions.update_citizen import *
-from functions.utils import med_print
+from functions.utils import *
 from functions.draw import *
-from functions.walk import *
-from functions.create_gossip import *  
-
+from functions.processGossip import *  
+from functions.botDecisionTree import * 
 import time
+import os
+if os.path.exists("logs/gossip.txt"):os.remove("logs/gossip.txt")
+
+#**************************************  
+#    ---------SIM VARIABLES  -----  
+#*************************************** 
 
 # Set up Time
 game_time      = 0
@@ -51,76 +55,115 @@ gossip_database = {}
 
 
 
+
+
 # Print start 
-startMesssage(citizen_count,citizen_list)
-
-
-
-
+startMesssage(citizen_count,citizen_list,'no')
+# time buffered by sleep
 # This clears the screen
 print("\033c")
-
 ## This loops until it gets the a full month
 for i in range(0, month_len):
+	citizenArray = []
+	game_time     +=1
+	for key in citizen_list: citizenArray.append(citizen_list[key])
+
+
+
+	#************************************************************************************
+	#
+	#              ---------------BOT ACTIONS---------------                          *
+	#
+	#************************************************************************************
+
+
+	# Loop Citizens 
+	# TODO: Randomise this order once MVP done
+	for key in citizen_list:
+		citizen                        = citizen_list[key]
+		position                       = citizen['location']
+		citizen_list                   = insertEmoji(citizen,citizen_list,citizen_count)
+		gossipObject                   = {} # flush every time 
+		# later can make actins all within personality functions  
+
+		#  ------WALK------
+		citizen_list[key]['location']  = processMovement(citizen,position)
+
+
+		# ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
+		citizen,citizen_list,gossip_database,gossipObject = gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,position)
+
+
+		# UPATES
+		if (len(gossipObject) > 0): gossipUpdates.append(gossipObject)
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	#************************************************************************************
+	#
+	#              ---------------PRINT PRINT---------------                          *
+	#
+	#************************************************************************************
 
 	##---------------printing first, so updates wont be captured until next round
-	drawHeader(game_time,day_len)
-	citizenArray = []
-	for key in citizen_list: citizenArray.append(citizen_list[key])
+	drawHeader(game_time,day_len,gossip_database)
 	# Add in happy/sad emoji based on status array
 	printCitizen(citizenArray)
 	print(' ')
 	
 	#-------top print block------
 
-
-
-
-
-
+	# ------UPDATE NOTIFICATION TIMER 
 	noticationStatus,messageTime = printNotification(message, messageTime)
-	
-
 	if(noticationStatus != "running"):
 		print('length gossip DB: ' + str(len(gossip_database)))
 
-	if((len(gossipUpdates) > 0) and (noticationStatus == "free")):
-		chosenGossip = random.choice(gossipUpdates)
-		message = '****new gossip*** \n' + str(chosenGossip['creator']) + " : " + str(chosenGossip['rumour'])
-		messageTime = 5
-		gossipUpdates = []
+	# PRINT A NOTIFICATION
+	if((len(gossipUpdates) > 0)):
+		if(noticationStatus == "free"):
+			choice = random.choice(['gossip','log'])
+
+			if(choice == 'gossip'):
+				chosenGossip = random.choice(gossipUpdates)
+				message = '😲😲**new gossip**😲😲 \n' + str(chosenGossip['creator']) + " : " + str(chosenGossip['rumour'])
+				messageTime = 5
+				gossipUpdates = []
+			else:
+				with open('logs/gossip.txt', 'r') as f:
+				    lines = f.read().splitlines()
+				    last_line = lines[-1]
+				    message = str(' 😃 Gossip News 😃 ') +  last_line
+				    messageTime = 5
+				    gossipUpdates = []
+				    f.close()
 
 
-
-	# Action will be updated in next print
-	game_time     +=1
 	
-
-	# Loop Citizens 
-	for key in citizen_list:
-		citizen                        = citizen_list[key]
-		position                       = citizen['location']
-		gossipObject                   = {} # flush every time 
-
-		# later can make actins all within personality functions  
-
-		# ACTION:   ------WALK------
-		citizen_list[key]['location']  = moveCitizen(citizen,position)
-
-		# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
-		myVar = random.randint(0,100)
-		if(myVar == 8):
-			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
-			citizen_list = updateKnownRumours(citizen_list,key, gossipObject, type='create')
-		
-
-
-
-		# UPATES
-		if (len(gossipObject) > 0): gossipUpdates.append(gossipObject)
-
 	time.sleep(0.5)	
 	# This clears the screen
 	print("\033c")
+
+
+
 
 

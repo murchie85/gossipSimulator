@@ -1,7 +1,8 @@
 
 import pygame
-from .game_functions import *
+from ._game_functions import *
 from .create_citizen import *
+
 
 
 
@@ -11,7 +12,7 @@ from .create_citizen import *
 
 
 
-def startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens,CITIENSCREATED='no',timer=0):
+def startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,CITIENSCREATED='no',timer=0):
 	# Initialisation
 	clock = pygame.time.Clock()
 	optionRun = True
