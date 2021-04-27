@@ -101,9 +101,12 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 	#
 	#************************************************************************************
 
+	# MVP FIELDS
 	gossip_database = {}
+
+
+	# PYGAME FIELDS
 	moving = 0
-	# Initialisation
 	SCREEN.fill((0,0,0))
 	ark_pos     = pygame.Rect(WIDTH/2,HEIGHT/2,tileSize/2,tileSize/2)
 	
@@ -114,12 +117,12 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 	FPS         = 60                   # PS
 	facing      = 'down'               # direction facing as a number
 	nextFrame   = pygame.time.get_ticks()
-
 	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens)
+	
 	# initialise bot characteristics
 	for key in citizen_list:
 		citizen  = citizen_list[key]
-		citizen['behaviour'] =  {"pos": pygame.Rect(random.randint(int(0.1*WIDTH),int(0.9*WIDTH)),random.randint(int(0.1*HEIGHT),int(0.9*HEIGHT)),tileSize/2,tileSize/2),
+		citizen['movement'] =  {"pos": pygame.Rect(random.randint(int(0.1*WIDTH),int(0.9*WIDTH)),random.randint(int(0.1*HEIGHT),int(0.9*HEIGHT)),tileSize/2,tileSize/2),
 								"direction": 'none',
 								"walkDuration": 0,
 								"facing": 'down',
@@ -155,7 +158,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 		# Loop Citizens 
 		for key in citizen_list:
 			citizen                        = citizen_list[key]
-			position                       = citizen['behaviour']['pos']
+			position                       = citizen['movement']['pos']
 			gossipObject                   = {} # flush every time 
 
 
@@ -163,12 +166,12 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 			citizen['location']             = [position.x,position.y]
 
 			# ---------WALK THE BOTS
-			citizen['behaviour']['direction'] ,citizen['behaviour']['walkDuration'] = botWalkBehaviour(citizen['behaviour']['direction'] ,citizen['behaviour']['walkDuration'])
-			citizen['behaviour']['pos'], citizen['behaviour']['direction'], citizen['behaviour']['facing'] = moveBotSprite(citizen['behaviour']['pos'],citizen['behaviour']['direction'],BOTVEL,citizen['behaviour']['facing'],citizen,citizen_list)
-			if(citizen['behaviour']['direction']!= 'none'):
-				citizen['behaviour']['moving'] =1
+			citizen['movement']['direction'] ,citizen['movement']['walkDuration'] = botWalkBehaviour(citizen['movement']['direction'] ,citizen['movement']['walkDuration'])
+			citizen['movement']['pos'], citizen['movement']['direction'], citizen['movement']['facing'] = moveBotSprite(citizen['movement']['pos'],citizen['movement']['direction'],BOTVEL,citizen['movement']['facing'],citizen,citizen_list)
+			if(citizen['movement']['direction']!= 'none'):
+				citizen['movement']['moving'] =1
 			else:
-				citizen['behaviour']['moving']=0
+				citizen['movement']['moving']=0
 
 			# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
 			myVar = random.randint(0,200)
@@ -219,7 +222,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 		draw_sprite(SCREEN, Ark,ark_pos,moving,facing,sprite_frame)
 		for key in citizen_list:
 			citizen  = citizen_list[key]
-			draw_sprite(SCREEN, citizen['sprite'],citizen['behaviour']['pos'],citizen['behaviour']['moving'],citizen['behaviour']['facing'],sprite_frame)
+			draw_sprite(SCREEN, citizen['sprite'],citizen['movement']['pos'],citizen['movement']['moving'],citizen['movement']['facing'],sprite_frame)
 
 
 

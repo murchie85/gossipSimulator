@@ -43,11 +43,11 @@ def createCitizen():
 	sgp             = random.randint(0,100)
 	age             = random.randint(0,80)
 	friends         = {}
-	behaviour        = {}
+	movement        = {}
 	knownRumours    = {}
 	sprite          = {}
 
-	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "behaviour":behaviour, "knownRumours": knownRumours, "sprite":sprite}
+	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "movement":movement, "knownRumours": knownRumours, "sprite":sprite}
 	return(citizen)
 
 
@@ -60,36 +60,7 @@ def generateCitizens(citizen_count):
 		print('Creating Citizen')
 		print('----------------')
 		citizen = createCitizen()
-		citizen_list.update({ str(citizen['name']): citizen})
-
-		"""
-		print("The Full Citizen Object is : ")
-		print(citizen)  
-		print(' ')  
-
-		print("Citizen name is {}".format(citizen['name']))
-		print(' ')
-
-		print("Citizen's age is {}".format(citizen['age']))
-		print(' ')
-
-		print("Citizen's location is {}".format(citizen['location']))
-		print(' ')
-
-		print("Citizen's status points are {}".format(citizen['SP']))
-		print(' ')
-
-		print("Citizen's create gossip probability is {}".format(citizen['CGP']))
-		print(' ')
-
-		print("Citizen's spread gossip probability is {}".format(citizen['SGP']))
-		print(' ')
-
-		print("Citizen's friends are {}".format(citizen['friends']))
-		print(' ')
-
-		print("Citizen's known rumours are {}".format(citizen['knownRumours']))
-		print(' ')  
+		citizen_list.update({ str(citizen['name']): citizen})  
 		"""
 
 	return(citizen_list)

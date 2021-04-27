@@ -44,7 +44,7 @@ Another optimiser will be tasked with gaining as much points by abusing the syst
 - [Rules](#Rules)
 - [Citizen Archetypes](#Citizen-Archetypes)
 - [OBJECTS](#OBJECTS)
-- [Function-List](#Function-List)
+- [Function](#Function)
 - [Feature BackLog](#Feature-BackLog) 
 - [Additional Reading](#Additional-Reading)
 - [Second Brain Storming Round](#Second-Brain-Storming-Round)
@@ -63,9 +63,13 @@ We also want to observe the opposite, by enforcing complex rules how agents deve
 As such we want to be able to test rigously various parameters from both agent flexibility and creativity to explore the connections between gossip and other fundamentals as we change the parameters. 
 
   
+## Two Projects One goal
+  
+There is a data oriented Sim DFS, which is executed via terminal and a interactive game interface. Both have mostly the same functionality but are for presenting to different audiences.
 
 
-# MVP
+
+# Data Oriented Sim
 -----------------  
   
 **Coding Paradigm:**   
@@ -160,9 +164,41 @@ This tracker is a sub database in the `citizen_list`, it can be used as a key to
 
 
 
-# Function List
+# Functions
 --------------------
-**Needs Updating** a lot more has been added since.  
+**Needs Updating** because this project is constantly in flux with functions being created and destroyed, a full list to be provided at the end. For not this will cover the functions on the pseudo/abstract level. 
+
+
+## Create Gossip
+
+A function to:  
+ 
+- Add gossip to gossip database
+- Update creators subjective gossip database
+
+
+## Spreading Gossip  
+  
+Challenge is
+
+The spreader and recievers have to be within vicinity of each other.
+
+They also all need to stop processing other functions at this time to ensure no conflict.
+
+Probably best to do this all within the one loop.
+
+For the game, there can just be an after step where all people stay in the same place until a speech bubble has displayed for X seconds.
+
+Solution:
+
+Citizen Dict to include a Action: 'rumour_transfer'
+
+
+
+
+
+
+## List of functions 
 
 1. `Main.py`
 2. `create_citizens.py`
@@ -180,8 +216,6 @@ B. `utils.py`
 - increments time
   
 ## create_citizens function   
-
-
 
 ## Movement Function 
 
