@@ -253,7 +253,7 @@ B. `utils.py`
 # Feature BackLog
 --------------
 
-
+1. Important: make sure all rules are in a dict: so i can display what rules are active at a given moment
 - Allow target to be more than one
 - Status Multiplier
 - Include end-of-day review?  
@@ -439,4 +439,28 @@ Run number 2: Target Label = StatusPoints
 Run number 999: Target Label = StatusPoints
 
 
+## Contributed Material 
 
+**items for backlog review**
+
+
+Ideas provided by Geoffrey Curtis  
+  
+Rules for recipients (friends, family, neighbours)
+Include a variable for scale of filtering received gossip ranging from one, for completely gullible, to ten, for completely sceptical. This affects whether and with what enthusiasm the gossip is passed on. Should age have an effect?
+Hearing the same gossip more than once, from different sources, reduces filtering.
+Corruption of the message occurs during the spread, say by 3% per communication, such that it reaches the first recipient at 100%, the next at 97% etc. When it falls below say, 50%, it is not passed on.
+Negative gossip is passed on more than positive.
+Recipients are graded or categorised so as to have particular interests and beliefs, though of a general nature (religious or not, etc.) such that gossip relating to their interest will have its corruption rating raised by 20%, for example, as it is more likely to be passed on and with enthusiasm.
+
+Rules for gossip creators
+Negative gossip (or expressing it in a negative way) has a better rate of spread.
+Counter-gossip is only, say, 60% as effective as the original.
+Gossip about people spreads better than that about objects and events.
+The higher the status of a person, the better the rate of spread.
+
+Variables required for above
+Corruption %
++/- indicator for polarity
+Original/counter indicator for class
+Content indicator for type (person, object or event)

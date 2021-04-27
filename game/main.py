@@ -21,7 +21,7 @@ from functions.create_gossip import *
 
 #-----------------GAME VARIABLES-------------------
 pygame.font.init()
-SCREEN = pygame.display.set_mode((WIDTH,HEIGHT))
+SCREEN  = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("Celestus")
 myfont   = pygame.font.Font("resources/nokiafc.ttf", 8)
@@ -31,17 +31,30 @@ menuFont = pygame.font.Font("resources/nokiafc.ttf", 16)
 
 
 VEL    = 3
-BOTVEL = 1
-Ark    = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/ArkJ.gif')
-
+BOTVEL = 0.2
+#Ark    = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/ArkJ.gif')
+Ark    = initialiseImageSpriteGroups('/Users/adammcmurchie/2021/fishwives/sprites/characters/ark/ark',12,32,32)
 mainBackPath = "/Users/adammcmurchie/2021/fishwives/sprites/backgrounds/grass.png"
-mainBack     = pygame.image.load(mainBackPath)
+mainBack     = pygame.image.load(mainBackPath).convert()
 mainBack     = pygame.transform.scale(mainBack, (WIDTH, HEIGHT))
 
 
 
 
+
 #----------------------------------------------------
+
+
+
+#---------------CREATING BOT SPRITES------------------------
+
+spritePath  = '/Users/adammcmurchie/2021/fishwives/sprites/characters/'
+spriteNames = ['ark','claude','Diane','Doug','Eberle','Ileyda','Jean','Philis','rick','Telmia','Vanrose','Yurald']
+botSprites = []
+for i in range(len(spriteNames)):
+	path = spritePath + spriteNames[i] +'/' + spriteNames[i] 
+	botSprite = initialiseImageSpriteGroups(path,9,32,32)
+	botSprites.append(botSprite)
 
 
 
@@ -64,11 +77,11 @@ message           = ""
 messageTime       = 5
 
 # Citizens
-numberOfCitizens = 5
+numberOfCitizens = 15
 # Files
 gossip_file = "gossip/mvpGossip.txt"
-spritePath  = '/Users/adammcmurchie/2021/fishwives/sprites/characters/'
-spriteNames = ['ArkJ.gif','claude.gif','Diane.gif','Doug.gif','Eberle.gif','Ileyda.gif','Jean.gif','Philis.gif','rick.gif','Telmia.gif','Vanrose.gif','Yurald.gif']
+#spritePath  = '/Users/adammcmurchie/2021/fishwives/sprites/characters/'
+#spriteNames = ['claude.gif']
 
 #--------------------
 ## DATABASE CREATION 
@@ -76,20 +89,6 @@ spriteNames = ['ArkJ.gif','claude.gif','Diane.gif','Doug.gif','Eberle.gif','Iley
 #citizen_list = generateCitizens(15)
 citizen_list = {}
 gossip_database = {}
-
-
-#---------------CREATING BOT SPRITES------------------------
-
-
-
-botSprites = []
-for i in range(len(spriteNames)):
-	botSprites.append(initialiseSprites(tileSize,str(str(spritePath) + str(spriteNames[i])   )))
-
-
-botSprite = initialiseSprites(tileSize,'/Users/adammcmurchie/2021/fishwives/sprites/characters/rick.gif')
-
-
 
 
 
@@ -106,8 +105,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 	moving = 0
 	# Initialisation
 	SCREEN.fill((0,0,0))
-	# Starting Position 
-	ark_pos              = pygame.Rect(WIDTH/2,HEIGHT/2,tileSize/2,tileSize/2)
+	ark_pos     = pygame.Rect(WIDTH/2,HEIGHT/2,tileSize/2,tileSize/2)
 	
 	clock       = pygame.time.Clock()
 	run         = True                 # When False game exits
@@ -117,11 +115,11 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 	facing      = 'down'               # direction facing as a number
 	nextFrame   = pygame.time.get_ticks()
 
-	citizen_list = startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens)
+	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens)
 	# initialise bot characteristics
 	for key in citizen_list:
 		citizen  = citizen_list[key]
-		citizen['behaviour'] =  {"pos": pygame.Rect(WIDTH/random.randint(2,6),HEIGHT/random.randint(2,6),tileSize/2,tileSize/2),
+		citizen['behaviour'] =  {"pos": pygame.Rect(random.randint(int(0.1*WIDTH),int(0.9*WIDTH)),random.randint(int(0.1*HEIGHT),int(0.9*HEIGHT)),tileSize/2,tileSize/2),
 								"direction": 'none',
 								"walkDuration": 0,
 								"facing": 'down',
@@ -197,17 +195,9 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 		ark_pos, facing, moving = moveSprite(keys_pressed,ark_pos,VEL,facing,moving)
 
 		#---MENU
-		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont,menuFont,citizen_list)
+		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database)
 		if keys_pressed[pygame.K_c]: run = False     # QUIT GAME
 
-
-
-
-		#************************************************************************************
-		#
-		#              ---------------DRAW SECTION----------------                          *
-		#
-		#************************************************************************************
 		# SPRITE 
 		# This was hard to do, you have to put next frame forward a certain amount
 		if (gameClock > nextFrame):
@@ -215,8 +205,14 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 			nextFrame += 120
 
 
+		#************************************************************************************
+		#
+		#              ---------------DRAW SECTION----------------                          *
+		#
+		#************************************************************************************
+
 		drawWindow(SCREEN)
-		#draw_back(SCREEN,mainBack,x=0,y=0)
+		draw_back(SCREEN,mainBack,x=0,y=0)
 
 		#-----DRAW SPRITES
 

@@ -1,4 +1,4 @@
-import pygame
+import pygame 
 from .sprite_sheet import *
 from .config import *
 import random
@@ -41,6 +41,58 @@ def initialiseSprites(tileSize,spriteLocation,spriteCols=3):
 
 	sprite = {"left": facingLeft, "right": facingRight, "up": facingUP, "down": facingDown}
 	return(sprite)
+
+
+def initialiseImageSpriteGroups(path,imageTotal,xscale,yscale):
+	# if your images are numbered at the end like 1.jpg 2.jpg this will work
+	## assumes images are 3 down 3 left, 3 up 
+	imageArray = []
+
+	# down
+	for i in range(1,4):
+		imagePath = path + str(i) + ".png"
+		image   = pygame.image.load(imagePath)
+		image   = pygame.transform.scale(image, (xscale, yscale))
+		imageArray.append(image)
+	facingDown = imageArray
+	imageArray = []
+
+	# left
+	for i in range(4,7):
+		imagePath = path + str(i) + ".png"
+		image   = pygame.image.load(imagePath)
+		image   = pygame.transform.scale(image, (xscale, yscale))
+		imageArray.append(image)
+	facingLeft = imageArray
+	imageArray = []
+
+	# up 
+	for i in range(7,10):
+		imagePath = path + str(i) + ".png"
+		image   = pygame.image.load(imagePath)
+		image   = pygame.transform.scale(image, (xscale, yscale))
+		imageArray.append(image)
+	facingUp = imageArray
+	imageArray = []
+
+	# right
+	for i in range(4,7):
+		imagePath = path + str(i) + ".png"
+		image   = pygame.image.load(imagePath)
+		image   = pygame.transform.scale(image, (xscale, yscale))
+		image   = pygame.transform.flip(image,True,False)
+		imageArray.append(image)
+	facingRight = imageArray
+	imageArray = []
+	sprite = {"left": facingLeft, "right": facingRight, "up": facingUp, "down": facingDown}
+
+	return(sprite)
+
+
+
+
+
+
 
 
 def moveSprite(keys_pressed,pos,VEL,facing,moving):
@@ -130,6 +182,17 @@ def draw_sprite(SCREEN,Ark,ark_pos,moving,facing,sprite_frame):
 		Ark = Ark[facing][sprite_frame]
 		
 	SCREEN.blit(Ark, (ark_pos.x,ark_pos.y))
+
+
+def draw_spriteScaled(SCREEN,Ark,ark_pos,moving,facing,sprite_frame,x,y):
+	if(moving==0):
+		Ark = Ark[facing][0]
+	else:
+		Ark = Ark[facing][sprite_frame]
+	Ark = pygame.transform.scale(Ark, (x, y))
+
+	SCREEN.blit(Ark, (ark_pos.x,ark_pos.y))
+
 
 
 def draw_back(SCREEN,image,x=0,y=0):

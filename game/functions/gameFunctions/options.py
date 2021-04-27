@@ -2,7 +2,7 @@
 import pygame
 from .game_functions import *
 
-def options(FPS,SCREEN,myfont,menuFont,citizen_list):
+def options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database):
 	# Initialisation
 	SCREEN.fill((0,0,0))
 	backgroundArray = []
@@ -12,6 +12,7 @@ def options(FPS,SCREEN,myfont,menuFont,citizen_list):
 	clock = pygame.time.Clock()
 	optionRun = True
 	spriteSelected = 0
+	bigMenuFont = pygame.font.Font("resources/nokiafc.ttf", 24)
 
 
 
@@ -47,12 +48,25 @@ def options(FPS,SCREEN,myfont,menuFont,citizen_list):
 		for key in citizen_list:
 			citizen = citizen_list[key]
 			citizenName     = "Name          : " + str(citizen['name'])
-			citizenAge      = "Age           : " + str(citizen['age'])
-			citizenLocation = "Location      : " + str(citizen['location'])
+			citizenAge      = "Age             : " + str(citizen['age'])
+			citizenSp       = "Status Points : " + str(citizen['SP'])
+			citizenCGP      = "CGP           : " + str(citizen['CGP'])
+			citizenSGP      = "SGP           : " + str(citizen['SGP'])
+			citizenLocation = "Location     : " + str(citizen['location'])
 			citizenRumours  = "Known Rumours : " + str(len(citizen['knownRumours']))
 			citizenSprite   = citizen['sprite']
 
-			tempDict = {"citizenName": citizenName,"citizenAge": citizenAge,"citizenLocation": citizenLocation,"citizenRumours": citizenRumours,"citizenSprite": citizenSprite}
+			sampleValue,sampleRumour,sampleTarget = "","",""
+			if(len(citizen['knownRumours']) > 0):
+				# the dict key is the key for gossip db
+				sampleValue     = list(citizen['knownRumours'].keys())[0]
+				sampleRumour    = str(str(gossip_database[sampleValue]['rumour']))
+				sampleTarget    = str(str(gossip_database[sampleValue]['target']))
+			else:
+				sampleRumour    = "No Rumours"
+				sampleTarget    = "No one"
+
+			tempDict = {"citizenName": citizenName,"citizenAge": citizenAge,"citizenSp":citizenSp ,"citizenCGP":citizenCGP ,"citizenSGP":citizenSGP ,"citizenLocation": citizenLocation,"citizenRumours": citizenRumours,"citizenSprite": citizenSprite, "sampleRumour": sampleRumour, "sampleTarget":sampleTarget}
 			citizenPrintArray.append(tempDict)
 
 
@@ -67,16 +81,33 @@ def options(FPS,SCREEN,myfont,menuFont,citizen_list):
 		# -------------DRAW
 
 		draw_back(SCREEN,backgroundArray[backgroundFrame],x=0,y=0)
-		drawText(SCREEN,menuFont,'menu', 0.5*WIDTH,100)
+		drawText(SCREEN,bigMenuFont,'Rumour Insights', 0.38*WIDTH,100)
 
 
+
+		# LEFT SIDE PRINTED TEXT
 		# this pulles from an array of dicts, using spriteselected as index (this is incremented pushing left or right keys)
-		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenName'], 0.1*WIDTH,0.2*HEIGHT)
-		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenAge'], 0.1*WIDTH,0.25*HEIGHT)
-		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenLocation'], 0.1*WIDTH,0.3*HEIGHT)
-		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenRumours'], 0.1*WIDTH,0.35*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenName'], 0.1*WIDTH,0.3*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenAge'], 0.1*WIDTH,0.35*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenLocation'], 0.1*WIDTH,0.4*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenSp'], 0.1*WIDTH,0.45*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenCGP'], 0.1*WIDTH,0.5*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenSGP'], 0.1*WIDTH,0.55*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenRumours'], 0.1*WIDTH,0.6*HEIGHT)
 		
-		draw_sprite(SCREEN,citizenPrintArray[spriteSelected]['citizenSprite'],pygame.Rect(WIDTH/2,0.8*HEIGHT,16,16),0,"down",0)
+		# RIGHT SIDE PRINTED TEXT
+		drawText(SCREEN,menuFont,"Sample Rumour: ", 0.5*WIDTH,0.3*HEIGHT)
+		drawText(SCREEN,menuFont,str("Target: " + str(citizenPrintArray[spriteSelected]['sampleTarget'])), 0.5*WIDTH,0.40*HEIGHT)
+		# write rumour, split onto two lines if needed
+		selectedRumour = citizenPrintArray[spriteSelected]['sampleRumour']
+		if(len(selectedRumour) > 39):
+			drawText(SCREEN,menuFont,str(selectedRumour)[:39], 0.5*WIDTH,0.50*HEIGHT)
+			drawText(SCREEN,menuFont,str(selectedRumour)[39:], 0.5*WIDTH,0.55*HEIGHT)
+		else:
+			drawText(SCREEN,menuFont,str(selectedRumour), 0.5*WIDTH,0.50*HEIGHT)
+
+
+		draw_spriteScaled(SCREEN,citizenPrintArray[spriteSelected]['citizenSprite'],pygame.Rect(WIDTH/2,0.7*HEIGHT,16,16),0,"down",0,96,96)
 
 
 

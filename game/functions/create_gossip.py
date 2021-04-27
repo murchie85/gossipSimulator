@@ -43,8 +43,14 @@ def createRumour(gossip_database, citizen_list, creator,gossip_file):
 		target   = random.choice([*citizen_list])
 
 	sentiment           = random.randint(0,100)
+
+	# pull in some random gossip, this checks the size ot make sure we don't get empty string
 	f = open(gossip_file)
-	gossip              = random.choice(f.read().split(';'))
+	gossip =""
+	gossipArray = f.read().split(';')
+	while len(gossip) < 1:
+		gossip              = random.choice(gossipArray)
+
 	rumour              = gossip.replace('NAME', str(target))
 	risk                = random.randint(0,100)
 	persistence         = random.randint(0,100)
