@@ -290,6 +290,7 @@ B. `utils.py`
 # Feature BackLog
 --------------
 
+- Rules will be sliders we set in the game
 1. Important: make sure all rules are in a dict: so i can display what rules are active at a given moment
 - Allow target to be more than one
 - Status Multiplier

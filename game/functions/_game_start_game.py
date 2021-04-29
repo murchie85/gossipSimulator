@@ -2,7 +2,7 @@
 import pygame
 from ._game_functions import *
 from .create_citizen import *
-
+import csv
 
 
 
@@ -20,6 +20,17 @@ def startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,CITI
 	nextSelect      = pygame.time.get_ticks()
 	backgroundArray = []
 	backgroundFrame = 0
+
+
+	# INITIALISE LOG FILE 
+
+	with open('logs/recieve-gossip.csv', 'w', newline='') as csvfile:
+		writer = csv.writer(csvfile)
+		writer.writerow(['Time','ID','Spreader','Audience','SP','Originalsp','AudienceKnownRumours','TotalRumours'])
+
+
+
+
 
 	# -----------Append all background images
 

@@ -10,3 +10,7 @@ The differences between Repositories so far are.
 
 This is an additional Key which has sub values relating to facing, direction etc. It is used in the game, but the MVP only requires a 1D movement axis as the focus there is not on visualising the distances.  
   
+
+**game** has a `action` field for citizen to allow for throttling gossip actions.
+
+ 

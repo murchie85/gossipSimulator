@@ -23,6 +23,7 @@
 
 
 import random 
+from .logging import *
 
 
 
@@ -127,12 +128,14 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, ty
 		citizen_list[spreader['name']]['SP'] = totalSP
 
 
-		#print(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They recieved ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP))
-
+		logReceivedGossip('logs/recieve-gossip.csv',gossipID,spreader['name'],receivingAudience['name'],awardedSP,targetCitizensSP,receivingAudience['knownRumours'],citizen_list)
+		
+		"""
 		f = open('logs/gossip.txt', 'a')
 		f.write(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n')
 		print(str(receivingAudience['name']) + 'known rumours are ' + str(len(receivingAudience['knownRumours'])))
 		f.close()
+		"""
 
 
 

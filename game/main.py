@@ -17,8 +17,10 @@ from functions.processGossip import *
 from functions.create_citizen import *
 from functions.botDecisionTree import *
 
+
 if os.path.exists("logs/gossip.txt"):os.remove("logs/gossip.txt")
-	
+if os.path.exists("recieve-gossip.csv"):os.remove("recieve-gossip.csv")
+
 
 #-----------------GAME VARIABLES-------------------
 #pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
