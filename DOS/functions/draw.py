@@ -41,8 +41,8 @@ def printCitizen(citizen):
 	print("-------------------------------------------------------------------------------------------------------------------------------------------------------")
 	for i in range(0, len(citizen), 3):
 		print( stringMod("Name[" +str(i)     + "] : " + str(citizen[i]['name'] + " " + str(citizen[i]['emotion'])),49) + 
-			   stringMod("Name[" +str(i + 1) + "] : "  + str(citizen[i + 1]['name'] + " " + str(citizen[i]['emotion'])),49)  + 
-			   stringMod("Name[" +str(i + 2) + "] : "  + str(citizen[i + 2]['name'] + " " + str(citizen[i]['emotion'])),49) 
+			   stringMod("Name[" +str(i + 1) + "] : "  + str(citizen[i + 1]['name'] + " " + str(citizen[i + 1]['emotion'])),49)  + 
+			   stringMod("Name[" +str(i + 2) + "] : "  + str(citizen[i + 2]['name'] + " " + str(citizen[i + 2]['emotion'])),49) 
 			   )
 		
 		print( stringMod("Location: " + str(citizen[i]['location'])) + 

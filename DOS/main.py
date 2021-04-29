@@ -79,6 +79,7 @@ for i in range(0, month_len):
 
 	# Loop Citizens 
 	# TODO: Randomise this order once MVP done
+	# TODO: Pretty print
 	for key in citizen_list:
 		citizen                        = citizen_list[key]
 		position                       = citizen['location']

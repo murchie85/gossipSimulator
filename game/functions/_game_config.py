@@ -9,15 +9,19 @@ SCREEN  = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.font.init() 
 myfont   = pygame.font.Font("resources/nokiafc.ttf", 8)
 menuFont = pygame.font.Font("resources/nokiafc.ttf", 16)
-VEL    = 3
-BOTVEL = 20
+VEL    = 2
+BOTVEL = 1
 
 
-
+#-------------------
 # SPRITES 
+#-------------------
 
 Ark    = initialiseImageSpriteGroups('/Users/adammcmurchie/2021/fishwives/sprites/characters/ark/ark',12,32,32)
-mainBackPath = "/Users/adammcmurchie/2021/fishwives/sprites/backgrounds/grass.png"
+
+
+
+mainBackPath = "/Users/adammcmurchie/2021/fishwives/sprites/backgrounds/test.png"
 mainBack     = pygame.image.load(mainBackPath).convert()
 mainBack     = pygame.transform.scale(mainBack, (WIDTH, HEIGHT))
 

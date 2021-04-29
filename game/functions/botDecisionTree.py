@@ -36,7 +36,7 @@ import random
 
  
 def initializeMovement(citizen,botSprites):
-		citizen['movement'] =  {"pos": pygame.Rect(random.randint(int(0.1*WIDTH),int(0.9*WIDTH)),random.randint(int(0.1*HEIGHT),int(0.9*HEIGHT)),tileSize/2,tileSize/2),
+		citizen['movement'] =  {"pos": pygame.Rect(random.randint(int(0.1*WIDTH),int(0.9*WIDTH)),random.randint(int(0.1*HEIGHT),int(0.9*HEIGHT)),tileSize,tileSize),
 								"direction": 'none',
 								"walkDuration": 0,
 								"facing": 'down',
@@ -45,17 +45,19 @@ def initializeMovement(citizen,botSprites):
 		return(citizen)
 
 
-def processMovement(citizen,citizen_list,position,BOTVEL,WIDTH,HEIGHT):
+def processMovement(citizen,citizen_list,position,BOTVEL,WIDTH,HEIGHT,backgroundObjectMasks):
 	# Updating top level location value (not rect vals)
 	citizen['location']             = [position.x,position.y]
 
 	# ---------WALK THE BOTS
 	citizen['movement']['direction'] ,citizen['movement']['walkDuration'] = botWalkBehaviour(citizen['movement']['direction'] ,citizen['movement']['walkDuration'])
-	citizen['movement']['pos'], citizen['movement']['direction'], citizen['movement']['facing'] = moveBotSprite(citizen['movement']['pos'],citizen['movement']['direction'],BOTVEL,citizen['movement']['facing'],citizen,citizen_list,WIDTH,HEIGHT)
+	citizen['movement']['pos'], citizen['movement']['direction'], citizen['movement']['facing'] = moveBotSprite(citizen['movement']['pos'],citizen['movement']['direction'],BOTVEL,citizen['movement']['facing'],citizen,citizen_list,WIDTH,HEIGHT,backgroundObjectMasks)
+	
+
 	if(citizen['movement']['direction']!= 'none'):
-		citizen['movement']['moving'] =1
+		citizen['movement']['moving'] = 1
 	else:
-		citizen['movement']['moving']=0
+		citizen['movement']['moving'] = 0
 
 	return(citizen)
 
@@ -79,7 +81,7 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 
 		# THIS WILL BE DIFFERENT IN GAME VERSION 
-		other_citizen_position    = other_citizen['location']
+		other_citizen_position    = other_citizen['movement']['pos']
 		#distanceApart = getDistanceApart(myPosition,other_citizen_position,thisCitizen,other_citizen)
 		distanceApart = getDistanceApart(myPosition,other_citizen_position,thisCitizen,other_citizen)
 
@@ -95,8 +97,15 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 
 
-		# CREATE AND SPREAD GOSSIP
-		if((myChance > 90) and (distanceApart < 10) or (luckyChance == 10)):
+		# CREATE AND SPREAD GOSSIP - working probability as this loops a lot in a short time. 
+		# WONT GOSSIP AGAIN UNTIL COUNTER IS RESET
+
+		citizenAction = citizen['action']
+		if(('gossiping' in str(citizen['action'])) or ('receiving' in str(citizen['action']))): 
+			return(citizen,citizen_list,gossip_database,gossipObject)
+
+
+		if((myChance > 80) and (distanceApart < 50) or (distanceApart < 50 and luckyChance == 10)):
 			#print(str(thisCitizen['name']) + ' and ' + str(other_citizen['name']) + ' are within ' + str(distanceApart) + ' of each other and about to gossip.')
 			#print(str(thisCitizen['name']) + ' cgp= ' + str(createGossipProbability) + ' chance= ' + str(chance) )
 			#print('lucky chance = ' + str(luckyChance))
@@ -110,7 +119,10 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 			# Reciever accepts rumour (at a given trust value)
 			citizen_list = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject, 'acceptRumour')
 
-
+			# put action = ['gossiping',5]
+			# TODO manage the clash for recieving and gossiping at same time. 
+			citizen['action']        = ['gossiping',15]
+			other_citizen['action']  = ['receiving',15]
 
 
 	return(citizen,citizen_list,gossip_database,gossipObject)
@@ -118,7 +130,10 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 def getDistanceApart(myPosition,other_citizen_position,thisCitizen,other_citizen):
 	#distanceApart             = abs(myPosition - other_citizen_position)
-	distanceApart = random.randint(0,1000)
+	xdistance = abs(myPosition.x - other_citizen_position.x)
+	ydistance = abs(myPosition.y - other_citizen_position.y)
+
+	distanceApart = (xdistance + ydistance)/2
 
 	return(distanceApart)
 

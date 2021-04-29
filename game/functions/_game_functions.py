@@ -8,6 +8,14 @@ STC      = 32
 tileSize = 32
 
 
+#************************************************************************************
+#
+#              ---------------SPRITES--------------                          *
+#
+#************************************************************************************
+
+
+
 def initialiseImageSpriteGroups(path,imageTotal,xscale,yscale):
 	# if your images are numbered at the end like 1.jpg 2.jpg this will work
 	## assumes images are 3 down 3 left, 3 up 
@@ -60,7 +68,7 @@ def initialiseImageSpriteGroups(path,imageTotal,xscale,yscale):
 
 
 
-def moveSprite(keys_pressed,pos,VEL,facing,moving,WIDTH,HEIGHT):
+def moveSprite(keys_pressed,pos,VEL,facing,moving,WIDTH,HEIGHT,citizen_list,backgroundObjectMasks):
 	moving = 0
 	if keys_pressed[pygame.K_LEFT] and pos.x - VEL > 0:
 		pos.x -= VEL
@@ -79,54 +87,115 @@ def moveSprite(keys_pressed,pos,VEL,facing,moving,WIDTH,HEIGHT):
 		facing = 'down'
 		moving = 1
 
+	#Check if colliding with any object
+	collisionObjects   = []
+	collisionTolerance = 10
+
+	for key in citizen_list: collisionObjects.append(citizen_list[key]['movement']['pos'])
+	for obj in backgroundObjectMasks: collisionObjects.append(obj)
+	for otherObj in collisionObjects:
+		
+		if pos.colliderect(otherObj):
+			if abs(otherObj.top - pos.bottom) < collisionTolerance:
+				pos.y -= VEL
+			if abs(otherObj.bottom - pos.top) < collisionTolerance:
+				pos.y += VEL
+			if abs(otherObj.right - pos.left) < collisionTolerance:
+				pos.x += VEL
+			if abs(otherObj.left - pos.right) < collisionTolerance:
+				pos.x -= VEL
+
+
+
 	return(pos, facing,moving)
 
 
+#************************************************************************************
+#
+#              ---------------COLLISIONS AND BEHAVIOUR--------------                          *
+#
+#************************************************************************************
 
-def moveBotSprite(pos,botDirection,VEL,botfacing,citizen,citizen_list,WIDTH,HEIGHT):
+
+
+
+def moveBotSprite(pos,botDirection,BOTVEL,botfacing,citizen,citizen_list,WIDTH,HEIGHT,backgroundObjectMasks):
 	moving = 0
-	backoff = 0
-	for key in citizen_list:
-		otherCitizen = citizen_list[key]
-		if otherCitizen != citizen:
-			if pos.colliderect(otherCitizen['movement']['pos']):
-				backoff = 1
+
+
+	if (botDirection=='left') and pos.x - BOTVEL > 0:
+		pos.x -= BOTVEL
+		botfacing ='left'
+		moving = 1
+	if (botDirection=='right') and pos.x + BOTVEL + tileSize < WIDTH:
+		pos.x += BOTVEL
+		botfacing ='right'
+		moving = 1
+	
+	if (botDirection=='up') and pos.y - BOTVEL > 0:
+		pos.y -= BOTVEL
+		botfacing='up'
+		moving = 1
+	if (botDirection=='down') and pos.y + BOTVEL + tileSize < HEIGHT:
+		pos.y += BOTVEL
+		botfacing='down'
+		moving = 1
 
 
 
+	#Check if colliding with any object
+	collisionObjects   = []
+	collisionTolerance = 10
 
-	if (botDirection=='left') and pos.x - VEL > 0:
-		pos.x -= VEL
-		if(backoff): pos.x += 2 * VEL 
-		botfacing = 'left'
-	if (botDirection=='right') and pos.x + VEL + tileSize < WIDTH:
-		pos.x += VEL
-		if(backoff): pos.x -= 2 * VEL 
-		botfacing = 'right'
-	if (botDirection=='up') and pos.y - VEL > 0:
-		pos.y -= VEL
-		if(backoff): pos.y += 2 * VEL 
-		botfacing = 'up'
-	if (botDirection=='down') and pos.y + VEL + tileSize < HEIGHT:
-		pos.y += VEL
-		if(backoff): pos.y -= 2 * VEL 
-		botfacing = 'down'
+	for key in citizen_list: 
+		if(citizen_list[key]['name'] == citizen['name']):
+			continue
+		collisionObjects.append(citizen_list[key]['movement']['pos'])
+
+	for obj in backgroundObjectMasks: collisionObjects.append(obj)
+	
+	for otherObj in collisionObjects:
+		if pos.colliderect(otherObj):
+			if abs(otherObj.top - pos.bottom) < collisionTolerance:
+				pos.y -= 2*BOTVEL
+				botDirection = random.choice(['left','right','down','up','none'])
+			if abs(otherObj.bottom - pos.top) < collisionTolerance:
+				pos.y += 2*BOTVEL
+				botDirection = random.choice(['left','right','down','up','none'])
+			if abs(otherObj.right - pos.left) < collisionTolerance:
+				pos.x += BOTVEL
+				botDirection = random.choice(['left','right','down','up','none'])
+			if abs(otherObj.left - pos.right) < collisionTolerance:
+				pos.x -= 2*BOTVEL
+				botDirection = random.choice(['left','right','down','up','none'])
+
+
 
 	return(pos,botDirection,botfacing)
+
 
 
 
 def botWalkBehaviour(chosenDirection='none',chosenDuration=0):
 	chosenDuration -= 1
 
-	if(chosenDirection =='none' or chosenDuration < 0):
-		chosenDirection = random.choice(['left','right','up','down','none'])
-		chosenDuration = random.randint(1,10) * 10
+	if(chosenDuration < 0):
+		chosenDirection = random.choice(['right','down','left','up'])
+		chosenDuration = random.randint(1,8) * 10
 
 	return(chosenDirection,chosenDuration) 
 
 
 
+def createCollisionMask(maskObject, x,y,objLen,objHeight):
+	maskObject = pygame.Rect(x,y,objLen,objHeight)
+
+
+#************************************************************************************
+#
+#              ---------------EVENTS--------------                          *
+#
+#************************************************************************************
 
 
 
@@ -139,10 +208,22 @@ def events(run):
 
 
 
+def update():
+	pygame.display.update()
+
+
+
+#************************************************************************************
+#
+#              ---------------DRAW--------------                          *
+#
+#************************************************************************************
+
+
 
 def draw_sprite(SCREEN,Ark,ark_pos,moving,facing,sprite_frame):
 	if(moving==0):
-		Ark = Ark[facing][0]
+		Ark = Ark[facing][1]
 	else:
 		Ark = Ark[facing][sprite_frame]
 		
@@ -158,20 +239,23 @@ def draw_spriteScaled(SCREEN,Ark,ark_pos,moving,facing,sprite_frame,x,y):
 
 	SCREEN.blit(Ark, (ark_pos.x,ark_pos.y))
 
+def draw_speechBubble(SCREEN,myfont,x=0,y=0,message='wot'):
+	bubbleL = 60
+	bubbleH = 20
+	bubble = pygame.Rect(x,y,bubbleL,bubbleH)
+	pygame.draw.rect(SCREEN, (255,255,255),bubble)
 
+	drawText(SCREEN,myfont, message,x + 0.2 * bubbleL,y + 0.3* bubbleH,(0,0,0))
 
 def draw_back(SCREEN,image,x=0,y=0):
 	SCREEN.blit(image, (x,y))
 
 
-def drawText(SCREEN,myfont, value,x,y):
-	textsurface = myfont.render(value, False, (255, 255, 255))
+def drawText(SCREEN,myfont, value,x,y,color=(255, 255, 255)):
+	textsurface = myfont.render(value, False, color)
 	SCREEN.blit(textsurface,(x,y))
 
 def drawWindow(SCREEN):
 	SCREEN.fill(BLACK)
 
 	
-
-def update():
-	pygame.display.update()

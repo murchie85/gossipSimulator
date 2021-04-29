@@ -131,6 +131,7 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, ty
 
 		f = open('logs/gossip.txt', 'a')
 		f.write(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n')
+		print(str(receivingAudience['name']) + 'known rumours are ' + str(len(receivingAudience['knownRumours'])))
 		f.close()
 
 

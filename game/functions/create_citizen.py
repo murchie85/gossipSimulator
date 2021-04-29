@@ -45,8 +45,9 @@ def createCitizen():
 	movement        = {}
 	knownRumours    = {}
 	sprite          = {}
+	action          = []
 
-	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "movement":movement, "knownRumours": knownRumours, "sprite":sprite}
+	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "movement":movement, "knownRumours": knownRumours, "sprite":sprite,"action":action}
 	return(citizen)
 
 
@@ -55,9 +56,9 @@ def generateCitizens(citizen_count):
 	citizen_list  = {}
 
 	for citizen in range(0,citizen_count):
-		print('----------------')
-		print('Creating Citizen')
-		print('----------------')
+		#print('----------------')
+		#print('Creating Citizen')
+		#print('----------------')
 		citizen = createCitizen()
 		citizen_list.update({ str(citizen['name']): citizen})  
 

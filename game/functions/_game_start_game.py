@@ -69,7 +69,7 @@ def startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,CITI
 
 
 		#-- ACTIONS
-		if keys_pressed[pygame.K_g]:
+		if keys_pressed[pygame.K_g] or keys_pressed[pygame.K_RETURN]:
 			optionRun = False
 			
 
