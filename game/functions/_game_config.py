@@ -25,6 +25,10 @@ mainBackPath = "/Users/adammcmurchie/2021/fishwives/sprites/backgrounds/test.png
 mainBack     = pygame.image.load(mainBackPath).convert()
 mainBack     = pygame.transform.scale(mainBack, (WIDTH, HEIGHT))
 
+DialoguePath = "/Users/adammcmurchie/2021/fishwives/sprites/dialoguebox/dbox.png"
+Dialoguebox  = pygame.image.load(DialoguePath).convert()
+
+
 
 
 #---------------CREATING BOT SPRITES------------------------

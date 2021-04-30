@@ -250,6 +250,9 @@ def draw_speechBubble(SCREEN,myfont,x=0,y=0,message='wot'):
 def draw_back(SCREEN,image,x=0,y=0):
 	SCREEN.blit(image, (x,y))
 
+def draw_backScaled(SCREEN,image,x,y,sx,sy):
+	image = pygame.transform.scale(image, (sx, sy))
+	SCREEN.blit(image, (x,y))
 
 def drawText(SCREEN,myfont, value,x,y,color=(255, 255, 255)):
 	textsurface = myfont.render(value, False, color)

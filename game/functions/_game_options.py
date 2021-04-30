@@ -1,6 +1,7 @@
 
 import pygame
 from ._game_functions import *
+import math
 
 def options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT):
 	# Initialisation
@@ -100,12 +101,12 @@ def options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT
 		drawText(SCREEN,menuFont,str("Target: " + str(citizenPrintArray[spriteSelected]['sampleTarget'])), 0.5*WIDTH,0.40*HEIGHT)
 		# write rumour, split onto two lines if needed
 		selectedRumour = citizenPrintArray[spriteSelected]['sampleRumour']
-		if(len(selectedRumour) > 39):
-			drawText(SCREEN,menuFont,str(selectedRumour)[:39], 0.5*WIDTH,0.50*HEIGHT)
-			drawText(SCREEN,menuFont,str(selectedRumour)[39:], 0.5*WIDTH,0.55*HEIGHT)
-		else:
-			drawText(SCREEN,menuFont,str(selectedRumour), 0.5*WIDTH,0.50*HEIGHT)
-
+		rows = math.ceil(len(selectedRumour)/40)
+		startL =0
+		for i in range(1,rows+1):
+			rowlen = 39
+			drawText(SCREEN,menuFont,str(selectedRumour)[startL:startL + rowlen ], 0.5*WIDTH,((0.40 + i*0.05)*HEIGHT))
+			startL=rowlen*i
 
 		draw_spriteScaled(SCREEN,citizenPrintArray[spriteSelected]['citizenSprite'],pygame.Rect(WIDTH/2,0.7*HEIGHT,16,16),0,"down",0,96,96)
 

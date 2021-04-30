@@ -130,12 +130,12 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, ty
 
 		logReceivedGossip('logs/recieve-gossip.csv',gossipID,spreader['name'],receivingAudience['name'],awardedSP,targetCitizensSP,receivingAudience['knownRumours'],citizen_list)
 		
-		"""
-		f = open('logs/gossip.txt', 'a')
-		f.write(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n')
-		print(str(receivingAudience['name']) + 'known rumours are ' + str(len(receivingAudience['knownRumours'])))
-		f.close()
-		"""
+
+		# Random updates to log
+		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n'),'logs/gossip.txt')
+
+
+
 
 
 

@@ -17,9 +17,14 @@ from functions.utils import *
 from functions.draw import *
 from functions.processGossip import *  
 from functions.botDecisionTree import * 
+from functions.logging import *
 import time
 import os
+
+
 if os.path.exists("logs/gossip.txt"):os.remove("logs/gossip.txt")
+if os.path.exists("recieve-gossip.csv"):os.remove("recieve-gossip.csv")
+
 
 #**************************************  
 #    ---------SIM VARIABLES  -----  
@@ -58,7 +63,8 @@ gossip_database = {}
 
 
 # Print start 
-startMesssage(citizen_count,citizen_list,'no')
+init_files()
+startMesssage(citizen_count,citizen_list,'yes')
 # time buffered by sleep
 # This clears the screen
 print("\033c")

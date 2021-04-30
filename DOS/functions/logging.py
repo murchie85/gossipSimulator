@@ -1,5 +1,12 @@
-from datetime import datetime
 import csv
+from datetime import datetime
+
+def init_files():
+	with open('logs/recieve-gossip.csv', 'w', newline='') as csvfile:
+		writer = csv.writer(csvfile)
+		writer.writerow(['Time','ID','Spreader','Audience','SP','Originalsp','AudienceKnownRumours','TotalRumours'])
+
+
 
 
 def logReceivedGossip(file,gossipID,spreader,audience,awardedSP,targetCitizensSP,receivingAudienceKnownRumours,citizen_list):
@@ -14,7 +21,6 @@ def logReceivedGossip(file,gossipID,spreader,audience,awardedSP,targetCitizensSP
 	with open(file, 'a', newline='') as csvfile:
 		writer = csv.writer(csvfile)
 		writer.writerow([str(date_time),str(gossipID),spreader,audience,str(awardedSP),str(targetCitizensSP),str(len(receivingAudienceKnownRumours)),kt])
-
 
 
 def logUpdateMessage(message,file):

@@ -65,7 +65,7 @@ As such we want to be able to test rigously various parameters from both agent f
   
 ## Two Projects One goal
   
-There is a data oriented Sim DFS, which is executed via terminal and a interactive game interface. Both have mostly the same functionality but are for presenting to different audiences.
+There is a data oriented Sim DFS, which is executed via terminal and a interactive game interface. Both have mostly the same functionality but are for presenting to different audiences. The game version lets you tweak the controls in real time to see how the audience reacts, such as thresholds for gossip.
 
 
 
@@ -97,6 +97,10 @@ Too much Gossip creation lowers the value of a gossip.
 creating a gossip can gain you status-points
 creating a gossip can dock you status-points [function of risk]
 
+
+## Dynamics Rules  
+
+In both versions, but primarily the game - the user can adjust parameters and rules in real time to see how the simulation adapts. These are values that are stored in a rules file. 
 
 ## Citizen Archetypes 
 

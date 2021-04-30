@@ -16,6 +16,7 @@ from functions.printer import *
 from functions.processGossip import *  
 from functions.create_citizen import *
 from functions.botDecisionTree import *
+from functions.logging import *
 
 
 if os.path.exists("logs/gossip.txt"):os.remove("logs/gossip.txt")
@@ -124,6 +125,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 	gossipUpdates     = []
 	displayGossipTime = 5
 	collidingObjects  = []
+	chosenGossip      = ""
 
 	# ------PYGAME FIELDS
 	moving = 0
@@ -138,7 +140,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 	facing      = 'down'
 	nextFrame   = pygame.time.get_ticks()
 	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens, WIDTH,HEIGHT)
-	
+	noticationStatus = ""
 	# initialise bot characteristics
 	for key in citizen_list:
 		citizen  = citizen_list[key]
@@ -156,7 +158,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 
 
 
-	while run:
+	while run: 
 		gameCounter      += 1
 		timeCounter      = round(pygame.time.get_ticks()/1200)
 		gameClock        = pygame.time.get_ticks()
@@ -179,9 +181,8 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 			citizen = processMovement(citizen,citizen_list,position,BOTVEL,WIDTH,HEIGHT,backgroundObjectMasks)
 			# ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
 			citizen,citizen_list,gossip_database,gossipObject = gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,citizen['movement']['pos'])
-
-
-
+			# UPATES
+			if (len(gossipObject) > 0): gossipUpdates.append(gossipObject)
 
 
 
@@ -268,14 +269,16 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 		#
 		#************************************************************************************
 
+		draw_backScaled(SCREEN,Dialoguebox,0.028*WIDTH, 0.085*HEIGHT ,170,60)
 		drawText(SCREEN,myfont,str("TIME: " + str(timeCounter)),0.05*WIDTH, 0.1*HEIGHT)
 		for key in citizen_list:
 			kt = sum(len(x['knownRumours']) for x in citizen_list.values() if x)
 			out = 'Known Rumours: ' + str(kt)
 			#out = "known Rumours are: " + str(len(citizen_list[key]['knownRumours']))	
 		drawText(SCREEN,myfont,str(out),0.05*WIDTH, 0.14*HEIGHT)
-		
 
+		# Choses a random gossip string to write, skips if no new updates
+		chosenGossip = logRandomUpdate(gossipUpdates,chosenGossip,'logs/gossip.txt')
 		#************************************************************************************
 		#
 		#              ---------------NOTIFICATIONS----------------                          *
@@ -284,7 +287,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 
 
 		# ------UPDATE NOTIFICATION TIMER 
-		noticationStatus,messageTime = printNotification(message, messageTime)
+		noticationStatus,messageTime = printNotification(message, messageTime,SCREEN,WIDTH,HEIGHT,Dialoguebox)
 
 		# PRINT A NOTIFICATION
 		if((len(gossipUpdates) > 0)):
@@ -292,8 +295,8 @@ def main(citizen_list,numberOfCitizens,sprite_frame=0):
 				with open('logs/gossip.txt', 'r') as f:
 					lines = f.read().splitlines()
 					last_line = lines[-1]
-					message = str('😲😲**new gossip**😲😲 \n') +  last_line
-					messageTime = 5
+					message = str(last_line)
+					messageTime = 40
 					gossipUpdates = []
 					f.close()
 

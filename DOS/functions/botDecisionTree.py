@@ -78,7 +78,8 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 		# RANDOM CHANCE
 		createGossipProbability = thisCitizen['CGP']
-		chance = random.randint(1,30)
+		gossipStimulation = getRules("rules.txt",'gossipStimulation')
+		chance = random.randint(1,int(gossipStimulation))
 		myChance = createGossipProbability + chance
 
 		luckyChance = random.randint(0,10000)
@@ -117,4 +118,17 @@ def spreadGossip(myPosition,other_citizen_position,thisCitizen,other_citizen):
 
 	return(distanceApart)
 
+
+def getRules(rulesFile,targetVar):
+	f = open(rulesFile, "r")
+	rules = f.read()
+	rules = rules.split(',')
+	for r in rules: 
+		if(r.split(':')[0] == str(targetVar)):
+			return(r.split(':')[1])
+
+	print('Target variable not found in rules file')
+	print('variable is: ' + str(targetVar))
+	exit()
+	
 	
