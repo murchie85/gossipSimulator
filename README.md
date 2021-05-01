@@ -1,18 +1,15 @@
 #  Celestus The Gossip Town
-## Simulating the Utility of Gossip, it's spread and impact on Status. 
+## Simulating the Utility of Gossip: It's spread and impact on Status. 
 
 ![concept art](sprites/concept/head.jpg)
-
+<div align="right">
+<a href="https://github.com/murchie85/gossipSimulator">Project Link</a>
+</div>
 
 ## Author 
  
 - Adam McMurchie
   
-## Contributors  
-
-- Adam McMurchie
-- HaoYu Chen 
-
 
 
 In Yuval Harai's pivotal book [Sapiens](https://www.ynharari.com/book/sapiens-2/) the author explains how Story Telling and collective belief define the human race. In fact these uniquely human characteristics may have helped differentiate Sapiens from their historical competitors and allowed us to thrive into the technological society we have today. 
@@ -21,24 +18,84 @@ In Yuval Harai's pivotal book [Sapiens](https://www.ynharari.com/book/sapiens-2/
 
 
 ## Building Digital Fishwives 
+  
+As such, i've decided to build a game of sorts **(a hybrid ML platform with game and commandLine interface)**, in this game/simulation there are residents who partake in the occasional gossip. They are just rules based bots who go about their day.     
 
-In this project I am building a series of bots which will simulate how a world will evolve overtime via a colection of rules which defines risks and rewards of gossip creation. These rules will be set at three tiers, environmental level, social level and household level. 
+Now enter the **Digital GossipMonger**: AI entities optimised to keep gossip going, spread it as far and wide as possible or gain status by generating unique rumours.  
 
- Dumb rules based optimisers will play part of the relatively disengaged population who partake in occasional gossiping. 
 
 [![IMAGE ALT TEXT HERE](sprites/concept/title.png)](https://youtu.be/E7Ii-vlDomw)
- 
+   
+ In this project these bots simulate how a world will evolve overtime via a colection of rules which defines the risks and rewards of gossip creation. These rules will be set at three tiers, environmental level, social level and household level. But also users can load rules from a Dict template that emulates various sociological and psychological frameworks, so users can switch between these to compare and contrast.  
 
- The Digital Fishwife: will be AI optimisers designed with two main optimisers in consideration:
+
+ Dumb rules based optimisers will play part of the relatively disengaged population who partake in occasional gossiping.   
+
+
+ The Digital Fishwife: will be **AI optimisers** designed with two main optimisers in consideration:
 
  - Propagate Gossips
  - Gain Status by generating Rumors
 
- This may seem like the same thing, but one AI Optimiser will be tasked with keeping a gossip going and spreading it to as many people as possible. 
-
-Another optimiser will be tasked with gaining as much points by abusing the system to their benefit (it might not mean spreading it far and wide).
-
+ This may seem like the same thing, but one ML Optimiser may be tasked with keeping a gossip going by spreading it to as many people as possible whereas another optimiser will be tasked with gaining as much points by abusing the system to their benefit (this might not necessarily mean spreading it far and wide).
   
+ 
+## A bit more on Rules...  
+  
+
+![](sprites/concept/flow.png)  
+    
+
+To get the ball rolling I had to think high-level and develop a set of rules, from which I could build on.
+
+- Environment has a time engine.
+- Gossip can be created
+- Gossip can be positive or negative (in terms of impact to target)
+- Gossip can be about one or multiple targets. Even about no targets.
+- Gossip has an associated risk.
+- Gossip has a shelf life/popularity (value decreases to 0)
+- Gossips will be associated to citizens who spread or create it.
+- Citizens can only create or share rumours when near other people
+- Citizens age and die
+- Citizens (normally) want more status points
+- Creating gossips gain you status points or removes some  
+  
+and finally...
+  
+- Citizens get old and die 😢
+  
+
+ This project endeavours to pit various ML optimisers into the simulation, the hope is to observe emergent behaviour as agents look to increase their status,
+  
+
+
+ # Warning 
+
+ It gets a **bit convoluted from here on**, including scribble notes, please star the repo or follow me if you like the idea and I will have a blog or two out soon! 
+
+ Thanks!
+    
+
+
+[![IMAGE ALT TEXT HERE](sprites/concept/simstarting.png)](https://youtu.be/gvTg6wm78iM)  
+  
+### **Adam McMurchie**    April 2020
+Head of Data and DevOps    
+
+*Be the Automator not the Automated*   
+ 
+    
+| [This Project](https://github.com/murchie85/gossipSimulator) |
+| [My Website](https://murchie85.github.io/)  |
+| [My Linkedin](https://www.linkedin.com/in/adam-mcmurchie-83863177/)| 
+<br/>
+  
+Please consider following me on [Github]().   
+  
+
+<br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/> <br/><br/><br/><br/><br/>  
+  
+
 # Table Of Contents. 
 
 - [Objectives](#Objectives)
@@ -77,7 +134,7 @@ There is a data oriented Sim DFS, which is executed via terminal and a interacti
 **Coding Paradigm:**     
 
 *Functions First Personality Later!*   
- 
+
 *All state must be kept in main.py*  
 
 ## Rules
@@ -509,4 +566,13 @@ Variables required for above
 Corruption %
 +/- indicator for polarity
 Original/counter indicator for class
-Content indicator for type (person, object or event)
+Content indicator for type (person, object or event)  
+  
+## Contributors  
+
+- Adam McMurchie
+- HaoYu Chen 
+  
+## If you liked this...  
+ 
+Please consider giving the repo a star :) or following me! 
