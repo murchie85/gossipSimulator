@@ -37,10 +37,17 @@ def options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT
 		
 		keys_pressed = pygame.key.get_pressed()
 		# INCREMENT CHARACTER SELECTOR 
-		if (gameClock > nextSelect):
-			if (keys_pressed[pygame.K_RIGHT]): spriteSelected +=1
-			if (keys_pressed[pygame.K_LEFT]): spriteSelected -=1
-			nextSelect += 200
+
+		# Get input without spamming
+		events = pygame.event.get()
+		for event in events:
+		    if event.type == pygame.KEYDOWN:
+		        if event.key == pygame.K_LEFT:
+		            spriteSelected -=1
+		        if event.key == pygame.K_RIGHT:
+		            spriteSelected +=1
+
+
 
 		if(spriteSelected > len(citizen_list) - 1): spriteSelected=0
 		if(spriteSelected < 0): spriteSelected=len(citizen_list) - 1
@@ -101,12 +108,25 @@ def options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT
 		drawText(SCREEN,menuFont,str("Target: " + str(citizenPrintArray[spriteSelected]['sampleTarget'])), 0.5*WIDTH,0.40*HEIGHT)
 		# write rumour, split onto two lines if needed
 		selectedRumour = citizenPrintArray[spriteSelected]['sampleRumour']
-		rows = math.ceil(len(selectedRumour)/40)
-		startL =0
-		for i in range(1,rows+1):
-			rowlen = 39
-			drawText(SCREEN,menuFont,str(selectedRumour)[startL:startL + rowlen ], 0.5*WIDTH,((0.40 + i*0.05)*HEIGHT))
-			startL=rowlen*i
+
+
+		rowLen,maxRL,words,i = 0,38,"",0
+		if(len(selectedRumour) <= maxRL):
+			drawText(SCREEN,menuFont,str(selectedRumour),0.5*WIDTH, 0.50*HEIGHT)
+		else:
+			for word in selectedRumour.split():
+				words+= word + ' '
+				if(len(words) >= maxRL):
+					drawText(SCREEN,menuFont,str(words),0.5*WIDTH, (0.50 + (i * 0.05) )*HEIGHT)
+					words = ""
+					i+=1
+			if(words!=""): drawText(SCREEN,menuFont,str(words),0.5*WIDTH,(0.50 + (i * 0.05) )*HEIGHT)
+
+
+
+
+
+
 
 		draw_spriteScaled(SCREEN,citizenPrintArray[spriteSelected]['citizenSprite'],pygame.Rect(WIDTH/2,0.7*HEIGHT,16,16),0,"down",0,96,96)
 

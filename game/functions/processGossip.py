@@ -132,7 +132,7 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, ty
 		
 
 		# Random updates to log
-		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n'),'logs/gossip.txt')
+		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n'),'logs/gossipAction.txt')
 
 
 

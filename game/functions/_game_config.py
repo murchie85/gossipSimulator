@@ -4,12 +4,50 @@ from ._game_functions import *
 
 WIDTH, HEIGHT = 1000 ,700
 tileSize = 32
-
 SCREEN  = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.font.init() 
 myfont   = pygame.font.Font("resources/nokiafc.ttf", 8)
 menuFont = pygame.font.Font("resources/nokiafc.ttf", 16)
-VEL    = 2
+
+
+
+## CAMERA
+vec = pygame.math.Vector2
+offset = vec(0,0)
+offset_float = vec(0,0)
+
+# The plus values change center, but map pos is off.
+CONST = vec(-WIDTH / 2 + 300, -HEIGHT / 2 + 200)
+snap =0
+sprite_frame=0
+keydown = False
+moving = 0
+ark_pos     = pygame.Rect(WIDTH/2,HEIGHT/2,tileSize/2,tileSize/2)
+
+clock       = pygame.time.Clock()
+run         = True                 # When False game exits
+gameCounter = 0                    # loop count 
+frameSwitch = 0                    # var to let us know the frame has been switched and to wait
+FPS         = 60                   # PS
+facing      = 'down'
+nextFrame   = pygame.time.get_ticks()
+
+noticationStatus = ""
+
+
+
+
+
+
+
+
+
+
+
+
+fonts = {'myfont':myfont,'menuFont':menuFont}
+
+VEL    = 5
 BOTVEL = 1
 
 
@@ -34,7 +72,7 @@ Dialoguebox  = pygame.image.load(DialoguePath).convert()
 #---------------CREATING BOT SPRITES------------------------
 
 spritePath  = '/Users/adammcmurchie/2021/fishwives/sprites/characters/'
-spriteNames = ['ark','claude','Diane','Doug','Eberle','Ileyda','Jean','Philis','rick','Telmia','Vanrose','Yurald']
+spriteNames = ['claude','Diane','Doug','Eberle','Ileyda','Jean','Philis','rick','Telmia','Vanrose','Yurald']
 botSprites = []
 for i in range(len(spriteNames)):
 	path = spritePath + spriteNames[i] +'/' + spriteNames[i] 

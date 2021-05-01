@@ -35,14 +35,39 @@ import random
 
 
  
-def initializeMovement(citizen,botSprites):
-		citizen['movement'] =  {"pos": pygame.Rect(random.randint(int(0.1*WIDTH),int(0.9*WIDTH)),random.randint(int(0.1*HEIGHT),int(0.9*HEIGHT)),tileSize,tileSize),
+def initializeMovement(citizen,botSprites,backgroundObjectMasks,spriteCounter):
+
+
+
+		# If position collides, try another random pos
+
+		noCol = False
+		while(noCol==False):
+
+			# Initialise a position on the map
+			xpos = random.randint(int(0.1*WIDTH),int(0.9*WIDTH))
+			ypos = random.randint(int(0.1*HEIGHT),int(0.9*HEIGHT))
+			charRect = pygame.Rect(xpos,ypos,tileSize,tileSize)
+			noCol = True
+			# if everything is fine this will pass through
+			for background in backgroundObjectMasks:
+				if(charRect.colliderect(background)):
+					noCol = False
+
+
+
+
+		citizen['movement'] =  {"pos": charRect,
 								"direction": 'none',
 								"walkDuration": 0,
 								"facing": 'down',
 								"moving": 0}
-		citizen['sprite'] = random.choice(botSprites)
-		return(citizen)
+
+		if(spriteCounter>= len(botSprites)):
+			spriteCounter =0
+
+		citizen['sprite'] = botSprites[spriteCounter]
+		return(citizen,spriteCounter)
 
 
 def processMovement(citizen,citizen_list,position,BOTVEL,WIDTH,HEIGHT,backgroundObjectMasks):
