@@ -1,6 +1,7 @@
-#               Gossip Simulator
+#  Celestus The Gossip Town
+## Simulating the Utility of Gossip, through status and propagation.
 
-![concept art](sprites/concept/head.png)
+![concept art](sprites/conceptSOCIAL/head.png)
 
 
 ## Author 
@@ -20,7 +21,7 @@ In Yuval Harai's pivotal book [Sapiens](https://www.ynharari.com/book/sapiens-2/
 
 ## Building Digital Fishwives 
 
-In this project I (Adam McMurchie) plan to build a series of bots which will simulate how a world will evolve overtime via a colection of rules which defines risks and rewards of gossip creation. These rules will be set at three tiers, environmental level, social level and household level. 
+In this project I am building a series of bots which will simulate how a world will evolve overtime via a colection of rules which defines risks and rewards of gossip creation. These rules will be set at three tiers, environmental level, social level and household level. 
 
  Dumb rules based optimisers will play part of the relatively disengaged population who partake in occasional gossiping. 
 
@@ -35,7 +36,7 @@ In this project I (Adam McMurchie) plan to build a series of bots which will sim
 
 Another optimiser will be tasked with gaining as much points by abusing the system to their benefit (it might not mean spreading it far and wide).
 
-
+[![IMAGE ALT TEXT HERE](sprites/conceptSOCIAL/title.png)](https://youtu.be/E7Ii-vlDomw)
   
 # Table Of Contents. 
 
