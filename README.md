@@ -1,5 +1,5 @@
 #  Celestus The Gossip Town
-## Simulating the Utility of Gossip, through status and propagation.
+## Simulating the Utility of Gossip, it's spread and impact on Status. 
 
 ![concept art](sprites/concept/head.jpg)
 
@@ -17,7 +17,8 @@
 
 In Yuval Harai's pivotal book [Sapiens](https://www.ynharari.com/book/sapiens-2/) the author explains how Story Telling and collective belief define the human race. In fact these uniquely human characteristics may have helped differentiate Sapiens from their historical competitors and allowed us to thrive into the technological society we have today. 
 
-![](https://cf.girlsaskguys.com/q3478164/primary-share.png?33)
+![](sprites/concept/terminal.png)
+
 
 ## Building Digital Fishwives 
 
@@ -25,7 +26,8 @@ In this project I am building a series of bots which will simulate how a world w
 
  Dumb rules based optimisers will play part of the relatively disengaged population who partake in occasional gossiping. 
 
-![](resources/mvpRun.png)
+[![IMAGE ALT TEXT HERE](sprites/concept/title.png)](https://youtu.be/E7Ii-vlDomw)
+ 
 
  The Digital Fishwife: will be AI optimisers designed with two main optimisers in consideration:
 
@@ -36,7 +38,6 @@ In this project I am building a series of bots which will simulate how a world w
 
 Another optimiser will be tasked with gaining as much points by abusing the system to their benefit (it might not mean spreading it far and wide).
 
-[![IMAGE ALT TEXT HERE](sprites/concept/title.png)](https://youtu.be/E7Ii-vlDomw)
   
 # Table Of Contents. 
 
@@ -73,8 +74,10 @@ There is a data oriented Sim DFS, which is executed via terminal and a interacti
 # Data Oriented Sim
 -----------------  
   
-**Coding Paradigm:**   
-*Functions First Personality Later!*  
+**Coding Paradigm:**     
+
+*Functions First Personality Later!*   
+ 
 *All state must be kept in main.py*  
 
 ## Rules
