@@ -12,7 +12,7 @@ import csv
 
 
 
-def startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,CITIENSCREATED='no',timer=0):
+def startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,LOGFILE,CITIENSCREATED='no',timer=0):
 	# Initialisation
 	clock = pygame.time.Clock()
 	optionRun = True
@@ -24,9 +24,9 @@ def startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,CITI
 
 	# INITIALISE LOG FILE 
 
-	with open('logs/recieve-gossip.csv', 'w', newline='') as csvfile:
+	with open(LOGFILE, 'w', newline='') as csvfile:
 		writer = csv.writer(csvfile)
-		writer.writerow(['Time','ID','Spreader','Audience','SP','Originalsp','AudienceKnownRumours','TotalRumours'])
+		writer.writerow(['Time','ID','Spreader','Audience','SP','Originalsp','AudienceKnownRumours','rumour target','sentiment','TotalRumours'])
 
 
 

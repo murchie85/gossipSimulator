@@ -1,0 +1,2316 @@
+{   'Aaron White': {   'CGP': 10,
+                       'SGP': 32,
+                       'SP': 55,
+                       'age': 72,
+                       'emotion': '😢',
+                       'friends': {},
+                       'knownRumours': {   '1': {   'action': 'received',
+                                                    'associated': 'Mark '
+                                                                  'Fornili',
+                                                    'trust': 60},
+                                           '10': {   'action': 'received',
+                                                     'associated': 'Mark '
+                                                                   'Fornili',
+                                                     'trust': 59},
+                                           '12': {   'action': 'received',
+                                                     'associated': 'Mark '
+                                                                   'Fornili',
+                                                     'trust': 43},
+                                           '14': {   'action': 'received',
+                                                     'associated': 'Mark '
+                                                                   'Fornili',
+                                                     'trust': 57},
+                                           '16': {   'action': 'received',
+                                                     'associated': 'Mark '
+                                                                   'Fornili',
+                                                     'trust': 10},
+                                           '18': {   'action': 'received',
+                                                     'associated': 'Mark '
+                                                                   'Fornili',
+                                                     'trust': 26},
+                                           '2': {   'action': 'received',
+                                                    'associated': 'Mark '
+                                                                  'Fornili',
+                                                    'trust': 28},
+                                           '21': {   'action': 'received',
+                                                     'associated': 'Mark '
+                                                                   'Fornili',
+                                                     'trust': 4},
+                                           '3': {   'action': 'received',
+                                                    'associated': 'Mark '
+                                                                  'Fornili',
+                                                    'trust': 0},
+                                           '4': {   'action': 'received',
+                                                    'associated': 'Mark '
+                                                                  'Fornili',
+                                                    'trust': 20},
+                                           '8': {   'action': 'received',
+                                                    'associated': 'Mark '
+                                                                  'Fornili',
+                                                    'trust': 42}},
+                       'location': 771,
+                       'name': 'Aaron White'},
+    'Andrew Maddox': {   'CGP': 42,
+                         'SGP': 13,
+                         'SP': 64,
+                         'age': 12,
+                         'emotion': '😢',
+                         'friends': {},
+                         'knownRumours': {   '222': {   'action': 'received',
+                                                        'associated': 'Eddie '
+                                                                      'Sims',
+                                                        'trust': 33}},
+                         'location': 164,
+                         'name': 'Andrew Maddox'},
+    'Angela Long': {   'CGP': 99,
+                       'SGP': 39,
+                       'SP': 795,
+                       'age': 68,
+                       'emotion': '😃',
+                       'friends': {},
+                       'knownRumours': {   '11': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '13': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '143': {   'action': 'created',
+                                                      'associated': 'Kathryn '
+                                                                    'Compton',
+                                                      'trust': 100},
+                                           '15': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '17': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '188': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '192': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '193': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '197': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '20': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '205': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '207': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '209': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '23': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '232': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '235': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '236': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '238': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '239': {   'action': 'created',
+                                                      'associated': 'Nathalie '
+                                                                    'Stuck',
+                                                      'trust': 100},
+                                           '24': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '26': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '27': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '34': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '36': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '37': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '38': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '39': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '40': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '41': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '42': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '43': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '44': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '45': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '46': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '47': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '48': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '49': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '5': {   'action': 'created',
+                                                    'associated': 'Nathalie '
+                                                                  'Stuck',
+                                                    'trust': 100},
+                                           '50': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '51': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '52': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '55': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '57': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '59': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '6': {   'action': 'created',
+                                                    'associated': 'Nathalie '
+                                                                  'Stuck',
+                                                    'trust': 100},
+                                           '62': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '64': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '7': {   'action': 'created',
+                                                    'associated': 'Nathalie '
+                                                                  'Stuck',
+                                                    'trust': 100},
+                                           '72': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '73': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '78': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '80': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '84': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '85': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '86': {   'action': 'created',
+                                                     'associated': 'Nathalie '
+                                                                   'Stuck',
+                                                     'trust': 100},
+                                           '9': {   'action': 'created',
+                                                    'associated': 'Nathalie '
+                                                                  'Stuck',
+                                                    'trust': 100}},
+                       'location': 578,
+                       'name': 'Angela Long'},
+    'Carol Cordero': {   'CGP': 2,
+                         'SGP': 28,
+                         'SP': 70,
+                         'age': 33,
+                         'emotion': '😢',
+                         'friends': {},
+                         'knownRumours': {   '170': {   'action': 'received',
+                                                        'associated': 'Jo Long',
+                                                        'trust': 6},
+                                             '172': {   'action': 'received',
+                                                        'associated': 'Jo Long',
+                                                        'trust': 36},
+                                             '186': {   'action': 'received',
+                                                        'associated': 'Jo Long',
+                                                        'trust': 61},
+                                             '221': {   'action': 'received',
+                                                        'associated': 'Jo Long',
+                                                        'trust': 35},
+                                             '224': {   'action': 'received',
+                                                        'associated': 'Jo Long',
+                                                        'trust': 21}},
+                         'location': 270,
+                         'name': 'Carol Cordero'},
+    'Crystal Miller': {   'CGP': 33,
+                          'SGP': 46,
+                          'SP': 23,
+                          'age': 40,
+                          'emotion': '😢',
+                          'friends': {},
+                          'knownRumours': {   '125': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 24},
+                                              '127': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 0},
+                                              '130': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 51},
+                                              '132': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 53},
+                                              '134': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 41},
+                                              '137': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 48},
+                                              '138': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 10},
+                                              '139': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 39},
+                                              '140': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 17},
+                                              '141': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 15},
+                                              '142': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 48},
+                                              '144': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 0},
+                                              '145': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 49},
+                                              '146': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 40},
+                                              '147': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 29},
+                                              '154': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 63},
+                                              '156': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 14},
+                                              '163': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 6},
+                                              '240': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 53},
+                                              '242': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 24},
+                                              '243': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 7},
+                                              '244': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 40},
+                                              '245': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 34},
+                                              '247': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 24},
+                                              '265': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 16},
+                                              '267': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 24},
+                                              '269': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 47},
+                                              '271': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 58},
+                                              '272': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 50},
+                                              '275': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 33},
+                                              '277': {   'action': 'received',
+                                                         'associated': 'Mark '
+                                                                       'Fornili',
+                                                         'trust': 55}},
+                          'location': 34,
+                          'name': 'Crystal Miller'},
+    'Eddie Sims': {   'CGP': 17,
+                      'SGP': 42,
+                      'SP': 114,
+                      'age': 53,
+                      'emotion': '😡',
+                      'friends': {},
+                      'knownRumours': {   '222': {   'action': 'created',
+                                                     'associated': 'Andrew '
+                                                                   'Maddox',
+                                                     'trust': 100},
+                                          '270': {   'action': 'received',
+                                                     'associated': 'Mike '
+                                                                   'Skerrett',
+                                                     'trust': 2},
+                                          '28': {   'action': 'created',
+                                                    'associated': 'Mike '
+                                                                  'Skerrett',
+                                                    'trust': 100}},
+                      'location': 885,
+                      'name': 'Eddie Sims'},
+    'Jack Martin': {   'CGP': 31,
+                       'SGP': 50,
+                       'SP': 36,
+                       'age': 29,
+                       'emotion': '😢',
+                       'friends': {},
+                       'knownRumours': {   '19': {   'action': 'received',
+                                                     'associated': 'John Wold',
+                                                     'trust': 31},
+                                           '22': {   'action': 'received',
+                                                     'associated': 'John Wold',
+                                                     'trust': 63},
+                                           '29': {   'action': 'received',
+                                                     'associated': 'John Wold',
+                                                     'trust': 3},
+                                           '30': {   'action': 'received',
+                                                     'associated': 'John Wold',
+                                                     'trust': 16},
+                                           '33': {   'action': 'received',
+                                                     'associated': 'John Wold',
+                                                     'trust': 65},
+                                           '93': {   'action': 'received',
+                                                     'associated': 'Mark '
+                                                                   'Fornili',
+                                                     'trust': 22}},
+                       'location': 756,
+                       'name': 'Jack Martin'},
+    'Jane Crawford': {   'CGP': 38,
+                         'SGP': 8,
+                         'SP': 45,
+                         'age': 8,
+                         'emotion': '😢',
+                         'friends': {},
+                         'knownRumours': {   '198': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 4},
+                                             '199': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 6},
+                                             '201': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 46},
+                                             '203': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 31},
+                                             '204': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 63},
+                                             '206': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 37},
+                                             '208': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 25},
+                                             '210': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 57},
+                                             '213': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 21},
+                                             '215': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 32},
+                                             '219': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 8},
+                                             '220': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 8},
+                                             '223': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 0},
+                                             '225': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 10},
+                                             '226': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 59},
+                                             '228': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 27},
+                                             '229': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 63},
+                                             '230': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 62},
+                                             '231': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 25},
+                                             '233': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 33},
+                                             '234': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 19},
+                                             '237': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 44},
+                                             '241': {   'action': 'received',
+                                                        'associated': 'Kathryn '
+                                                                      'Compton',
+                                                        'trust': 18},
+                                             '246': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 33},
+                                             '248': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 55},
+                                             '25': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 33},
+                                             '273': {   'action': 'received',
+                                                        'associated': 'John '
+                                                                      'Wold',
+                                                        'trust': 51},
+                                             '53': {   'action': 'received',
+                                                       'associated': 'Kathryn '
+                                                                     'Compton',
+                                                       'trust': 53},
+                                             '54': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 32},
+                                             '56': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 25},
+                                             '58': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 37},
+                                             '60': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 57},
+                                             '61': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 58},
+                                             '63': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 1},
+                                             '65': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 43},
+                                             '66': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 32},
+                                             '67': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 17},
+                                             '68': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 43},
+                                             '69': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 30},
+                                             '70': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 49},
+                                             '71': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 59},
+                                             '79': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 14},
+                                             '81': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 43},
+                                             '82': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 14},
+                                             '83': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 18},
+                                             '87': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 39},
+                                             '88': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 36},
+                                             '90': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 25},
+                                             '91': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 15},
+                                             '92': {   'action': 'received',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 65}},
+                         'location': 685,
+                         'name': 'Jane Crawford'},
+    'Jo Long': {   'CGP': 63,
+                   'SGP': 45,
+                   'SP': 148,
+                   'age': 3,
+                   'emotion': '😐',
+                   'friends': {},
+                   'knownRumours': {   '123': {   'action': 'created',
+                                                  'associated': 'Nathalie '
+                                                                'Stuck',
+                                                  'trust': 100},
+                                       '170': {   'action': 'created',
+                                                  'associated': 'Carol Cordero',
+                                                  'trust': 100},
+                                       '172': {   'action': 'created',
+                                                  'associated': 'Carol Cordero',
+                                                  'trust': 100},
+                                       '186': {   'action': 'created',
+                                                  'associated': 'Carol Cordero',
+                                                  'trust': 100},
+                                       '221': {   'action': 'created',
+                                                  'associated': 'Carol Cordero',
+                                                  'trust': 100},
+                                       '224': {   'action': 'created',
+                                                  'associated': 'Carol Cordero',
+                                                  'trust': 100},
+                                       '227': {   'action': 'created',
+                                                  'associated': 'Nathalie '
+                                                                'Stuck',
+                                                  'trust': 100}},
+                   'location': 368,
+                   'name': 'Jo Long'},
+    'John Wold': {   'CGP': 85,
+                     'SGP': 77,
+                     'SP': 1684,
+                     'age': 19,
+                     'emotion': '😃',
+                     'friends': {},
+                     'knownRumours': {   '100': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '101': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '102': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '103': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '104': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '105': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '106': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '107': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '108': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '109': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '110': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '111': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '112': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '113': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '114': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '115': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '116': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '117': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '118': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '119': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '120': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '121': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '122': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '124': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '126': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '128': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '129': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '131': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '133': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '135': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '136': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '148': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '149': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '150': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '151': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '152': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '153': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '155': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '157': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '158': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '159': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '160': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '161': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '162': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '164': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '165': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '166': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '167': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '168': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '169': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '171': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '173': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '174': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '175': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '176': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '177': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '178': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '179': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '180': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '181': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '182': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '183': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '19': {   'action': 'created',
+                                                   'associated': 'Jack Martin',
+                                                   'trust': 100},
+                                         '198': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '199': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '201': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '203': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '204': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '206': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '208': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '210': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '211': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '212': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '213': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '214': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '215': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '216': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '217': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '218': {   'action': 'created',
+                                                    'associated': 'Kathryn '
+                                                                  'Compton',
+                                                    'trust': 100},
+                                         '219': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '22': {   'action': 'created',
+                                                   'associated': 'Jack Martin',
+                                                   'trust': 100},
+                                         '220': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '223': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '225': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '226': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '228': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '229': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '230': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '231': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '233': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '234': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '237': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '246': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '248': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '249': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '25': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '250': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '251': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '252': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '253': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '254': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '255': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '256': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '257': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '258': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '259': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '260': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '261': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '262': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '263': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '264': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '266': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '268': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '273': {   'action': 'created',
+                                                    'associated': 'Jane '
+                                                                  'Crawford',
+                                                    'trust': 100},
+                                         '274': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '276': {   'action': 'created',
+                                                    'associated': 'Kenneth '
+                                                                  'Thigpen',
+                                                    'trust': 100},
+                                         '29': {   'action': 'created',
+                                                   'associated': 'Jack Martin',
+                                                   'trust': 100},
+                                         '30': {   'action': 'created',
+                                                   'associated': 'Jack Martin',
+                                                   'trust': 100},
+                                         '31': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '32': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '33': {   'action': 'created',
+                                                   'associated': 'Jack Martin',
+                                                   'trust': 100},
+                                         '35': {   'action': 'received',
+                                                   'associated': 'Mike '
+                                                                 'Skerrett',
+                                                   'trust': 34},
+                                         '54': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '56': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '58': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '60': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '61': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '63': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '65': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '66': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '67': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '68': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '69': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '70': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '71': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '74': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '75': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '76': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '77': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '79': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '81': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '82': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '83': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '87': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '88': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '89': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '90': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '91': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '92': {   'action': 'created',
+                                                   'associated': 'Jane '
+                                                                 'Crawford',
+                                                   'trust': 100},
+                                         '94': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '95': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '96': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100},
+                                         '97': {   'action': 'created',
+                                                   'associated': 'Kathryn '
+                                                                 'Compton',
+                                                   'trust': 100},
+                                         '98': {   'action': 'created',
+                                                   'associated': 'Kathryn '
+                                                                 'Compton',
+                                                   'trust': 100},
+                                         '99': {   'action': 'created',
+                                                   'associated': 'Kenneth '
+                                                                 'Thigpen',
+                                                   'trust': 100}},
+                     'location': 690,
+                     'name': 'John Wold'},
+    'Kathryn Compton': {   'CGP': 10,
+                           'SGP': 100,
+                           'SP': 77,
+                           'age': 25,
+                           'emotion': '😡',
+                           'friends': {},
+                           'knownRumours': {   '100': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 29},
+                                               '101': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 4},
+                                               '106': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 26},
+                                               '107': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 5},
+                                               '108': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 3},
+                                               '109': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 14},
+                                               '110': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 49},
+                                               '111': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 47},
+                                               '112': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 36},
+                                               '113': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 53},
+                                               '114': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 1},
+                                               '115': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 59},
+                                               '116': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 23},
+                                               '117': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 40},
+                                               '118': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 65},
+                                               '119': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 31},
+                                               '120': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 50},
+                                               '121': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 58},
+                                               '122': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 42},
+                                               '124': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 53},
+                                               '126': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 1},
+                                               '128': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 62},
+                                               '129': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 33},
+                                               '131': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 21},
+                                               '133': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 33},
+                                               '135': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 65},
+                                               '136': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 1},
+                                               '143': {   'action': 'received',
+                                                          'associated': 'Angela '
+                                                                        'Long',
+                                                          'trust': 40},
+                                               '168': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 13},
+                                               '169': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 8},
+                                               '171': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 25},
+                                               '173': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 53},
+                                               '174': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 62},
+                                               '175': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 58},
+                                               '176': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 25},
+                                               '177': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 9},
+                                               '178': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 34},
+                                               '179': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 29},
+                                               '180': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 63},
+                                               '181': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 59},
+                                               '182': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 11},
+                                               '183': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 27},
+                                               '211': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 10},
+                                               '212': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 31},
+                                               '214': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 24},
+                                               '216': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 45},
+                                               '217': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 48},
+                                               '218': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 42},
+                                               '241': {   'action': 'created',
+                                                          'associated': 'Jane '
+                                                                        'Crawford',
+                                                          'trust': 100},
+                                               '53': {   'action': 'created',
+                                                         'associated': 'Jane '
+                                                                       'Crawford',
+                                                         'trust': 100},
+                                               '97': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 45},
+                                               '98': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 42}},
+                           'location': 710,
+                           'name': 'Kathryn Compton'},
+    'Kenneth Thigpen': {   'CGP': 37,
+                           'SGP': 2,
+                           'SP': 73,
+                           'age': 18,
+                           'emotion': '😢',
+                           'friends': {},
+                           'knownRumours': {   '102': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 37},
+                                               '103': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 60},
+                                               '104': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 43},
+                                               '105': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 18},
+                                               '148': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 26},
+                                               '149': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 36},
+                                               '150': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 22},
+                                               '151': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 41},
+                                               '152': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 26},
+                                               '153': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 31},
+                                               '155': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 53},
+                                               '157': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 36},
+                                               '158': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 21},
+                                               '159': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 60},
+                                               '160': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 61},
+                                               '161': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 41},
+                                               '162': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 27},
+                                               '164': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 43},
+                                               '165': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 48},
+                                               '166': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 42},
+                                               '167': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 5},
+                                               '249': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 22},
+                                               '250': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 19},
+                                               '251': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 50},
+                                               '252': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 54},
+                                               '253': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 50},
+                                               '254': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 21},
+                                               '255': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 57},
+                                               '256': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 27},
+                                               '257': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 55},
+                                               '258': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 37},
+                                               '259': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 26},
+                                               '260': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 3},
+                                               '261': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 50},
+                                               '262': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 19},
+                                               '263': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 2},
+                                               '264': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 65},
+                                               '266': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 44},
+                                               '268': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 41},
+                                               '274': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 42},
+                                               '276': {   'action': 'received',
+                                                          'associated': 'John '
+                                                                        'Wold',
+                                                          'trust': 63},
+                                               '31': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 16},
+                                               '32': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 8},
+                                               '74': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 64},
+                                               '75': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 11},
+                                               '76': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 44},
+                                               '77': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 53},
+                                               '89': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 13},
+                                               '94': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 11},
+                                               '95': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 31},
+                                               '96': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 39},
+                                               '99': {   'action': 'received',
+                                                         'associated': 'John '
+                                                                       'Wold',
+                                                         'trust': 9}},
+                           'location': 694,
+                           'name': 'Kenneth Thigpen'},
+    'Mark Fornili': {   'CGP': 94,
+                        'SGP': 33,
+                        'SP': 608,
+                        'age': 77,
+                        'emotion': '😃',
+                        'friends': {},
+                        'knownRumours': {   '1': {   'action': 'created',
+                                                     'associated': 'Aaron '
+                                                                   'White',
+                                                     'trust': 100},
+                                            '10': {   'action': 'created',
+                                                      'associated': 'Aaron '
+                                                                    'White',
+                                                      'trust': 100},
+                                            '12': {   'action': 'created',
+                                                      'associated': 'Aaron '
+                                                                    'White',
+                                                      'trust': 100},
+                                            '125': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '127': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '130': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '132': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '134': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '137': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '138': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '139': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '14': {   'action': 'created',
+                                                      'associated': 'Aaron '
+                                                                    'White',
+                                                      'trust': 100},
+                                            '140': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '141': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '142': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '144': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '145': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '146': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '147': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '154': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '156': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '16': {   'action': 'created',
+                                                      'associated': 'Aaron '
+                                                                    'White',
+                                                      'trust': 100},
+                                            '163': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '18': {   'action': 'created',
+                                                      'associated': 'Aaron '
+                                                                    'White',
+                                                      'trust': 100},
+                                            '184': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '185': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '187': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '189': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '190': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '191': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '194': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '195': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '196': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '2': {   'action': 'created',
+                                                     'associated': 'Aaron '
+                                                                   'White',
+                                                     'trust': 100},
+                                            '200': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '202': {   'action': 'created',
+                                                       'associated': 'Mike '
+                                                                     'Skerrett',
+                                                       'trust': 100},
+                                            '21': {   'action': 'created',
+                                                      'associated': 'Aaron '
+                                                                    'White',
+                                                      'trust': 100},
+                                            '240': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '242': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '243': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '244': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '245': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '247': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '265': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '267': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '269': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '271': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '272': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '275': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '277': {   'action': 'created',
+                                                       'associated': 'Crystal '
+                                                                     'Miller',
+                                                       'trust': 100},
+                                            '3': {   'action': 'created',
+                                                     'associated': 'Aaron '
+                                                                   'White',
+                                                     'trust': 100},
+                                            '4': {   'action': 'created',
+                                                     'associated': 'Aaron '
+                                                                   'White',
+                                                     'trust': 100},
+                                            '8': {   'action': 'created',
+                                                     'associated': 'Aaron '
+                                                                   'White',
+                                                     'trust': 100},
+                                            '93': {   'action': 'created',
+                                                      'associated': 'Jack '
+                                                                    'Martin',
+                                                      'trust': 100}},
+                        'location': 34,
+                        'name': 'Mark Fornili'},
+    'Mike Skerrett': {   'CGP': 41,
+                         'SGP': 92,
+                         'SP': 22,
+                         'age': 38,
+                         'emotion': '😢',
+                         'friends': {},
+                         'knownRumours': {   '184': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 56},
+                                             '185': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 2},
+                                             '187': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 8},
+                                             '189': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 6},
+                                             '190': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 49},
+                                             '191': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 57},
+                                             '194': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 22},
+                                             '195': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 14},
+                                             '196': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 52},
+                                             '200': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 20},
+                                             '202': {   'action': 'received',
+                                                        'associated': 'Mark '
+                                                                      'Fornili',
+                                                        'trust': 53},
+                                             '270': {   'action': 'created',
+                                                        'associated': 'Eddie '
+                                                                      'Sims',
+                                                        'trust': 100},
+                                             '28': {   'action': 'received',
+                                                       'associated': 'Eddie '
+                                                                     'Sims',
+                                                       'trust': 23},
+                                             '35': {   'action': 'created',
+                                                       'associated': 'John '
+                                                                     'Wold',
+                                                       'trust': 100}},
+                         'location': 931,
+                         'name': 'Mike Skerrett'},
+    'Nathalie Stuck': {   'CGP': 54,
+                          'SGP': 88,
+                          'SP': 13,
+                          'age': 14,
+                          'emotion': '😢',
+                          'friends': {},
+                          'knownRumours': {   '11': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 54},
+                                              '123': {   'action': 'received',
+                                                         'associated': 'Jo '
+                                                                       'Long',
+                                                         'trust': 60},
+                                              '13': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 48},
+                                              '15': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 64},
+                                              '17': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 8},
+                                              '188': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 61},
+                                              '192': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 19},
+                                              '193': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 25},
+                                              '197': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 40},
+                                              '20': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 26},
+                                              '205': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 25},
+                                              '207': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 41},
+                                              '209': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 45},
+                                              '227': {   'action': 'received',
+                                                         'associated': 'Jo '
+                                                                       'Long',
+                                                         'trust': 32},
+                                              '23': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 32},
+                                              '232': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 52},
+                                              '235': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 55},
+                                              '236': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 33},
+                                              '238': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 40},
+                                              '239': {   'action': 'received',
+                                                         'associated': 'Angela '
+                                                                       'Long',
+                                                         'trust': 57},
+                                              '24': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 55},
+                                              '26': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 0},
+                                              '27': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 3},
+                                              '34': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 50},
+                                              '36': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 6},
+                                              '37': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 63},
+                                              '38': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 18},
+                                              '39': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 24},
+                                              '40': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 47},
+                                              '41': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 3},
+                                              '42': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 56},
+                                              '43': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 64},
+                                              '44': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 48},
+                                              '45': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 57},
+                                              '46': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 5},
+                                              '47': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 49},
+                                              '48': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 54},
+                                              '49': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 37},
+                                              '5': {   'action': 'received',
+                                                       'associated': 'Angela '
+                                                                     'Long',
+                                                       'trust': 19},
+                                              '50': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 45},
+                                              '51': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 55},
+                                              '52': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 50},
+                                              '55': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 41},
+                                              '57': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 36},
+                                              '59': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 5},
+                                              '6': {   'action': 'received',
+                                                       'associated': 'Angela '
+                                                                     'Long',
+                                                       'trust': 39},
+                                              '62': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 43},
+                                              '64': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 44},
+                                              '7': {   'action': 'received',
+                                                       'associated': 'Angela '
+                                                                     'Long',
+                                                       'trust': 26},
+                                              '72': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 44},
+                                              '73': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 43},
+                                              '78': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 24},
+                                              '80': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 7},
+                                              '84': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 52},
+                                              '85': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 27},
+                                              '86': {   'action': 'received',
+                                                        'associated': 'Angela '
+                                                                      'Long',
+                                                        'trust': 51},
+                                              '9': {   'action': 'received',
+                                                       'associated': 'Angela '
+                                                                     'Long',
+                                                       'trust': 41}},
+                          'location': 497,
+                          'name': 'Nathalie Stuck'}}

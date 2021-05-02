@@ -8,6 +8,8 @@ import math
 import time
 from art import *
 from .utils import med_print
+from .logging import *
+import random
 
 blockLen     = 50
 blocksPerRow = 3
@@ -129,3 +131,16 @@ def printNotification(message, messageTime):
 
 	if messageTime < 0:
 		return('free',messageTime)
+
+def logRandomUpdate(gossipUpdates,chosenGossip,filePath):
+	if((len(gossipUpdates) > 0 )):
+		oldGossip    = chosenGossip	
+		if(oldGossip in gossipUpdates):
+			return(chosenGossip)
+		else:
+			chosenGossip = random.choice(gossipUpdates)
+			um = str('New Gossip: ' + str(chosenGossip['creator']) + " : " + str(chosenGossip['rumour'] + '\n'))
+			logUpdateMessage(um,filePath)
+
+	return(chosenGossip)
+

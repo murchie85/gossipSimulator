@@ -1,0 +1,3 @@
+gossipStimulation: A maximum random value added to users gossip probability, used in the RULE: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)):
+talkingDistance:A value where if citizens are within this, they can talk and gossip.
+if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)):

@@ -3,6 +3,8 @@ import os
 import time
 import math
 import random
+import pprint
+
 
 
 ## Internal game libraries
@@ -20,9 +22,23 @@ from functions.botDecisionTree import *
 from functions.logging import *
 
 
-if os.path.exists("logs/gossip.txt"):os.remove("logs/gossip.txt")
-if os.path.exists("recieve-gossip.csv"):os.remove("logs/recieve-gossip.csv")
-if os.path.exists("recieve-gossip.csv"):os.remove("logs/gossipAction.txt")
+
+GOSSIP_LOGFILE        = "logs/LOGS_gossip.txt"
+RECEIVE_LOGFILE       = "logs/LOGS_recieved-gossip.csv"
+GOSSIP_ACTIONS        = "logs/LOGS_gossip_actions.txt"
+
+DATABASE_CITIZENLIST  = "logs/DATABASE_CitizensList.txt"
+DATABASE_GOSSIP       = "logs/DATABASE_Gossip.txt"
+
+LOG_DICT ={"GOSSIP_LOGFILE":GOSSIP_LOGFILE,"RECEIVE_LOGFILE": RECEIVE_LOGFILE, "DATABASE_CITIZENLIST": DATABASE_CITIZENLIST,"DATABASE_GOSSIP":DATABASE_GOSSIP,"GOSSIP_ACTIONS":GOSSIP_ACTIONS}
+
+
+
+if os.path.exists(GOSSIP_LOGFILE):os.remove(GOSSIP_LOGFILE)
+if os.path.exists(RECEIVE_LOGFILE):os.remove(RECEIVE_LOGFILE)
+if os.path.exists(GOSSIP_ACTIONS):os.remove(GOSSIP_ACTIONS)
+if os.path.exists(DATABASE_CITIZENLIST):os.remove(DATABASE_CITIZENLIST)
+if os.path.exists(DATABASE_GOSSIP):os.remove(DATABASE_GOSSIP)
 
 
 #-----------------GAME VARIABLES-------------------
@@ -45,7 +61,7 @@ time_increment = 1
 # Citizens
 numberOfCitizens = 15
 # Files
-gossip_file = "gossip/mvpGossip.txt"
+gossip_file = "gossip/gossipDict.txt"
 
 
 #--------------------
@@ -59,7 +75,7 @@ gossip_database = {}
 
 
 
-def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CONST, snap, keydown,moving, ark_pos, clock,run,gameCounter,frameSwitch,FPS,facing,nextFrame,noticationStatus):
+def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CONST, snap, keydown,moving, ark_pos, clock,run,gameCounter,frameSwitch,FPS,facing,nextFrame,noticationStatus,LOG_DICT):
 	#************************************************************************************
 	#
 	#              ---------------INITIALISATION--------------                          *
@@ -79,7 +95,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 
 
 	#pygame
-	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens, WIDTH,HEIGHT)
+	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,LOG_DICT['RECEIVE_LOGFILE'])
 	spriteCounter = 0
 	SCREEN.fill((0,0,0))
 
@@ -88,7 +104,6 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 		citizen  = citizen_list[key]
 		citizen,spriteCounter = initializeMovement(citizen,botSprites,backgroundObjectMasks,spriteCounter)
 		spriteCounter+=1
-
 
 
 
@@ -124,7 +139,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 			#  ------WALK------
 			citizen = processMovement(citizen,citizen_list,position,BOTVEL,WIDTH,HEIGHT,backgroundObjectMasks)
 			# ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
-			citizen,citizen_list,gossip_database,gossipObject = gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,citizen['movement']['pos'])
+			citizen,citizen_list,gossip_database,gossipObject = gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,citizen['movement']['pos'],LOG_DICT)
 			# UPATES
 			if (len(gossipObject) > 0): gossipUpdates.append(gossipObject)
 
@@ -216,7 +231,16 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 		drawText(SCREEN,myfont,str(out),0.05*WIDTH, 0.14*HEIGHT)
 
 		# Choses a random gossip string to write, skips if no new updates
-		chosenGossip = logRandomUpdate(gossipUpdates,chosenGossip,'logs/gossip.txt')
+		chosenGossip = logRandomUpdate(gossipUpdates,chosenGossip,LOG_DICT['GOSSIP_LOGFILE'])
+
+
+		# Save latest data structure
+		pout = pprint.pformat(citizen_list, indent=4)
+		logUpdateMessage(pout,DATABASE_CITIZENLIST,'w')
+
+		# Save latest Gossip data structure
+		pout = pprint.pformat(gossip_database, indent=4)
+		logUpdateMessage(pout,DATABASE_GOSSIP,'w')
 		#************************************************************************************
 		#
 		#              ---------------NOTIFICATIONS----------------                          *
@@ -230,7 +254,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 		# PULL A NOTIFICATION
 		if((len(gossipUpdates) > 0)):
 			if(noticationStatus == "free"):
-				randomLogfile = random.choice(['logs/gossip.txt','logs/gossipAction.txt'])
+				randomLogfile = random.choice([LOG_DICT["GOSSIP_LOGFILE"],LOG_DICT["GOSSIP_ACTIONS"]])
 				with open(randomLogfile, 'r') as f:
 					lines = f.read().splitlines()
 					last_line = lines[-1]
@@ -281,4 +305,4 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 
 
 if __name__ == '__main__':
-	main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CONST, snap, keydown,moving, ark_pos, clock,run,gameCounter,frameSwitch,FPS,facing,nextFrame,noticationStatus)
+	main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CONST, snap, keydown,moving, ark_pos, clock,run,gameCounter,frameSwitch,FPS,facing,nextFrame,noticationStatus,LOG_DICT)

@@ -53,7 +53,7 @@ def processMovement(citizen,position):
 
 
 
-def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,position):
+def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,position,LOG_DICT):
 	# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
 
 	## CHECK IF POSTION IS NEAR THEN SHARE GOSSIP
@@ -76,9 +76,12 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 
 
-		# RANDOM CHANCE
+		# GET RULES
+		gossipStimulation = int(getRules("rules/RULES.txt",'gossipStimulation'))
+		talkingDistance  = int(getRules("rules/RULES.txt",'talkingDistance'))
+
+
 		createGossipProbability = thisCitizen['CGP']
-		gossipStimulation = getRules("rules.txt",'gossipStimulation')
 		chance = random.randint(1,int(gossipStimulation))
 		myChance = createGossipProbability + chance
 
@@ -87,7 +90,7 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 
 		# CREATE AND SPREAD GOSSIP
-		if((myChance > 90) and (distanceApart < 10) or (luckyChance == 10)):
+		if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)):
 			#print(str(thisCitizen['name']) + ' and ' + str(other_citizen['name']) + ' are within ' + str(distanceApart) + ' of each other and about to gossip.')
 			#print(str(thisCitizen['name']) + ' cgp= ' + str(createGossipProbability) + ' chance= ' + str(chance) )
 			#print('lucky chance = ' + str(luckyChance))
@@ -96,10 +99,10 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
 			
 			# updates the fishwifes internal reference
-			citizen_list = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject, 'create')
+			citizen_list = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject, 'create',LOG_DICT)
 
 			# Reciever accepts rumour (at a given trust value)
-			citizen_list = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject, 'acceptRumour')
+			citizen_list = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject, 'acceptRumour',LOG_DICT)
 
 
 

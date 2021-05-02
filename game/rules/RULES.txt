@@ -1,0 +1,1 @@
+gossipStimulation:30,talkingDistance:50

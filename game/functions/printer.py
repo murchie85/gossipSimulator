@@ -11,6 +11,7 @@ from .utils import med_print
 import pygame
 from ._game_functions import *
 from .logging import *
+import random
 
 blockLen     = 50
 blocksPerRow = 3

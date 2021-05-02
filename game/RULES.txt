@@ -1,1 +1,0 @@
-gossipStimulation:30,generalChance:50

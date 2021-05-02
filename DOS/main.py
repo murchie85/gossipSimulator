@@ -14,16 +14,30 @@
 ## Internal libraries
 from functions.create_citizen import *
 from functions.utils import *
-from functions.draw import *
+from functions.printer import *
 from functions.processGossip import *  
 from functions.botDecisionTree import * 
 from functions.logging import *
 import time
+import random
 import os
+import pprint
 
 
-if os.path.exists("logs/gossip.txt"):os.remove("logs/gossip.txt")
-if os.path.exists("recieve-gossip.csv"):os.remove("recieve-gossip.csv")
+#LOGS_gossip_actions
+GOSSIP_LOGFILE        = "logs/LOGS_gossip.txt"
+GOSSIP_ACTIONS        = "logs/LOGS_gossip_actions.txt"
+RECEIVE_LOGFILE       = "logs/LOGS_recieved-gossip.csv"
+
+DATABASE_CITIZENLIST  = "logs/DATABASE_CitizensList.txt"
+DATABASE_GOSSIP       = "logs/DATABASE_Gossip.txt"
+LOG_DICT ={"GOSSIP_LOGFILE":GOSSIP_LOGFILE,"GOSSIP_ACTIONS":GOSSIP_ACTIONS,"RECEIVE_LOGFILE": RECEIVE_LOGFILE, "DATABASE_CITIZENLIST": DATABASE_CITIZENLIST,"DATABASE_GOSSIP":DATABASE_GOSSIP}
+
+if os.path.exists(GOSSIP_LOGFILE):os.remove(GOSSIP_LOGFILE)
+if os.path.exists(GOSSIP_ACTIONS):os.remove(GOSSIP_ACTIONS)
+if os.path.exists(RECEIVE_LOGFILE):os.remove(RECEIVE_LOGFILE)
+if os.path.exists(DATABASE_CITIZENLIST):os.remove(DATABASE_CITIZENLIST)
+if os.path.exists(DATABASE_GOSSIP):os.remove(DATABASE_GOSSIP)
 
 
 #**************************************  
@@ -49,24 +63,27 @@ messageTime       = 5
 citizen_count = 15
 
 # Files
-gossip_file = "gossip/mvpGossip.txt"
+gossip_file = "gossip/gossipDict.txt"
 
 #--------------------
 ## DATABASE CREATION 
 #--------------------
 citizen_list = generateCitizens(15)
 gossip_database = {}
-
+chosenGossip = ""
 
 
 
 
 
 # Print start 
-init_files()
+init_files(RECEIVE_LOGFILE)
 startMesssage(citizen_count,citizen_list,'yes')
 # time buffered by sleep
 # This clears the screen
+
+
+
 print("\033c")
 ## This loops until it gets the a full month
 for i in range(0, month_len):
@@ -98,7 +115,7 @@ for i in range(0, month_len):
 
 
 		# ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
-		citizen,citizen_list,gossip_database,gossipObject = gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,position)
+		citizen,citizen_list,gossip_database,gossipObject = gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,position,LOG_DICT)
 
 
 		# UPATES
@@ -140,10 +157,21 @@ for i in range(0, month_len):
 	
 	#-------top print block------
 
+
+	#************************************************************************************
+	#
+	#              ---------------NOTIFICATION AND LOGGING---------------                          *
+	#
+	#************************************************************************************
+
+
 	# ------UPDATE NOTIFICATION TIMER 
 	noticationStatus,messageTime = printNotification(message, messageTime)
 	if(noticationStatus != "running"):
 		print('length gossip DB: ' + str(len(gossip_database)))
+
+	# Choses a random gossip string to write, skips if no new updates
+	chosenGossip = logRandomUpdate(gossipUpdates,chosenGossip,LOG_DICT['GOSSIP_LOGFILE'])
 
 	# PRINT A NOTIFICATION
 	if((len(gossipUpdates) > 0)):
@@ -156,7 +184,7 @@ for i in range(0, month_len):
 				messageTime = 5
 				gossipUpdates = []
 			else:
-				with open('logs/gossip.txt', 'r') as f:
+				with open(GOSSIP_ACTIONS, 'r') as f:
 				    lines = f.read().splitlines()
 				    last_line = lines[-1]
 				    message = str(' 😃 Gossip News 😃 ') +  last_line
@@ -165,6 +193,13 @@ for i in range(0, month_len):
 				    f.close()
 
 
+	# Save latest data structure
+	pout = pprint.pformat(citizen_list, indent=4)
+	logUpdateMessage(pout,DATABASE_CITIZENLIST,'w')
+
+	# Save latest Gossip data structure
+	pout = pprint.pformat(gossip_database, indent=4)
+	logUpdateMessage(pout,DATABASE_GOSSIP,'w')
 	
 	time.sleep(0.5)	
 	# This clears the screen

@@ -1,0 +1,24 @@
+Time,ID,Spreader,Audience,SP,Originalsp,AudienceKnownRumours,Rumour Target,sentiment,TotalRumours
+05/02/2021 02:13:17,1,Herman Marr,Marjorie Cosentino,5,22,1,Kimberly Klotz,16,2
+05/02/2021 02:13:17,2,Jose Davidson,Martin Blaida,14,94,1,Kimberly Klotz,76,4
+05/02/2021 02:13:17,3,Herman Marr,Marjorie Cosentino,19,27,2,Irvin Shields,4,6
+05/02/2021 02:13:17,4,Marjorie Cosentino,Herman Marr,4,53,3,Martin Blaida,50,8
+05/02/2021 02:13:18,5,Herman Marr,Marjorie Cosentino,28,46,4,Kimberly Klotz,81,10
+05/02/2021 02:13:18,6,Jose Davidson,Martin Blaida,3,108,2,Jeff Stout,1,12
+05/02/2021 02:13:18,7,Marjorie Cosentino,Herman Marr,37,57,5,Amy Fonua,45,14
+05/02/2021 02:13:19,8,Herman Marr,Marjorie Cosentino,7,74,6,Ronald Hannan,96,16
+05/02/2021 02:13:19,9,Irvin Shields,Barbara Boone,1,89,1,Jose Davidson,93,18
+05/02/2021 02:13:19,10,Marjorie Cosentino,Herman Marr,4,94,7,Jose Davidson,33,20
+05/02/2021 02:13:19,11,Herman Marr,Marjorie Cosentino,9,81,8,Charles Tennill,50,22
+05/02/2021 02:13:20,12,Herman Marr,Marjorie Cosentino,25,90,9,Leigh Angulo,0,24
+05/02/2021 02:13:20,13,Jose Davidson,Martin Blaida,18,111,3,Jeff Stout,26,26
+05/02/2021 02:13:20,14,Herman Marr,Marjorie Cosentino,56,115,10,Amy Fonua,18,28
+05/02/2021 02:13:20,15,Marjorie Cosentino,Herman Marr,6,98,11,Leigh Angulo,36,30
+05/02/2021 02:13:21,16,Patricia Mccullough,Robin Godwin,1,45,1,Barbara Boone,66,32
+05/02/2021 02:13:22,17,Ronald Hannan,Frank Shapiro,1,6,1,Amy Fonua,25,34
+05/02/2021 02:13:23,18,Frank Shapiro,Ronald Hannan,4,12,2,Jose Davidson,83,36
+05/02/2021 02:13:23,19,Ronald Hannan,Frank Shapiro,17,7,3,Jose Davidson,11,38
+05/02/2021 02:13:24,20,Jose Davidson,Martin Blaida,9,129,4,Patricia Mccullough,42,40
+05/02/2021 02:13:25,21,Frank Shapiro,Ronald Hannan,7,16,4,Jose Davidson,26,42
+05/02/2021 02:13:25,22,Jose Davidson,Martin Blaida,6,138,5,Ronald Hannan,51,44
+05/02/2021 02:13:25,23,Jose Davidson,Martin Blaida,30,144,6,Martin Blaida,32,46

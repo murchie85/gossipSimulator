@@ -1,0 +1,19 @@
+Time,ID,Spreader,Audience,SP,Originalsp,AudienceKnownRumours,rumour target,sentiment,TotalRumours
+05/02/2021 02:17:50,1,Paula Pursley,Jimmy Schenck,5,47,1,Earl Russell,80,2
+05/02/2021 02:17:50,2,Earl Russell,Noreen Lynch,8,30,1,Jennifer Paquette,14,4
+05/02/2021 02:17:50,3,Maurice Robertson,Marie Magera,3,7,1,Jimmy Schenck,77,6
+05/02/2021 02:17:52,4,Paula Pursley,Jimmy Schenck,9,52,2,Earl Russell,34,8
+05/02/2021 02:17:52,5,Earl Russell,Noreen Lynch,5,38,2,Mildred Roberts,55,10
+05/02/2021 02:17:52,6,Maurice Robertson,Marie Magera,6,10,2,Brad Smith,67,12
+05/02/2021 02:17:54,7,Paula Pursley,Jimmy Schenck,2,61,3,Jennifer Paquette,12,14
+05/02/2021 02:17:54,8,Maurice Robertson,Marie Magera,10,16,3,Paula Pursley,59,16
+05/02/2021 02:17:56,9,Paula Pursley,Jimmy Schenck,21,63,4,Earl Russell,57,18
+05/02/2021 02:17:56,10,Marie Magera,Maurice Robertson,5,54,4,Maurice Robertson,76,20
+05/02/2021 02:17:57,11,Earl Russell,Noreen Lynch,9,43,3,Maurice Robertson,46,22
+05/02/2021 02:17:57,12,Mildred Roberts,Brad Smith,8,8,1,Noreen Lynch,64,24
+05/02/2021 02:17:57,13,Paula Pursley,Jimmy Schenck,1,84,5,Pamela Bridenbaker,80,26
+05/02/2021 02:17:57,14,Maurice Robertson,Marie Magera,0,26,5,Jennifer Paquette,10,28
+05/02/2021 02:17:58,15,Earl Russell,Noreen Lynch,0,52,4,Jimmy Schenck,36,30
+05/02/2021 02:17:59,16,Paula Pursley,Jimmy Schenck,13,85,6,Michael Oglesby,1,32
+05/02/2021 02:17:59,17,Mildred Roberts,Brad Smith,3,16,2,Dustin Orta,84,34
+05/02/2021 02:17:59,18,Marie Magera,Maurice Robertson,29,59,6,Brad Smith,34,36

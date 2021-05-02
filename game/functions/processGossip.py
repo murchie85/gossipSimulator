@@ -79,7 +79,7 @@ def createRumour(gossip_database, citizen_list, creator,gossip_file):
 
 
 
-def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, type):
+def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, type,LOG_DICT):
 
 
 	# the creator knows he/she created it
@@ -124,15 +124,18 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, ty
 		awardedSP        = round((1/random.randint(1,9)) * trust) # a fraction of trust
 		totalSP          = targetCitizensSP + awardedSP 
 
+		rumourTarget    = gossipObject['target']
+		sentiment       = gossipObject['sentiment']
+		
 		#print(citizen_list[spreader['name']]['SP'])
 		citizen_list[spreader['name']]['SP'] = totalSP
 
 
-		logReceivedGossip('logs/recieve-gossip.csv',gossipID,spreader['name'],receivingAudience['name'],awardedSP,targetCitizensSP,receivingAudience['knownRumours'],citizen_list)
+		logReceivedGossip(LOG_DICT['RECEIVE_LOGFILE'],gossipID,spreader['name'],receivingAudience['name'],awardedSP,targetCitizensSP,receivingAudience['knownRumours'],citizen_list,rumourTarget,sentiment)
 		
 
 		# Random updates to log
-		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n'),'logs/gossipAction.txt')
+		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n'),LOG_DICT['GOSSIP_ACTIONS'])
 
 
 
