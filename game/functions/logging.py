@@ -4,7 +4,7 @@ import csv
 
 def logReceivedGossip(file,gossipID,spreader,audience,awardedSP,targetCitizensSP,receivingAudienceKnownRumours,citizen_list,rumourTarget,sentiment):
 	now = datetime.now() 
-	date_time = now.strftime("%m/%d/%Y %H:%M:%S")
+	date_time = now.strftime("%m/%d/%Y %H:%M:%S:%f")
 
 	# get total rumour count
 	for key in citizen_list: kt = sum(len(x['knownRumours']) for x in citizen_list.values() if x)

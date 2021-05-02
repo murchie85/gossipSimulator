@@ -28,6 +28,7 @@ LOCAL TRACKER
 
 from .processGossip import *
 import random
+from .rules import *
 
 
 
@@ -78,23 +79,24 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 		# GET RULES
 		gossipStimulation = int(getRules("rules/RULES.txt",'gossipStimulation'))
-		talkingDistance  = int(getRules("rules/RULES.txt",'talkingDistance'))
+		talkingDistance   = int(getRules("rules/RULES.txt",'talkingDistance'))
+		luckyChance       = int(getRules("rules/RULES.txt",'luckyChance'))
 
 
 		createGossipProbability = thisCitizen['CGP']
 		chance = random.randint(1,int(gossipStimulation))
 		myChance = createGossipProbability + chance
 
-		luckyChance = random.randint(0,10000)
+		luckyChance = random.randint(0,luckyChance)
 
 
+		# RULE 
+		# prevent them from just gossiping to the same person every time 
+		if(limitGossipWithSamePerson(thisCitizen,other_citizen) == 'False'): return(citizen,citizen_list,gossip_database,gossipObject)
 
-		# CREATE AND SPREAD GOSSIP
-		if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)):
-			#print(str(thisCitizen['name']) + ' and ' + str(other_citizen['name']) + ' are within ' + str(distanceApart) + ' of each other and about to gossip.')
-			#print(str(thisCitizen['name']) + ' cgp= ' + str(createGossipProbability) + ' chance= ' + str(chance) )
-			#print('lucky chance = ' + str(luckyChance))
 
+		# CREATE AND SPREAD GOSSIP WITH ALREADY CHOSEN TARGET
+		if((myChance > 50) and (distanceApart < talkingDistance) or (luckyChance == 10)):
 			# Creates a gossip object
 			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
 			
@@ -122,16 +124,4 @@ def spreadGossip(myPosition,other_citizen_position,thisCitizen,other_citizen):
 	return(distanceApart)
 
 
-def getRules(rulesFile,targetVar):
-	f = open(rulesFile, "r")
-	rules = f.read()
-	rules = rules.split(',')
-	for r in rules: 
-		if(r.split(':')[0] == str(targetVar)):
-			return(r.split(':')[1])
-
-	print('Target variable not found in rules file')
-	print('variable is: ' + str(targetVar))
-	exit()
-	
 	

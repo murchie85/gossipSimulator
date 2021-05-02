@@ -90,10 +90,10 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, ty
 	if type=='create':
 		gossipID      = gossipObject['gossipID']
 		action        = 'created'
-		associated    = receivingAudience['name']
+		confidant     = receivingAudience['name']
 		trust         = 100
 
-		subjectiveGossip = {str(gossipID): {'action': action, 'associated': associated, 'trust': trust}}
+		subjectiveGossip = {str(gossipID): {'action': action, 'confidant': confidant, 'trust': trust}}
 		# use the source name as key update spreader
 		citizen_list[spreader['name']]['knownRumours'].update(subjectiveGossip)
 
@@ -103,10 +103,10 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, ty
 	if type=='spread':
 		gossipID      = gossipObject['gossipID']
 		action        = 'spreaded'
-		associated    = receivingAudience['name']
+		confidant     = receivingAudience['name']
 		trust         = random.randint(40,70)
 
-		subjectiveGossip = {str(gossipID): {'action': action, 'associated': associated, 'trust': trust}}
+		subjectiveGossip = {str(gossipID): {'action': action, 'confidant': confidant, 'trust': trust}}
 		#update spreader 
 		citizen_list[spreader['name']]['knownRumours'].update(subjectiveGossip)
 
@@ -117,9 +117,10 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, ty
 	if type=='acceptRumour':
 		gossipID      = gossipObject['gossipID']
 		action        = 'received'
-		associated    = spreader['name']
+		source        = spreader['name']
 		trust         = random.randint(0,65)
-		subjectiveGossip = {str(gossipID): {'action': action, 'associated': associated, 'trust': trust}}
+		subjectiveGossip = {str(gossipID): {'action': action, 'source': source, 'trust': trust}}
+		
 		# update reciever 
 		citizen_list[receivingAudience['name']]['knownRumours'].update(subjectiveGossip)
 

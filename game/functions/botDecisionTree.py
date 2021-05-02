@@ -32,6 +32,7 @@ from ._game_config import *
 from ._game_functions import *
 from .processGossip import *
 import random
+from .rules import *
 
 
  
@@ -113,30 +114,37 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 
 
-		# RANDOM CHANCE
+		# RULES
 		gossipStimulation = getRules("rules/RULES.txt",'gossipStimulation')
 		talkingDistance   = int(getRules("rules/RULES.txt", 'talkingDistance'))
+		luckyChance       = int(getRules("rules/RULES.txt",'luckyChance'))
 
+		# PARAMETERS 
 		createGossipProbability = thisCitizen['CGP']
 		chance = random.randint(1,int(gossipStimulation))
 		myChance = createGossipProbability + chance
+		luckyChance = random.randint(0,luckyChance)
 
-		luckyChance = random.randint(0,10000)
 
 
 
 		# CREATE AND SPREAD GOSSIP - working probability as this loops a lot in a short time. 
+		
 		# WONT GOSSIP AGAIN UNTIL COUNTER IS RESET
-
 		citizenAction = citizen['action']
 		if(('gossiping' in str(citizen['action'])) or ('receiving' in str(citizen['action']))): 
 			return(citizen,citizen_list,gossip_database,gossipObject)
 
 
+		# RULE 
 		if((myChance > 80) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
 			#print(str(thisCitizen['name']) + ' and ' + str(other_citizen['name']) + ' are within ' + str(distanceApart) + ' of each other and about to gossip.')
 			#print(str(thisCitizen['name']) + ' cgp= ' + str(createGossipProbability) + ' chance= ' + str(chance) )
 			#print('lucky chance = ' + str(luckyChance))
+
+			# RULE 
+			# prevent them from just gossiping to the same person every time 
+			if(limitGossipWithSamePerson(thisCitizen,other_citizen) == 'False'): return(citizen,citizen_list,gossip_database,gossipObject)
 
 			# Creates a gossip object
 			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
@@ -149,7 +157,7 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 			# put action = ['gossiping',5]
 			# TODO manage the clash for recieving and gossiping at same time. 
-			citizen['action']        = ['gossiping',15]
+			citizen['action']        = ['gossiping',20]
 			other_citizen['action']  = ['receiving',15]
 
 
@@ -172,15 +180,5 @@ def spreadGossip(myPosition,other_citizen_position,thisCitizen,other_citizen):
 	return(distanceApart)
 
 
-def getRules(rulesFile,targetVar):
-	f = open(rulesFile, "r")
-	rules = f.read()
-	rules = rules.split(',')
-	for r in rules: 
-		if(r.split(':')[0] == str(targetVar)):
-			return(r.split(':')[1])
 
-	print('Target variable not found in rules file')
-	print('variable is: ' + str(targetVar))
-	exit()
 	

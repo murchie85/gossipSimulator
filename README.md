@@ -355,15 +355,16 @@ B. `utils.py`
 # Feature BackLog
 --------------
 
+- Deeper Character Page with list of their rumours
 - Rules will be sliders we set in the game
-1. Important: make sure all rules are in a dict: so i can display what rules are active at a given moment
+- **Important:** make sure all rules are in a dict: so i can display what rules are active at a given moment
 - Allow target to be more than one
 - Status Multiplier
 - Include end-of-day review?  
-- Create Versions
-- MVP
-- Boredom 
-- Pygame
+- Create Versions **done**
+- MVP **done**
+- Boredom factor
+- Pygame **done**
 - Friendly fire
 - Guilt by association. 
 - Risk calculation must take into account the status of the spreader

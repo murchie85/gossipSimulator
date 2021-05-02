@@ -1,3 +1,11 @@
-gossipStimulation: A maximum random value added to users gossip probability, used in the RULE: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)):
-talkingDistance:A value where if citizens are within this, they can talk and gossip.
-if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)):
+gossipStimulation: A maximum random value added to users gossip probability, 
+Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) if passed this initiates gossip actions. 
+
+
+;talkingDistance:A value where if citizens are within this, they can talk and gossip.
+Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) if passed this initiates gossip actions. 
+
+
+;luckyChance: A simple random value that increases the chance of something the lower the value.  
+Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) if passed this initiates gossip actions. 
+
