@@ -3,7 +3,7 @@ Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luck
 
 
 ;talkingDistance:A value where if citizens are within this, they can talk and gossip.
-Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) if passed this initiates gossip actions. 
+Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) wif passed this initiates gossip actions. 
 
 
 ;luckyChance: A simple random value that increases the chance of something the lower the value.  

@@ -121,7 +121,7 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 		# PARAMETERS 
 		createGossipProbability = thisCitizen['CGP']
-		chance = random.randint(1,int(gossipStimulation))
+		chance = random.randint(0,int(gossipStimulation))
 		myChance = createGossipProbability + chance
 		luckyChance = random.randint(0,luckyChance)
 

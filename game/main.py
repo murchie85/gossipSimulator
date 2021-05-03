@@ -20,6 +20,7 @@ from functions.processGossip import *
 from functions.create_citizen import *
 from functions.botDecisionTree import *
 from functions.logging import *
+from functions.rules import *
 
 
 
@@ -62,7 +63,7 @@ time_increment = 1
 numberOfCitizens = 15
 # Files
 gossip_file = "gossip/gossipDict.txt"
-
+rulesFile   = 'rules/RULES.txt'
 
 #--------------------
 ## DATABASE CREATION 
@@ -75,7 +76,7 @@ gossip_database = {}
 
 
 
-def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CONST, snap, keydown,moving, ark_pos, clock,run,gameCounter,frameSwitch,FPS,facing,nextFrame,noticationStatus,LOG_DICT):
+def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CONST, snap, keydown,moving, ark_pos, clock,run,gameCounter,frameSwitch,FPS,facing,nextFrame,noticationStatus,LOG_DICT,imageDict,rulesFile):
 	#************************************************************************************
 	#
 	#              ---------------INITIALISATION--------------                          *
@@ -122,6 +123,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 		gameClock        = pygame.time.get_ticks()
 		keys_pressed = pygame.key.get_pressed()
 		snap,keydown = snapView(snap,keydown)
+		BOTVEL       = int(getRules(rulesFile,'citizenWalkSpeed'))
 
 		#************************************************************************************
 		#
@@ -158,7 +160,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 		ark_pos, facing, moving = moveSprite(keys_pressed,ark_pos,VEL,facing,moving,WIDTH,HEIGHT,citizen_list,backgroundObjectMasks)
 
 		#---MENU
-		if keys_pressed[pygame.K_o]: options(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT)
+		if keys_pressed[pygame.K_o]: menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
 		if keys_pressed[pygame.K_c]: run = False     # QUIT GAME
 
 		# SPRITE 
@@ -305,4 +307,4 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 
 
 if __name__ == '__main__':
-	main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CONST, snap, keydown,moving, ark_pos, clock,run,gameCounter,frameSwitch,FPS,facing,nextFrame,noticationStatus,LOG_DICT)
+	main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CONST, snap, keydown,moving, ark_pos, clock,run,gameCounter,frameSwitch,FPS,facing,nextFrame,noticationStatus,LOG_DICT,imageDict,rulesFile)

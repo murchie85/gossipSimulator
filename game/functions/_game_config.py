@@ -66,8 +66,34 @@ mainBack     = pygame.transform.scale(mainBack, (WIDTH, HEIGHT))
 DialoguePath = "/Users/adammcmurchie/2021/fishwives/sprites/dialoguebox/dbox.png"
 Dialoguebox  = pygame.image.load(DialoguePath).convert()
 
+arrowLeft      = "/Users/adammcmurchie/2021/fishwives/sprites/arrow/arrow1.png"
+arrowLeft      = pygame.image.load(arrowLeft)
+arrowRight     = "/Users/adammcmurchie/2021/fishwives/sprites/arrow/arrow2.png"
+arrowRight     = pygame.image.load(arrowRight)
 
 
+menuOptionOne   = "/Users/adammcmurchie/2021/fishwives/sprites/menu/menuOptions1.png"
+menuOptionTwo   = "/Users/adammcmurchie/2021/fishwives/sprites/menu/menuOptions2.png"
+menuOptionThree = "/Users/adammcmurchie/2021/fishwives/sprites/menu/menuOptions3.png"
+menuOptionFour  = "/Users/adammcmurchie/2021/fishwives/sprites/menu/menuOptions4.png"
+menuOptionFive  = "/Users/adammcmurchie/2021/fishwives/sprites/menu/menuOptions5.png"
+mOptionOne   = pygame.image.load(menuOptionOne)
+mOptionTwo   = pygame.image.load(menuOptionTwo)
+mOptionThree = pygame.image.load(menuOptionThree)
+mOptionFour  = pygame.image.load(menuOptionFour)
+mOptionFive  = pygame.image.load(menuOptionFive)
+mOptionArray = [mOptionOne,mOptionTwo,mOptionThree,mOptionFour,mOptionFive]
+
+
+
+
+
+imageDict = {"mainBack":mainBack, 
+			 "Dialoguebox":Dialoguebox, 
+			 "arrowLeft":arrowLeft,
+			 "arrowRight":arrowRight,
+			 "mOptionArray":mOptionArray}  
+  
 
 #---------------CREATING BOT SPRITES------------------------
 
