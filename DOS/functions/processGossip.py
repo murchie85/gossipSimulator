@@ -83,7 +83,7 @@ def createRumour(gossip_database, citizen_list, creator,gossip_file):
 
 
 
-def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, type,LOG_DICT):
+def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gossip_database, type,LOG_DICT):
 
 
 	# the creator knows he/she created it
@@ -143,7 +143,12 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject, ty
 		# Random updates to log
 		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n'),LOG_DICT["GOSSIP_ACTIONS"])
 
+		# TODO
+		# UPDATE SPREAD COUNT
+		# MIGRATE THIS LATER TO SPREAD 
+		gossip_database[gossipID]['spread_count'] = gossip_database[gossipID]['spread_count'] + 1
 
-	return(citizen_list)
+
+	return(citizen_list,gossip_database)
 
 

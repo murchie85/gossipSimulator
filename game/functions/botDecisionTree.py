@@ -150,10 +150,10 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
 			
 			# updates the fishwifes internal reference
-			citizen_list = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject, 'create',LOG_DICT)
+			citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'create',LOG_DICT)
 
 			# Reciever accepts rumour (at a given trust value)
-			citizen_list = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject, 'acceptRumour',LOG_DICT)
+			citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'acceptRumour',LOG_DICT)
 
 			# put action = ['gossiping',5]
 			# TODO manage the clash for recieving and gossiping at same time. 

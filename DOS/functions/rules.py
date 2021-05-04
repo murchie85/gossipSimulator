@@ -11,7 +11,6 @@ def limitGossipWithSamePerson(thisCitizen,other_citizen):
 				if(('confidant' in thisCitizen['knownRumours'][str(rumourKeys[-x])]) ):
 					gosIndex = x
 					break
-			print(str(thisCitizen['name']) + 'broke the loop at gosIndex = ' + str(gosIndex))
 
 			if('confidant' in thisCitizen['knownRumours'][str(rumourKeys[-gosIndex])]):
 				if(other_citizen['name'] == thisCitizen['knownRumours'][str(rumourKeys[-gosIndex])]['confidant']):

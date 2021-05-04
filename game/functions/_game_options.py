@@ -58,6 +58,9 @@ def menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,im
 				characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
 			if(menuSelected==2):
 				rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
+			if(menuSelected==3):
+				statsOption(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
+
 			if(menuSelected==4):
 				menuRun = False
 
@@ -376,6 +379,118 @@ def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,H
 
 
 		drawText(SCREEN,menuFont,'[C] Confirm', 0.6*WIDTH,0.9*HEIGHT)
+		drawText(SCREEN,menuFont,'[B] Back', 0.8*WIDTH,0.9*HEIGHT)
+
+
+		update()
+		clock.tick(FPS)
+		# 
+
+
+
+
+def statsOption(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict):
+
+	SCREEN.fill((0,0,0))
+	backgroundArray = []
+	backgroundFrame = 0
+	nextFrame       = pygame.time.get_ticks()
+	nextSelect      = pygame.time.get_ticks()
+	clock           = pygame.time.Clock()
+	statsOption     = True
+	pageSelected    = 1
+	valueSelected   = 0 
+	ruleConfirmed   = False
+	bigMenuFont     = pygame.font.Font("resources/nokiafc.ttf", 24)
+
+
+
+
+
+	# -----------Append all background images
+
+	for i in range(1,12):
+		backPath = "/Users/adammcmurchie/2021/fishwives/sprites/advancedOptions/blackblue" + str(i) + ".png"
+		back   = pygame.image.load(backPath)
+		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
+		backgroundArray.append(back)
+
+
+
+	# ----------------MAIN LOOP
+
+	while statsOption:
+		gameClock   = pygame.time.get_ticks()
+		citizenPrintArray = []
+
+
+		keys_pressed = pygame.key.get_pressed()
+		# INCREMENT CHARACTER SELECTOR 
+
+		# Get input without spamming
+		events = pygame.event.get()
+		for event in events:
+		    if event.type == pygame.KEYDOWN:
+		        if event.key == pygame.K_LEFT:
+		            pageSelected -=1
+		        if event.key == pygame.K_RIGHT:
+		            pageSelected +=1
+		        if event.key == pygame.K_b:
+		            statsOption = False
+
+
+
+		if(pageSelected > len(gossip_database) - 1): pageSelected=0
+		if(pageSelected < 1): pageSelected = len(gossip_database) - 1
+
+
+
+		# ------------TICK FRAMES
+
+		if (gameClock > nextFrame):
+			backgroundFrame = (backgroundFrame+1)%11
+			nextFrame += 60
+
+
+
+		# -------------DRAW
+
+		# BACKGROUND
+		draw_back(SCREEN,backgroundArray[backgroundFrame],x=0,y=0)
+		
+		# TITLE
+		drawText(SCREEN,bigMenuFont,'Gossip Stats', 0.38*WIDTH,100)
+
+
+		# ARROW 
+		draw_back(SCREEN,imageDict['arrowLeft'],x=80,y=HEIGHT/2)
+		draw_back(SCREEN,imageDict['arrowRight'],x=WIDTH - 80,y=HEIGHT/2)
+
+		drawText(SCREEN,bigMenuFont,'Gossip Created by: ' + str(gossip_database[str(pageSelected)]['creator']), 150,200)
+		drawText(SCREEN,bigMenuFont,'Gossip ID: ' + str(gossip_database[str(pageSelected)]['gossipID']), 150,250)
+		drawText(SCREEN,bigMenuFont,'Target: ' + str(gossip_database[str(pageSelected)]['target']), 150,300)
+		drawText(SCREEN,bigMenuFont,'Shared: ' + str(gossip_database[str(pageSelected)]['spread_count']), 150,350)
+		rumour = gossip_database[str(pageSelected)]['rumour']
+
+		# PRINT DESCRIPTION
+
+		rowLen,maxRL,words,i = 0,45,"",0
+		if(len(rumour) <= maxRL):
+			drawText(SCREEN,bigMenuFont,str(rumour),150,450)
+		else:
+			for word in rumour.split():
+				words+= word + ' '
+				if(len(words) >= maxRL):
+					drawText(SCREEN,bigMenuFont,str(words),150, (450 + (i * 40) ))
+					words = ""
+					i+=1
+			if(words!=""): drawText(SCREEN,bigMenuFont,str(words),150,(450 + (i * 40) ) )
+		
+
+
+
+
+
 		drawText(SCREEN,menuFont,'[B] Back', 0.8*WIDTH,0.9*HEIGHT)
 
 
