@@ -28,7 +28,7 @@ clock       = pygame.time.Clock()
 run         = True                 # When False game exits
 gameCounter = 0                    # loop count 
 frameSwitch = 0                    # var to let us know the frame has been switched and to wait
-FPS         = 40                   # PS
+FPS         = 60                   # PS
 facing      = 'down'
 nextFrame   = pygame.time.get_ticks()
 

@@ -29,6 +29,7 @@ LOCAL TRACKER
 from .processGossip import *
 import random
 from .rules import *
+from ._DOS_citizen_functions import *
 
 
 
@@ -82,12 +83,16 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 		talkingDistance   = int(getRules("rules/RULES.txt",'talkingDistance'))
 		luckyChance       = int(getRules("rules/RULES.txt",'luckyChance'))
 
-
+		# PARAMETERS 
 		createGossipProbability = thisCitizen['CGP']
-		chance = random.randint(1,int(gossipStimulation))
+		chance = random.randint(0,int(gossipStimulation))
 		myChance = createGossipProbability + chance
-
 		luckyChance = random.randint(0,luckyChance)
+
+		# WONT GOSSIP AGAIN UNTIL COUNTER IS RESET
+		citizenAction = citizen['action']
+		if(('gossiping' in str(citizen['action'])) or ('receiving' in str(citizen['action']))): 
+			return(citizen,citizen_list,gossip_database,gossipObject)
 
 
 		# RULE 
@@ -96,7 +101,7 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 
 		# CREATE AND SPREAD GOSSIP WITH ALREADY CHOSEN TARGET
-		if((myChance > 50) and (distanceApart < talkingDistance) or (luckyChance == 10)):
+		if((myChance > 80) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
 			# Creates a gossip object
 			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
 			
@@ -106,16 +111,15 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 			# Reciever accepts rumour (at a given trust value)
 			citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'acceptRumour',LOG_DICT)
 
+			# put action = ['gossiping',5]
+			# TODO manage the clash for recieving and gossiping at same time. 
+			citizen['action']        = ['gossiping',20]
+			other_citizen['action']  = ['receiving',15]
 
 
 
 	return(citizen,citizen_list,gossip_database,gossipObject)
 
-
-def getDistanceApart(myPosition,other_citizen_position,thisCitizen,other_citizen):
-	distanceApart             = abs(myPosition - other_citizen_position)
-
-	return(distanceApart)
 
 
 def spreadGossip(myPosition,other_citizen_position,thisCitizen,other_citizen):

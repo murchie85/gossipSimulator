@@ -30,62 +30,10 @@ LOCAL TRACKER
 import pygame 
 from ._game_config import *
 from ._game_functions import *
+from ._game_sprite_functions import *
 from .processGossip import *
 import random
 from .rules import *
-
-
- 
-def initializeMovement(citizen,botSprites,backgroundObjectMasks,spriteCounter):
-
-
-
-		# If position collides, try another random pos
-
-		noCol = False
-		while(noCol==False):
-
-			# Initialise a position on the map
-			xpos = random.randint(int(0.1*WIDTH),int(0.9*WIDTH))
-			ypos = random.randint(int(0.1*HEIGHT),int(0.9*HEIGHT))
-			charRect = pygame.Rect(xpos,ypos,tileSize,tileSize)
-			noCol = True
-			# if everything is fine this will pass through
-			for background in backgroundObjectMasks:
-				if(charRect.colliderect(background)):
-					noCol = False
-
-
-
-
-		citizen['movement'] =  {"pos": charRect,
-								"direction": 'none',
-								"walkDuration": 0,
-								"facing": 'down',
-								"moving": 0}
-
-		if(spriteCounter>= len(botSprites)):
-			spriteCounter =0
-
-		citizen['sprite'] = botSprites[spriteCounter]
-		return(citizen,spriteCounter)
-
-
-def processMovement(citizen,citizen_list,position,BOTVEL,WIDTH,HEIGHT,backgroundObjectMasks):
-	# Updating top level location value (not rect vals)
-	citizen['location']             = [position.x,position.y]
-
-	# ---------WALK THE BOTS
-	citizen['movement']['direction'] ,citizen['movement']['walkDuration'] = botWalkBehaviour(citizen['movement']['direction'] ,citizen['movement']['walkDuration'])
-	citizen['movement']['pos'], citizen['movement']['direction'], citizen['movement']['facing'] = moveBotSprite(citizen['movement']['pos'],citizen['movement']['direction'],BOTVEL,citizen['movement']['facing'],citizen,citizen_list,WIDTH,HEIGHT,backgroundObjectMasks)
-	
-
-	if(citizen['movement']['direction']!= 'none'):
-		citizen['movement']['moving'] = 1
-	else:
-		citizen['movement']['moving'] = 0
-
-	return(citizen)
 
 
 
@@ -108,16 +56,17 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 		# THIS WILL BE DIFFERENT IN GAME VERSION 
 		other_citizen_position    = other_citizen['movement']['pos']
-		#distanceApart = getDistanceApart(myPosition,other_citizen_position,thisCitizen,other_citizen)
 		distanceApart = getDistanceApart(myPosition,other_citizen_position,thisCitizen,other_citizen)
 
 
 
 
-		# RULES
-		gossipStimulation = getRules("rules/RULES.txt",'gossipStimulation')
-		talkingDistance   = int(getRules("rules/RULES.txt", 'talkingDistance'))
+		# GET RULES
+		gossipStimulation = int(getRules("rules/RULES.txt",'gossipStimulation'))
+		talkingDistance   = int(getRules("rules/RULES.txt",'talkingDistance'))
 		luckyChance       = int(getRules("rules/RULES.txt",'luckyChance'))
+
+
 
 		# PARAMETERS 
 		createGossipProbability = thisCitizen['CGP']
@@ -137,14 +86,12 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 
 		# RULE 
-		if((myChance > 80) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
-			#print(str(thisCitizen['name']) + ' and ' + str(other_citizen['name']) + ' are within ' + str(distanceApart) + ' of each other and about to gossip.')
-			#print(str(thisCitizen['name']) + ' cgp= ' + str(createGossipProbability) + ' chance= ' + str(chance) )
-			#print('lucky chance = ' + str(luckyChance))
+		# prevent them from just gossiping to the same person every time 
+		if(limitGossipWithSamePerson(thisCitizen,other_citizen) == 'False'): return(citizen,citizen_list,gossip_database,gossipObject)
 
-			# RULE 
-			# prevent them from just gossiping to the same person every time 
-			if(limitGossipWithSamePerson(thisCitizen,other_citizen) == 'False'): return(citizen,citizen_list,gossip_database,gossipObject)
+
+		# RULE 
+		if((myChance > 80) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
 
 			# Creates a gossip object
 			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
@@ -163,15 +110,6 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 	return(citizen,citizen_list,gossip_database,gossipObject)
 
-
-def getDistanceApart(myPosition,other_citizen_position,thisCitizen,other_citizen):
-	#distanceApart             = abs(myPosition - other_citizen_position)
-	xdistance = abs(myPosition.x - other_citizen_position.x)
-	ydistance = abs(myPosition.y - other_citizen_position.y)
-
-	distanceApart = (xdistance + ydistance)/2
-
-	return(distanceApart)
 
 
 def spreadGossip(myPosition,other_citizen_position,thisCitizen,other_citizen):

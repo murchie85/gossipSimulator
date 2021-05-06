@@ -118,6 +118,16 @@ for i in range(0, month_len):
 		citizen,citizen_list,gossip_database,gossipObject = gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,position,LOG_DICT)
 
 
+		# Print Gossip bubble
+		citizenAction = citizen['action']
+		if(len(citizenAction) > 0):
+			if((citizenAction[0] == 'gossiping') or (citizenAction[0] == 'receiving') ):
+				citizenAction[1] = (citizenAction[1] -1)
+				# reset once it hits 0
+				if(citizenAction[1] <1):
+					citizen['action'] = []
+
+
 		# UPATES
 		if (len(gossipObject) > 0): gossipUpdates.append(gossipObject)
 
@@ -201,7 +211,7 @@ for i in range(0, month_len):
 	pout = pprint.pformat(gossip_database, indent=4)
 	logUpdateMessage(pout,DATABASE_GOSSIP,'w')
 	
-	time.sleep(0.5)	
+	time.sleep(0.1)	
 	# This clears the screen
 	print("\033c")
 

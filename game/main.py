@@ -12,6 +12,7 @@ from functions._game_config import *
 from functions._game_functions import *
 from functions._game_options import *
 from functions._game_start_game import *
+from functions._game_sprite_functions import *
 
 ## Internal libraries
 from functions.utils import *

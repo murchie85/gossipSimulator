@@ -44,8 +44,9 @@ def createCitizen():
 	friends         = {}
 	knownRumours    = {}
 	emotion         = '😐'
+	action          = []
 
-	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "knownRumours": knownRumours, 'emotion':emotion}
+	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "knownRumours": knownRumours, 'emotion':emotion,"action":action}
 	return(citizen)
 
 
