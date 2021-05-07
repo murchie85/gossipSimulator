@@ -2,15 +2,15 @@ import difflib
 
 #gameFileA
 gameFile = '/Users/adammcmurchie/2021/fishwives/game/functions/botDecisionTree.py'
-gameFileA = '/game/functions/rules.py'
-gameFile = '/game/functions/processGossip.py'
-gameFile = '/game/functions/create_citizen.py'
+gameFile = '/Users/adammcmurchie/2021/fishwives/game/functions/rules.py'
+gameFileA = '/Users/adammcmurchie/2021/fishwives/game/functions/processGossip.py'
+gameFile = '/Users/adammcmurchie/2021/fishwives/game/functions/create_citizen.py'
 
 #DOSFileA
 DOSFILE = '/Users/adammcmurchie/2021/fishwives/DOS/functions/botDecisionTree.py'
-DOSFileA = 'DOS/functions/rules.py'
-DOSFILE = 'DOS/functions/processGossip.py'
-DOSFILE = 'DOS/functions/create_citizen.py'
+DOSFILE = '/Users/adammcmurchie/2021/fishwives/DOS/functions/rules.py'
+DOSFileA = '/Users/adammcmurchie/2021/fishwives/DOS/functions/processGossip.py'
+DOSFILE = '/Users/adammcmurchie/2021/fishwives/DOS/functions/create_citizen.py'
 
 
 with open(DOSFileA) as f1:

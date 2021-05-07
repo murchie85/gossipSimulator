@@ -12,9 +12,10 @@
 """
 
 ## Internal libraries
-from functions.create_citizen import *
+from functions._DOS_printer import *
+
+from functions.processCitizen import *
 from functions.utils import *
-from functions.printer import *
 from functions.processGossip import *  
 from functions.botDecisionTree import * 
 from functions.logging import *
@@ -79,6 +80,7 @@ chosenGossip = ""
 # Print start 
 init_files(RECEIVE_LOGFILE)
 startMesssage(citizen_count,citizen_list,'yes')
+defaultSettings()
 # time buffered by sleep
 # This clears the screen
 
@@ -89,6 +91,7 @@ print("\033c")
 for i in range(0, month_len):
 	citizenArray = []
 	game_time     +=1
+
 	for key in citizen_list: citizenArray.append(citizen_list[key])
 
 
@@ -106,7 +109,7 @@ for i in range(0, month_len):
 	for key in citizen_list:
 		citizen                        = citizen_list[key]
 		position                       = citizen['location']
-		citizen_list                   = insertEmoji(citizen,citizen_list,citizen_count)
+		citizen_list                   = processEmotion(citizen,citizen_list,citizen_count)
 		gossipObject                   = {} # flush every time 
 		# later can make actins all within personality functions  
 
@@ -164,7 +167,9 @@ for i in range(0, month_len):
 	# Add in happy/sad emoji based on status array
 	printCitizen(citizenArray)
 	print(' ')
-	
+	if(game_time%day_len ==0):
+		nextDay(game_time,day_len,gossip_database,citizenArray)
+
 	#-------top print block------
 
 

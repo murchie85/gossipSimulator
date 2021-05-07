@@ -20,6 +20,9 @@ def limitGossipWithSamePerson(thisCitizen,other_citizen):
 					
 
 
+## PULL RULES INFO
+
+
 def getRules(rulesFile,targetVar):
 	f = open(rulesFile, "r")
 	rules = f.read()
@@ -31,4 +34,50 @@ def getRules(rulesFile,targetVar):
 	print('Target variable not found in rules file')
 	print('variable is: ' + str(targetVar))
 	exit()
-	
+
+def updateRule(rulesFile,targetVar,targetVal):
+	f = open(rulesFile, "r")
+	rules = f.read()
+	rules = rules.split(',')
+	f.close()
+
+	newRules = ""
+	for rule in rules:
+		if(str(targetVar) in str(rule)):
+			updatedRule = str(rule.split(':')[0]) + ":" + str(targetVal)
+			newRules+= str(updatedRule) + ','
+		else:
+			newRules+=str(rule) + ','
+
+	# remove trailing comma
+	newRules = newRules[:-1]
+
+
+	f = open(rulesFile, "w")
+	f.write(newRules)
+	f.close()
+
+
+
+def getFullRules(rulesFile,targetVar):
+	f = open(rulesFile, "r")
+	rules = f.read()
+	rules = rules.split(',')
+	for r in rules: 
+		if(r.split(':')[0] == str(targetVar)):
+			return(r)
+
+	print('Target variable not found in rules file')
+	print('variable is: ' + str(targetVar))
+	exit()
+
+def getRulesSchema(rulesFile,targetVar):
+	f = open(rulesFile, "r")
+	rules = f.read()
+	rules = rules.split(';')
+	for r in rules: 
+		if(r.split(':')[0] == str(targetVar)):
+			return(r)
+
+	print('Target variable not found in rules file')
+	print('variable is: ' + str(targetVar))

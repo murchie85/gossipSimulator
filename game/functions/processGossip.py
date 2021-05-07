@@ -88,7 +88,7 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gos
 	if type=='create':
 		gossipID      = gossipObject['gossipID']
 		action        = 'created'
-		confidant    = receivingAudience['name']
+		confidant     = receivingAudience['name']
 		trust         = 100
 
 		subjectiveGossip = {str(gossipID): {'action': action, 'confidant': confidant, 'trust': trust}}
@@ -101,7 +101,7 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gos
 	if type=='spread':
 		gossipID      = gossipObject['gossipID']
 		action        = 'spreaded'
-		confidant    = receivingAudience['name']
+		confidant     = receivingAudience['name']
 		trust         = random.randint(40,70)
 
 		subjectiveGossip = {str(gossipID): {'action': action, 'confidant': confidant, 'trust': trust}}
@@ -131,11 +131,9 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gos
 		citizen_list[spreader['name']]['SP'] = totalSP
 
 
-		logReceivedGossip(LOG_DICT['RECEIVE_LOGFILE'],gossipID,spreader['name'],receivingAudience['name'],awardedSP,targetCitizensSP,receivingAudience['knownRumours'],citizen_list,rumourTarget,sentiment)
-		
-
+		logReceivedGossip(LOG_DICT["RECEIVE_LOGFILE"],gossipID,spreader['name'],receivingAudience['name'],awardedSP,targetCitizensSP,receivingAudience['knownRumours'],citizen_list,rumourTarget,sentiment)
 		# Random updates to log
-		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n'),LOG_DICT['GOSSIP_ACTIONS'])
+		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n'),LOG_DICT["GOSSIP_ACTIONS"])
 
 
 		# TODO

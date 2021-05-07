@@ -85,8 +85,10 @@ def createRumour(gossip_database, citizen_list, creator,gossip_file):
 
 def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gossip_database, type,LOG_DICT):
 
+	## THIS UPDATES THE CHARACTERS REFERENCE ONLY
+	## ITS SUBJECTIVE BASED UPON THE ACTION
 
-	# the creator knows he/she created it
+	# THE CREATOR KNOWS HE/SHE CREATED IT
 	if type=='create':
 		gossipID      = gossipObject['gossipID']
 		action        = 'created'
@@ -99,7 +101,7 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gos
 
 
 
-	# the spreader knows who they spread it too
+	# THE SPREADER KNOWS WHO THEY SPREAD IT TO
 	if type=='spread':
 		gossipID      = gossipObject['gossipID']
 		action        = 'spreaded'
@@ -136,10 +138,8 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gos
 		citizen_list[spreader['name']]['SP'] = totalSP
 
 
-		#print(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They recieved ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP))
 
 		logReceivedGossip(LOG_DICT["RECEIVE_LOGFILE"],gossipID,spreader['name'],receivingAudience['name'],awardedSP,targetCitizensSP,receivingAudience['knownRumours'],citizen_list,rumourTarget,sentiment)
-
 		# Random updates to log
 		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They reveived ' + str(awardedSP) + ' status points. They had ' + str(targetCitizensSP) + ' \n'),LOG_DICT["GOSSIP_ACTIONS"])
 

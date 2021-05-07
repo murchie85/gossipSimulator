@@ -8,6 +8,7 @@ import math
 import time
 from art import *
 from .utils import med_print
+from .rules import *
 from .logging import *
 import random
 
@@ -117,6 +118,58 @@ def startMesssage(citizen_count,citizen_list,skip='no'):
 	print("\033c")
 
 
+
+
+def defaultSettings():
+	# GET RULES FROM FILE 
+	rulesFile = "rules/RULES.txt"
+	gossipStimulation = getFullRules(rulesFile,'gossipStimulation')
+	talkingDistance   = getFullRules(rulesFile, 'talkingDistance')
+	luckyChance       = getFullRules(rulesFile,'luckyChance')
+	rulesArray = [gossipStimulation,talkingDistance,luckyChance]
+	ruleDescFile = "rules/rules_schema.txt"
+	
+	rulesDesc  = [str(getRulesSchema(ruleDescFile,'gossipStimulation')),
+				  str(getRulesSchema(ruleDescFile,'talkingDistance')),
+				  str(getRulesSchema(ruleDescFile,'luckyChance'))]
+
+
+	#chosenRule = str(rulesArray[ruleSelected].split(':')[0])
+	#ruleValue  = str(rulesArray[ruleSelected].split(':')[1])
+
+	print("\033c")
+	for x in range(0,len(rulesArray)):
+		print(rulesArray[x])
+		print(rulesDesc[x])
+
+
+
+
+
+
+def nextDay(game_time,day_len,gossip_database,citizenArray):
+
+	endDay = Art=text2art("End of Day")
+	print(endDay)
+
+	time.sleep(3)	
+
+
+
+
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------------------------------------
+#
+#                             Common 
+#
+#------------------------------------------------------------------------------------------------------
 
 #  this will print a messages for a given time.
 #  it counts down a timer to keep printing message

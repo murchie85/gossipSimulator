@@ -13,12 +13,12 @@ from functions._game_functions import *
 from functions._game_options import *
 from functions._game_start_game import *
 from functions._game_sprite_functions import *
+from functions._game_printer import *
 
 ## Internal libraries
 from functions.utils import *
-from functions.printer import *
 from functions.processGossip import *  
-from functions.create_citizen import *
+from functions.processCitizen import *
 from functions.botDecisionTree import *
 from functions.logging import *
 from functions.rules import *

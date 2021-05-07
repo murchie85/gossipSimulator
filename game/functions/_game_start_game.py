@@ -1,7 +1,7 @@
 
 import pygame
 from ._game_functions import *
-from .create_citizen import *
+from .processCitizen import *
 import csv
 
 

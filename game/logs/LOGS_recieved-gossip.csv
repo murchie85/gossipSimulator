@@ -1,9 +1,3 @@
 Time,ID,Spreader,Audience,SP,Originalsp,AudienceKnownRumours,rumour target,sentiment,TotalRumours
-05/06/2021 17:16:04:251816,1,Charles Burley,Kyle Crum,19,79,1,Scott Riggs,53,2
-05/06/2021 17:16:04:253236,2,Ruby Campos,Diane Bechtold,6,85,1,Cheryl Gray,23,4
-05/06/2021 17:16:04:267783,3,Doris Mcmaster,Lyle Foster,12,97,1,Lyle Foster,85,6
-05/06/2021 17:16:04:859640,4,Eveline Carr,Doris Mcmaster,3,44,2,Cheryl Gray,0,8
-05/06/2021 17:16:06:058756,5,Kyle Crum,Charles Burley,11,22,2,Lyle Foster,57,10
-05/06/2021 17:16:06:188084,6,Diane Bechtold,Scott Riggs,5,80,1,Ruby Campos,37,12
-05/06/2021 17:16:06:662980,7,Ruby Campos,Scott Riggs,4,91,2,Scott Riggs,24,14
-05/06/2021 17:16:07:899858,8,Charles Burley,Kyle Crum,12,98,3,Ruby Campos,45,16
+05/08/2021 00:26:28:709275,1,Richard Lamb,Jack Esquilin,4,75,1,Tracey Folden,23,2
+05/08/2021 00:26:28:721848,2,Jose Larson,Jason Gilbert,3,64,1,Richard Lamb,17,4

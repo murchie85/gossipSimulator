@@ -28,15 +28,6 @@ def gossipTimeInterval():
 
 
 
-
-
-
-
-
-
-
-
-
 ## PULL RULES INFO
 
 
