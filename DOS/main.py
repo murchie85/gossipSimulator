@@ -73,8 +73,10 @@ citizen_list = generateCitizens(15)
 gossip_database = {}
 chosenGossip = ""
 
-
-
+#----------------
+# DOS 
+#----------------
+gameSpeed = int(getRules("rules/RULES.txt",'gameSpeed'))
 
 
 # Print start 
@@ -91,6 +93,7 @@ print("\033c")
 for i in range(0, month_len):
 	citizenArray = []
 	game_time     +=1
+	gameSpeed = int(getRules("rules/RULES.txt",'gameSpeed'))
 
 	for key in citizen_list: citizenArray.append(citizen_list[key])
 
@@ -163,12 +166,10 @@ for i in range(0, month_len):
 	#************************************************************************************
 
 	##---------------printing first, so updates wont be captured until next round
-	drawHeader(game_time,day_len,gossip_database)
+	drawHeader(game_time,day_len,gossip_database,gameSpeed)
 	# Add in happy/sad emoji based on status array
 	printCitizen(citizenArray)
 	print(' ')
-	if(game_time%day_len ==0):
-		nextDay(game_time,day_len,gossip_database,citizenArray)
 
 	#-------top print block------
 
@@ -215,8 +216,15 @@ for i in range(0, month_len):
 	# Save latest Gossip data structure
 	pout = pprint.pformat(gossip_database, indent=4)
 	logUpdateMessage(pout,DATABASE_GOSSIP,'w')
-	
-	time.sleep(0.1)	
+
+
+	# NEXT DAY 	
+	if(game_time%day_len ==0):
+		nextDay(game_time,day_len,gossip_database,citizenArray)
+
+
+
+	time.sleep(1/gameSpeed)	
 	# This clears the screen
 	print("\033c")
 

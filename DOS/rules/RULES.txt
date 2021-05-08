@@ -1,1 +1,1 @@
-gossipStimulation:30,talkingDistance:55,luckyChance:10000
+gossipStimulation:30,talkingDistance:55,luckyChance:1000,gameSpeed:20

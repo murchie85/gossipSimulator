@@ -144,11 +144,12 @@ def characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEI
 
 		for key in citizen_list:
 			citizen = citizen_list[key]
-			citizenName     = "Name          : " + str(citizen['name'])
-			citizenAge      = "Age             : " + str(citizen['age'])
+			citizenName     = "Name             : " + str(citizen['name'])
+			citizenAge      = "Age                : " + str(citizen['age'])
+			emotion         = "Emotion         : " + str(citizen['emotion']).split(',')[1]
 			citizenSp       = "Status Points : " + str(citizen['SP'])
-			citizenCGP      = "CGP           : " + str(citizen['CGP'])
-			citizenSGP      = "SGP           : " + str(citizen['SGP'])
+			citizenCGP      = "CGP                : " + str(citizen['CGP'])
+			citizenSGP      = "SGP                : " + str(citizen['SGP'])
 			citizenLocation = "Location     : " + str(citizen['location'])
 			citizenRumours  = "Known Rumours : " + str(len(citizen['knownRumours']))
 			citizenSprite   = citizen['sprite']
@@ -163,7 +164,7 @@ def characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEI
 				sampleRumour    = "No Rumours"
 				sampleTarget    = "No one"
 
-			tempDict = {"citizenName": citizenName,"citizenAge": citizenAge,"citizenSp":citizenSp ,"citizenCGP":citizenCGP ,"citizenSGP":citizenSGP ,"citizenLocation": citizenLocation,"citizenRumours": citizenRumours,"citizenSprite": citizenSprite, "sampleRumour": sampleRumour, "sampleTarget":sampleTarget}
+			tempDict = {"citizenName": citizenName,"citizenAge": citizenAge,"citizenSp":citizenSp ,"citizenCGP":citizenCGP ,"citizenSGP":citizenSGP ,"citizenLocation": citizenLocation,"emotion": emotion, "citizenRumours": citizenRumours,"citizenSprite": citizenSprite, "sampleRumour": sampleRumour, "sampleTarget":sampleTarget}
 			citizenPrintArray.append(tempDict)
 
 
@@ -186,11 +187,12 @@ def characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEI
 		# this pulles from an array of dicts, using spriteselected as index (this is incremented pushing left or right keys)
 		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenName'], 0.1*WIDTH,0.3*HEIGHT)
 		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenAge'], 0.1*WIDTH,0.35*HEIGHT)
-		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenLocation'], 0.1*WIDTH,0.4*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['emotion'], 0.1*WIDTH,0.4*HEIGHT)
 		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenSp'], 0.1*WIDTH,0.45*HEIGHT)
 		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenCGP'], 0.1*WIDTH,0.5*HEIGHT)
 		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenSGP'], 0.1*WIDTH,0.55*HEIGHT)
 		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenRumours'], 0.1*WIDTH,0.6*HEIGHT)
+		drawText(SCREEN,menuFont,citizenPrintArray[spriteSelected]['citizenLocation'], 0.1*WIDTH,0.65*HEIGHT)
 		
 		# RIGHT SIDE PRINTED TEXT
 		drawText(SCREEN,menuFont,"Sample Rumour: ", 0.5*WIDTH,0.3*HEIGHT)

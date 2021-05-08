@@ -69,11 +69,11 @@ def generateCitizens(citizen_count):
 
 
 def processEmotion(citizen,citizen_list,citizen_count):
-	sad = '1'
-	angry = '2'
-	normal = '3'
-	happy='4'
-	excited ='5'
+	sad     = '1,sad'
+	angry   = '2,angry'
+	normal  = '3,normal'
+	happy   = '4,happy'
+	excited = '5,excited'
 	sp                             = citizen['SP']
 	averageSP                      = (sum(x['SP'] for x in citizen_list.values() if x))/citizen_count
 

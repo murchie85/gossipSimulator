@@ -22,7 +22,7 @@ def limitGossipWithSamePerson(thisCitizen,other_citizen):
 
 ## PULL RULES INFO
 
-
+# gets rule value
 def getRules(rulesFile,targetVar):
 	f = open(rulesFile, "r")
 	rules = f.read()
@@ -35,6 +35,7 @@ def getRules(rulesFile,targetVar):
 	print('variable is: ' + str(targetVar))
 	exit()
 
+# sets the value 
 def updateRule(rulesFile,targetVar,targetVal):
 	f = open(rulesFile, "r")
 	rules = f.read()
@@ -58,7 +59,7 @@ def updateRule(rulesFile,targetVar,targetVal):
 	f.close()
 
 
-
+# Returns rule and value 
 def getFullRules(rulesFile,targetVar):
 	f = open(rulesFile, "r")
 	rules = f.read()

@@ -138,6 +138,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 			citizen                        = citizen_list[key]
 			position                       = citizen['movement']['pos']
 			gossipObject                   = {} # flush every time 
+			citizen_list                   = processEmotion(citizen,citizen_list,numberOfCitizens)
 
 			#  ------WALK------
 			citizen = processMovement(citizen,citizen_list,position,BOTVEL,WIDTH,HEIGHT,backgroundObjectMasks)
