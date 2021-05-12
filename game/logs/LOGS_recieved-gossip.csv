@@ -1,10 +1,5 @@
 Time,ID,Spreader,Audience,SP,Originalsp,AudienceKnownRumours,rumour target,sentiment,TotalRumours
-05/08/2021 00:57:49:642853,1,Patricia Renshaw,Sam Hicks,0,20,1,Freddie Blackaby,45,2
-05/08/2021 00:57:49:645122,2,Frances Dick,Patricia Renshaw,3,4,2,Sam Hicks,21,4
-05/08/2021 00:57:49:645612,3,David Richardson,Pete Morris,2,97,1,Freddie Blackaby,12,6
-05/08/2021 00:57:50:155475,4,Jc Oliver,Raul Cochran,10,80,1,Johnnie Tannehill,64,8
-05/08/2021 00:57:50:909269,5,Margaret Parker,Sam Hicks,5,43,2,Johnnie Tannehill,84,10
-05/08/2021 00:57:51:672369,6,Patricia Renshaw,Frances Dick,48,20,2,Mary Turner,73,12
-05/08/2021 00:58:22:994172,7,Sam Hicks,Eleanor Lugo,5,87,1,Frances Dick,89,14
-05/08/2021 00:58:23:749592,8,Margaret Parker,Pete Morris,2,48,2,Jc Oliver,49,16
-05/08/2021 00:58:23:875243,9,Frances Dick,Patricia Renshaw,1,7,4,Freddie Blackaby,16,18
+05/10/2021 15:52:18:682633,1,Kimberly Turnbow,Kevin Munoz,2,5,1,Lisa Addington,186,2
+05/10/2021 15:52:18:687138,2,Tyrone Byrd,Elsie Coppenger,1,86,1,Maurice Briggs,-229,4
+05/10/2021 15:52:18:693759,3,Maurice Briggs,Andres Romansky,7,-55,1,Tyrone Byrd,54,6
+05/10/2021 15:52:18:700700,4,Jason Jackson,Tyrone Byrd,5,86,2,Kenneth Moody,79,8

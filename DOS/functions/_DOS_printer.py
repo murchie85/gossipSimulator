@@ -26,7 +26,7 @@ def drawHeader(game_time,day_len,gossip_database,speed):
 	
 
 # prints out exactly 50 lines
-def stringMod(string,blockLen=50):
+def stringMod(string,blockLen=50,endChar='|',nospace='no'):
 	allowedLen = blockLen - 4 # allow for | 
 	difference = allowedLen - len(string)
 	# pad with spaces
@@ -37,7 +37,11 @@ def stringMod(string,blockLen=50):
 	if difference < 0:
 		string = string[:allowedLen]
 
-	printString = "| " + string + " |"
+	printString = endChar + " " + string + " "  + endChar
+	if(nospace=='yes'):
+		printString = endChar + string   + endChar
+	if(nospace=='right'):
+		printString = endChar + " " + string   + endChar
 	return(printString)
 
 def printCitizen(citizen):
@@ -148,7 +152,7 @@ def defaultSettings():
 
 
 
-def nextDay(game_time,day_len,gossip_database,citizenArray):
+def nextDay(game_time,day_len,gossip_database,citizenArray,citizen_list):
 
 	endDay = Art=text2art("End of Day")
 	print(endDay)
@@ -160,18 +164,25 @@ def nextDay(game_time,day_len,gossip_database,citizenArray):
 	printString = ("Top performer: " + str(citizenArray[arrIndex]['name'])  + ' with ' + str(citizenArray[arrIndex]['SP']) + ' SP.' )
 
 
-	chosen = ''
+	chosen = 'L'
 
-	while(chosen != 'x'):
+	while((chosen.upper() != 'C') and (chosen!= '') ):
 		print('[1] Options')
 		print('[2] Insights')
+		print('[3] stats')
 		print('')
-		print('[x] Exit')
+		print('[C] Continue')
 		chosen = input('Enter A Value \n')
 		if(chosen == '1'):
+			print("\033c")
 			options()
 		if(chosen == '2'):
-			insights(printString)
+			print("\033c")
+			insights(citizen_list)
+			print("\033c")
+		if(chosen == '3'):
+			print("\033c")
+			stats(printString,gossip_database)
 
 	time.sleep(1)	
 
@@ -184,7 +195,7 @@ def options():
 	selectedOption = 99
 	
 	rulesFile = "rules/RULES.txt"
-	rulesList = ['gossipStimulation','talkingDistance','luckyChance','gameSpeed','citizenWalkSpeed']
+	rulesList = getAllRuleNames(rulesFile)
 	
 	while(isinstance(selectedOption, int)):
 		print("\033c")
@@ -207,7 +218,7 @@ def options():
 				 print('Please pick an integer between 1-20  ' + str(selectedOption))
 				 selectedOption = 99
 
-		if((selectedOption >=0) and selectedOption < (len(rulesList) -1)): break
+		if((selectedOption >=0) and selectedOption < (len(rulesList))): break
 
 
 	while(isinstance(chosen, int)):
@@ -254,12 +265,139 @@ def options():
 
 
 
-def insights(printString):
+
+
+def insights(citizen_list):
+	print("\033c")
+
+
+	chosenIndex = 0
+	pa1 = []
+	pa2 = []
+	pa3 = []
+	pa4 = []
+	pa5 = []
+	pa6 = []
+	pa7 = []
+	pa8 = []
+	pa9 = []
+	pa10 = []
+	pa11 = []
+	pa12 = []
+
+	for x in range(len(citizen_list)):
+		# extract dict items
+		key = list(citizen_list.keys())[chosenIndex]
+		index = citizen_list[key]
+		created, received = 0,0
+		for rumour in index['knownRumours']:
+			action = index['knownRumours'][rumour]['action']
+			if('created' in action): created +=1
+			if('received' in action): received +=1 
+
+		pa1.append(stringMod(str('----------------------------------'),blockLen=34,endChar='-',nospace='yes'))
+		pa2.append(stringMod(str('    ' + str(index['name'])),blockLen=34,endChar='|',nospace='right'))
+		pa3.append(stringMod(str('---------------------------------'),blockLen=34,endChar='-',nospace='yes'))
+		pa4.append(stringMod(str(''),blockLen=34,nospace='right'))
+		pa5.append(stringMod(str('Create Gossip Chance: ' + str(index['CGP'])),blockLen=34,nospace='right'))
+		pa6.append(stringMod(str('Spread Gossip Chance: ' + str(index['SGP'])),blockLen=34,nospace='right'))
+		pa7.append(stringMod(str('Status points       : ' + str(index['SP'])),blockLen=34,nospace='right'))
+		pa8.append(stringMod(str('Age                 : ' + str(index['age'])),blockLen=34,nospace='right'))
+		pa9.append(stringMod(str('Known Rumours       : ' + str(len(index['knownRumours']))),blockLen=34,nospace='right'))
+		pa10.append(stringMod(str('Created             : ' + str(created)),blockLen=34,nospace='right'))
+		pa11.append(stringMod(str('Received            : ' + str(received)),blockLen=34,nospace='right'))
+		pa12.append(stringMod(str('---------------------------------'),blockLen=34,endChar='-',nospace='yes'))
+		chosenIndex+=1
+
+	noCitizens=len(citizen_list)
+	print("\033c")
+	print('*************************************************************************************************************************************************************')
+	for x in range(20):print('')
+	for i in range(0,noCitizens, 4):
+		a,b,c=1,2,3
+		if(i+a>=noCitizens): a=0
+		if(i+b>=noCitizens): b=0
+		if(i+c>=noCitizens): c=0
+
+		print(str(pa1[i]) + ' ' + str(pa1[i+a]) + ' ' + str(pa1[i+b]) + ' ' + str(pa1[i+c]))
+		print(str(pa2[i]) + ' ' + str(pa2[i+a]) + ' ' + str(pa2[i+b]) + ' ' + str(pa2[i+c]))
+		print(str(pa3[i]) + ' ' + str(pa3[i+a]) + ' ' + str(pa3[i+b]) + ' ' + str(pa3[i+c]))
+		print(str(pa4[i]) + ' ' + str(pa4[i+a]) + ' ' + str(pa4[i+b]) + ' ' + str(pa4[i+c]))
+		print(str(pa5[i]) + ' ' + str(pa5[i+a]) + ' ' + str(pa5[i+b]) + ' ' + str(pa5[i+c]))
+		print(str(pa6[i]) + ' ' + str(pa6[i+a]) + ' ' + str(pa6[i+b]) + ' ' + str(pa6[i+c]))
+		print(str(pa7[i]) + ' ' + str(pa7[i+a]) + ' ' + str(pa7[i+b]) + ' ' + str(pa7[i+c]))
+		print(str(pa8[i]) + ' ' + str(pa8[i+a]) + ' ' + str(pa8[i+b]) + ' ' + str(pa8[i+c]))
+		print(str(pa9[i]) + ' ' + str(pa9[i+a]) + ' ' + str(pa9[i+b]) + ' ' + str(pa9[i+c]))
+		print(str(pa10[i]) + ' ' + str(pa10[i+a]) + ' ' + str(pa10[i+b]) + ' ' + str(pa10[i+c]))
+		print(str(pa11[i]) + ' ' + str(pa11[i+a]) + ' ' + str(pa11[i+b]) + ' ' + str(pa11[i+c]))
+		print(str(pa12[i]) + ' ' + str(pa12[i+a]) + ' ' + str(pa12[i+b]) + ' ' + str(pa12[i+c]))
+
+	print('')
+	input('press any key to continue \n')
+	print("\033c")
+
+
+	return()
+
+
+def stats(printString,gossip_database):
 	print("\033c")
 	print(printString)
 	print('')
-	input('Pressy return to continue. ')
+
+	for key in gossip_database:
+		print('Rumour: ' + str(gossip_database[key]['rumour']))
+		print('Target: ' + str(gossip_database[key]['target'])  + ' Creator: ' + str(gossip_database[key]['creator']) )
+		print('SpreadCount: ' + str(gossip_database[key]['spread_count']) + ' Sentiment: ' + str(gossip_database[key]['sentiment']) + ' Sensationalism: ' + str(gossip_database[key]['sensationalism']) + ' persistence: ' + str(gossip_database[key]['persistence']) ) 
+		print('	')
+
+	input('press any key to continue \n')
 	print("\033c")
+
+
+def insightsOld(printString,citizen_list):
+	print("\033c")
+	print(printString)
+	print('')
+
+	choice =''
+	chosenIndex = 0
+	while(choice.upper()!='X'):
+		# extract dict items
+		key = list(citizen_list.keys())[chosenIndex]
+		index = citizen_list[key]
+		created, received = 0,0
+		for rumour in index['knownRumours']:
+			action = index['knownRumours'][rumour]['action']
+			if('created' in action): created +=1
+			if('received' in action): received +=1 
+
+
+		print('--------------------------------')
+		print('    ' + str(index['name']))
+		print('--------------------------------')
+		print('')
+		print('Create Gossip Chance: ' + str(index['CGP']))
+		print('Spread Gossip Chance: ' + str(index['SGP']))
+		print('Status points       : ' + str(index['SP']))
+		print('Age                 : ' + str(index['age']))
+		print('Known Rumours       : ' + str(len(index['knownRumours'])))
+		print('Created             : ' + str(created))
+		print('Received            : ' + str(received))
+
+
+		print('')
+		print('')
+		print('[N] Next')
+		print('[P] Previous')
+		print('[X] Exit')
+
+		choice = input('Select an option. \n')
+		if(choice.upper() == 'N'): chosenIndex+=1
+		if(choice.upper() == 'P'): chosenIndex-=1
+		if(chosenIndex > len(citizen_list)-1): chosenIndex = 0
+		if(chosenIndex <0): chosenIndex = len(citizen_list) -1
+		print("\033c")
 
 
 	return()

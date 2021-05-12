@@ -10,3 +10,5 @@ gossipStimulation: A maximum random value added to users gossip probability, the
 :Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) if passed this initiates gossip actions.Suggested default=10000:
 
 ;gameSpeed: This is the speed how fast the simulation runs. suggested default =5
+
+;reputationImpact: Also known as (sentiment), This value acts as a % multiplier to reputation damage/boost. It impacts status points by reputationImpact/100, Default=100

@@ -1,12 +1,14 @@
 gossipStimulation: A maximum random value added to users gossip probability, the higher the value, the more likely all users are to initiate gossip.
-Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10))  if passed this initiates gossip actions. :
+Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10))  if passed this initiates gossip actions. :5
 
 
 ;talkingDistance:A value where if citizens are within this, they can talk and gossip.:
-Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) if passed this initiates gossip actions. :
+Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) if passed this initiates gossip actions. :5
 
 
 ;luckyChance: A simple random value that increases the chance of something the lower the value.  
-Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) if passed this initiates gossip actions.:
+Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luckyChance == 10)) if passed this initiates gossip actions.:100
 
-;citizenWalkSpeed: This is the speed the citizens walk around at, the faster they walk the more likely they will meet people to gossip. BE WARNED, to fast and things will glitch out, you won't be able to keep up!
+;citizenWalkSpeed: This is the speed the citizens walk around at, the faster they walk the more likely they will meet people to gossip. BE WARNED, to fast and things will glitch out, you won't be able to keep up!:1
+
+;reputationImpact: Also known as (sentiment), This value acts as a % multiplier to reputation damage/boost. It impacts status points by reputationImpact/100, Default=100:5

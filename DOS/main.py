@@ -89,6 +89,7 @@ defaultSettings()
 
 
 print("\033c")
+
 ## This loops until it gets the a full month
 for i in range(0, month_len):
 	citizenArray = []
@@ -220,7 +221,7 @@ for i in range(0, month_len):
 
 	# NEXT DAY 	
 	if(game_time%day_len ==0):
-		nextDay(game_time,day_len,gossip_database,citizenArray)
+		nextDay(game_time,day_len,gossip_database,citizenArray,citizen_list)
 
 
 

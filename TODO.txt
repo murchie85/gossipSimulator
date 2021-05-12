@@ -1,0 +1,11 @@
+DONE: Add in scandal factor very important 
+DONE: update that to subjective db
+
+spread gossip
+
+Delete/Archive rumours where persistence < 0 
+Delete rumours from subjective DB
+
+Sensationalism drops over time.
+
+Personality Model

@@ -69,15 +69,19 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 
 		# PARAMETERS 
+		chance       = random.randint(0,int(gossipStimulation))
+		
+		# Create Chance 
 		createGossipProbability = thisCitizen['CGP']
-		chance = random.randint(0,int(gossipStimulation))
-		myChance = createGossipProbability + chance
-		luckyChance = random.randint(0,luckyChance)
+		createChance = createGossipProbability + chance
+
+		# Spread Chance 
+		spreadGossipProbability = thisCitizen['SGP']
+		spreadChance = spreadGossipProbability + chance
 
 
-
-
-		# CREATE AND SPREAD GOSSIP - working probability as this loops a lot in a short time. 
+		# Luck in general
+		luckyChance  = random.randint(0,luckyChance)
 		
 		# WONT GOSSIP AGAIN UNTIL COUNTER IS RESET
 		citizenAction = citizen['action']
@@ -90,8 +94,8 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 		if(limitGossipWithSamePerson(thisCitizen,other_citizen) == 'False'): return(citizen,citizen_list,gossip_database,gossipObject)
 
 
-		# RULE 
-		if((myChance > 80) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
+		# CREATE RUMOUR 
+		if((createChance > 80) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
 
 			# Creates a gossip object
 			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  

@@ -247,6 +247,7 @@ def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,H
 	valueSelected   = 0 
 	ruleConfirmed   = False
 	bigMenuFont     = pygame.font.Font("resources/nokiafc.ttf", 24)
+	displayUpdate   = 0
 
 
 
@@ -270,20 +271,17 @@ def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,H
 
 		# GET RULES FROM FILE 
 		rulesFile = "rules/RULES.txt"
-		gossipStimulation = getFullRules(rulesFile,'gossipStimulation')
-		talkingDistance   = getFullRules(rulesFile, 'talkingDistance')
-		luckyChance       = getFullRules(rulesFile,'luckyChance')
-		citizenWalkSpeed  = getFullRules(rulesFile,'citizenWalkSpeed')
-		rulesArray = [gossipStimulation,talkingDistance,luckyChance,citizenWalkSpeed]
+		ruleNameList      = getAllRuleNames(rulesFile)
+		rulesArray        = []
+		rulesDesc         = []
+		for rule in ruleNameList: rulesArray.append(getFullRules(rulesFile,rule))
 		ruleDescFile = "rules/rules_schema.txt"
-		rulesDesc  = [str(getRulesSchema(ruleDescFile,'gossipStimulation')),
-					  str(getRulesSchema(ruleDescFile,'talkingDistance')),
-					  str(getRulesSchema(ruleDescFile,'luckyChance')),
-					  str(getRulesSchema(ruleDescFile,'citizenWalkSpeed'))]
+		for rule in ruleNameList: rulesDesc.append(str(getRulesSchema(ruleDescFile,rule)))
 
 
 		chosenRule = str(rulesArray[ruleSelected].split(':')[0])
 		ruleValue  = str(rulesArray[ruleSelected].split(':')[1])
+		increment = int(getRulesSchema(ruleDescFile,chosenRule).split(':')[-1])
 
 		keys_pressed = pygame.key.get_pressed()
 		# INCREMENT CHARACTER SELECTOR 
@@ -312,23 +310,15 @@ def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,H
 		if(ruleSelected > len(rulesArray) - 1): ruleSelected=0
 		if(ruleSelected < 0): ruleSelected = len(rulesArray) - 1
 
-		if(chosenRule == 'gossipStimulation'):
-			ruleValue = str(int(ruleValue) + (valueSelected * 5))
-			if(int(ruleValue) <0): ruleValue=abs(int(ruleValue))
-		if(chosenRule == 'talkingDistance'):
-			ruleValue = str(int(ruleValue) + (valueSelected * 5))
-			if(int(ruleValue) <0): ruleValue=abs(int(ruleValue))
-		if(chosenRule == 'luckyChance'):
-			ruleValue = str(int(ruleValue) + (valueSelected * 100))
-			if(int(ruleValue) <0): ruleValue=abs(int(ruleValue))
-		if(chosenRule == 'citizenWalkSpeed'):
-			ruleValue = str(int(ruleValue) + (valueSelected * 1))
-			if(int(ruleValue) <0): ruleValue=abs(int(ruleValue))
+		ruleValue = str(int(ruleValue) + (valueSelected * increment))
+		if(int(ruleValue) <0): ruleValue=abs(int(ruleValue))
+
 
 		# Update chosen value
 		if(ruleConfirmed):
 			updateRule(rulesFile,chosenRule,ruleValue)
 			ruleConfirmed = False
+			displayUpdate = 10
 			valueSelected = 0
 
 		# ------------TICK FRAMES
@@ -344,6 +334,10 @@ def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,H
 		# BACKGROUND
 		draw_back(SCREEN,backgroundArray[backgroundFrame],x=0,y=0)
 		
+		if(displayUpdate > 0):
+			drawText(SCREEN,bigMenuFont,'**CONFIRMED**', 0.2*WIDTH,0.9*HEIGHT,color=(218,165,32))
+			displayUpdate -=1
+
 		# ARROW 
 		draw_back(SCREEN,imageDict['arrowLeft'],x=80,y=HEIGHT/2)
 		draw_back(SCREEN,imageDict['arrowRight'],x=WIDTH - 80,y=HEIGHT/2)

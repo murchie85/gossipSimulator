@@ -1,9 +1,8 @@
-Patricia Renshaw told Sam Hicks a rumour. They reveived 0 status points. They had 20 
-Frances Dick told Patricia Renshaw a rumour. They reveived 3 status points. They had 4 
-David Richardson told Pete Morris a rumour. They reveived 2 status points. They had 97 
-Jc Oliver told Raul Cochran a rumour. They reveived 10 status points. They had 80 
-Margaret Parker told Sam Hicks a rumour. They reveived 5 status points. They had 43 
-Patricia Renshaw told Frances Dick a rumour. They reveived 48 status points. They had 20 
-Sam Hicks told Eleanor Lugo a rumour. They reveived 5 status points. They had 87 
-Margaret Parker told Pete Morris a rumour. They reveived 2 status points. They had 48 
-Frances Dick told Patricia Renshaw a rumour. They reveived 1 status points. They had 7 
+Kimberly Turnbow told Kevin Munoz a rumour. They received 2 status points. They had 5 
+Lisa Addington was gosssiped about, the sentiment was 186 they had 9 status points. They now have 26 
+Tyrone Byrd told Elsie Coppenger a rumour. They received 1 status points. They had 86 
+Maurice Briggs was gosssiped about, the sentiment was -229 they had 43 status points. They now have -55 
+Maurice Briggs told Andres Romansky a rumour. They received 7 status points. They had -55 
+Tyrone Byrd was gosssiped about, the sentiment was 54 they had 87 status points. They now have 134 
+Jason Jackson told Tyrone Byrd a rumour. They received 5 status points. They had 86 
+Kenneth Moody was gosssiped about, the sentiment was 79 they had 68 status points. They now have 122 

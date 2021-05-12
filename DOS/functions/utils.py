@@ -6,3 +6,5 @@ def med_print(s):
         sys.stdout.write(c)
         sys.stdout.flush()
         time.sleep(0.10)
+
+

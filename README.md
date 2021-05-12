@@ -206,6 +206,7 @@ Each citizen has:
 ## 2. Objective Gossip Database 
 
 To be referenced by individuals, they wont have access to all values.  
+The values here are just definitions, will be different and rules driven
 
 | Object                      | Values |
 | ----------- | ----------- |
@@ -216,6 +217,7 @@ To be referenced by individuals, they wont have access to all values.
 | **rumour**                      | `string` |
 | **risk**                        | `random(0,100)`|
 | **persistence**                 | `random(0,100)` |
+| **sensationalism**                 | `random(0,100)` |
 | **spread_count**              | `int(value)`value increments |
 | **associated_citizens**         | initialised as `random(0,1000)` |
 

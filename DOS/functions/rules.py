@@ -58,6 +58,14 @@ def updateRule(rulesFile,targetVar,targetVal):
 	f.write(newRules)
 	f.close()
 
+def getAllRuleNames(rulesFile):
+	f = open(rulesFile, "r")
+	rules = f.read()
+	rules = rules.split(',')
+	rulesList = []
+	for r in rules: 
+		rulesList.append(str(r.split(':')[0]))
+	return(rulesList)
 
 # Returns rule and value 
 def getFullRules(rulesFile,targetVar):
