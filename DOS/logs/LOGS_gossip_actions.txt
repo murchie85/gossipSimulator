@@ -1,14 +1,54 @@
-Frank Castillo told Scotty Dallas a rumour. They received 4 status points. They had 30 
-Earlene Tighe was gosssiped about, the sentiment was 181 they had 45 status points. They now have 126 
-Allene Calaf told Christopher Para a rumour. They received 26 status points. They had 25 
-Martha Blackmon was gosssiped about, the sentiment was 44 they had 74 status points. They now have 107 
-Rickie Clark told Thomas Morgan a rumour. They received 2 status points. They had 58 
-Austin Havens was gosssiped about, the sentiment was 148 they had 69 status points. They now have 171 
-Earlene Tighe told Patricia Wheaton a rumour. They received 16 status points. They had 126 
-Scotty Dallas was gosssiped about, the sentiment was -128 they had 42 status points. They now have -12 
-Richard Scott told Mark Snyder a rumour. They received 22 status points. They had 62 
-Rickie Clark was gosssiped about, the sentiment was 41 they had 60 status points. They now have 85 
-Austin Havens told Delbert Snell a rumour. They received 16 status points. They had 171 
-Allene Calaf was gosssiped about, the sentiment was 53 they had 51 status points. They now have 78 
-Christopher Para told Mark Snyder a rumour. They received 4 status points. They had 49 
-Scotty Dallas was gosssiped about, the sentiment was -181 they had -12 status points. They now have -34 
+John Tuthill told Angelo Illsley a rumour. They received 2 status points. They had 67 
+Cecil Johnston was gosssiped about, the sentiment was 58 they had 34 status points. They now have 54 
+Dan Harrison told Cassandra Gustafson a rumour. They received 32 status points. They had 20 
+James Mak was gosssiped about, the sentiment was 2 they had 95 status points. They now have 97 
+Scott Patterson told James Roberts a rumour. They received 12 status points. They had 77 
+Bradford Porte was gosssiped about, the sentiment was -162 they had 34 status points. They now have -21 
+Tom Montgomery told Virginia Carr a rumour. They received 15 status points. They had 16 
+Virginia Carr was gosssiped about, the sentiment was 133 they had 10 status points. They now have 23 
+Margaret Howell told Brittany Czapla a rumour. They received 34 status points. They had 7 
+Tom Montgomery was gosssiped about, the sentiment was 52 they had 31 status points. They now have 47 
+Virginia Carr told Tom Montgomery a rumour. They received 7 status points. They had 23 
+Rodney Lawary was gosssiped about, the sentiment was 8 they had 11 status points. They now have 12 
+Angelo Illsley told John Tuthill a rumour. They received 6 status points. They had 85 
+James Roberts was gosssiped about, the sentiment was 184 they had 37 status points. They now have 105 
+Cassandra Gustafson told Rodney Lawary a rumour. They received 18 status points. They had 66 
+Jennifer Thomas was gosssiped about, the sentiment was 95 they had 27 status points. They now have 53 
+John Tuthill told Angelo Illsley a rumour. They received 9 status points. They had 69 
+Cassandra Gustafson was gosssiped about, the sentiment was -194 they had 84 status points. They now have -79 
+Tom Montgomery told Brittany Czapla a rumour. They received 21 status points. They had 47 
+Margaret Howell was gosssiped about, the sentiment was -132 they had 41 status points. They now have -13 
+Cassandra Gustafson told Dan Harrison a rumour. They received 4 status points. They had -79 
+Scott Patterson was gosssiped about, the sentiment was 35 they had 89 status points. They now have 120 
+James Roberts told Scott Patterson a rumour. They received 6 status points. They had 105 
+Angelo Illsley was gosssiped about, the sentiment was 173 they had 91 status points. They now have 248 
+Dan Harrison told Rodney Lawary a rumour. They received 20 status points. They had 52 
+Cassandra Gustafson was gosssiped about, the sentiment was 60 they had -75 status points. They now have -30 
+John Tuthill told Tom Montgomery a rumour. They received 5 status points. They had 78 
+Rodney Lawary was gosssiped about, the sentiment was -163 they had 12 status points. They now have -8 
+Virginia Carr told John Tuthill a rumour. They received 9 status points. They had 30 
+Dan Harrison was gosssiped about, the sentiment was -181 they had 72 status points. They now have -58 
+Cassandra Gustafson told Cecil Johnston a rumour. They received 7 status points. They had -30 
+Virginia Carr was gosssiped about, the sentiment was -87 they had 39 status points. They now have 5 
+Scott Patterson told James Roberts a rumour. They received 59 status points. They had 120 
+Angelo Illsley was gosssiped about, the sentiment was -81 they had 248 status points. They now have 47 
+Tom Montgomery told John Tuthill a rumour. They received 2 status points. They had 68 
+Dan Harrison was gosssiped about, the sentiment was -87 they had -58 status points. They now have -108 
+Dan Harrison told Cassandra Gustafson a rumour. They received 45 status points. They had -108 
+Rodney Lawary was gosssiped about, the sentiment was -141 they had -8 status points. They now have -19 
+Virginia Carr told Tom Montgomery a rumour. They received 36 status points. They had 5 
+James Roberts was gosssiped about, the sentiment was 93 they had 111 status points. They now have 214 
+John Tuthill told Virginia Carr a rumour. They received 14 status points. They had 83 
+Bradford Porte was gosssiped about, the sentiment was -199 they had -21 status points. They now have -63 
+Tom Montgomery told Virginia Carr a rumour. They received 7 status points. They had 70 
+Jennifer Thomas was gosssiped about, the sentiment was 174 they had 53 status points. They now have 145 
+Angelo Illsley told Virginia Carr a rumour. They received 12 status points. They had 47 
+Jennifer Thomas was gosssiped about, the sentiment was -14 they had 145 status points. They now have 125 
+Cassandra Gustafson told Dan Harrison a rumour. They received 6 status points. They had -23 
+Brittany Czapla was gosssiped about, the sentiment was 156 they had 81 status points. They now have 207 
+John Tuthill told Angelo Illsley a rumour. They received 9 status points. They had 97 
+Virginia Carr was gosssiped about, the sentiment was -37 they had 41 status points. They now have 26 
+Margaret Howell told Jennifer Thomas a rumour. They received 44 status points. They had -13 
+John Tuthill was gosssiped about, the sentiment was 81 they had 106 status points. They now have 192 
+Virginia Carr told John Tuthill a rumour. They received 5 status points. They had 26 
+John Tuthill was gosssiped about, the sentiment was -193 they had 192 status points. They now have -179 

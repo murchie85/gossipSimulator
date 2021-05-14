@@ -87,7 +87,7 @@ def createRumour(gossip_database, citizen_list, creator,gossip_file):
 
 
 
-def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gossip_database, type,LOG_DICT):
+def updateKnownRumours(citizen_list,spreader, other_citizen,gossipObject,gossip_database, type,LOG_DICT):
 
 	## THIS UPDATES THE CHARACTERS REFERENCE ONLY
 	## ITS SUBJECTIVE BASED UPON THE ACTION
@@ -96,7 +96,7 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gos
 	if type=='create':
 		gossipID      = gossipObject['gossipID']
 		action        = 'created'
-		confidant     = receivingAudience['name']
+		confidant     = other_citizen['name']
 		sensationalism = gossipObject['sensationalism']
 		trust         = 100
 
@@ -108,9 +108,11 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gos
 
 	# THE SPREADER KNOWS WHO THEY SPREAD IT TO
 	if type=='spread':
+		# Update self spread count
+		# global updated upon reciept 
 		gossipID      = gossipObject['gossipID']
 		action        = 'spreaded'
-		confidant     = receivingAudience['name']
+		confidant     = other_citizen['name']
 		trust         = random.randint(40,70)
 
 		subjectiveGossip = {str(gossipID): {'action': action, 'confidant': confidant, 'trust': trust}}
@@ -128,36 +130,35 @@ def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gos
 		sensationalism = gossipObject['sensationalism']
 		trust         = random.randint(0,65)
 		subjectiveGossip = {str(gossipID): {'action': action, 'source': source,'sensationalism':sensationalism, 'trust': trust}}
-		# update reciever 
-		citizen_list[receivingAudience['name']]['knownRumours'].update(subjectiveGossip)
+		
+		# UPDATE RECEIVER
+		citizen_list[other_citizen['name']]['knownRumours'].update(subjectiveGossip)
 
-		# award status points
+		# AWARD STATUS POINTS
 		sourceCitizensSP = citizen_list[spreader['name']]['SP']
 		awardedSP        = round((1/random.randint(1,9)) * trust) # a fraction of trust
 		totalSP          = sourceCitizensSP + awardedSP 
-
 		rumourTarget    = gossipObject['target']
 		sentiment       = gossipObject['sentiment']
-
-		#print(citizen_list[spreader['name']]['SP'])
 		citizen_list[spreader['name']]['SP'] = totalSP
 
-		# REPUTATION DAMAGE
+
+		# REPUTATION DAMAGE TO TARGET
 		# status points change as a fraction of their original SP
 		# modified by the sentiment
 		tSP = citizen_list[rumourTarget]['SP']
 		if(sentiment!=0): citizen_list[rumourTarget]['SP'] = round(tSP + ((sentiment/100)*abs(tSP)))
 
 
-		logReceivedGossip(LOG_DICT["RECEIVE_LOGFILE"],gossipID,spreader['name'],receivingAudience['name'],awardedSP,sourceCitizensSP,receivingAudience['knownRumours'],citizen_list,rumourTarget,sentiment)
+		# LOGGING
+		logReceivedGossip(LOG_DICT["RECEIVE_LOGFILE"],gossipID,spreader['name'],other_citizen['name'],awardedSP,sourceCitizensSP,other_citizen['knownRumours'],citizen_list,rumourTarget,sentiment)
 		# Random updates to log
-		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They received ' + str(awardedSP) + ' status points. They had ' + str(sourceCitizensSP) + ' \n'),LOG_DICT["GOSSIP_ACTIONS"])
+		logUpdateMessage(str(spreader['name'] + ' told ' + str(other_citizen['name']) + ' a rumour. They received ' + str(awardedSP) + ' status points. They had ' + str(sourceCitizensSP) + ' \n'),LOG_DICT["GOSSIP_ACTIONS"])
 		logUpdateMessage(str(str(rumourTarget) + ' was gosssiped about, the sentiment was ' + str(sentiment) + ' they had ' + str(tSP) + ' status points. They now have ' + str(citizen_list[rumourTarget]['SP'])+ ' \n' ),LOG_DICT["GOSSIP_ACTIONS"])
 
 
 		# TODO
 		# UPDATE SPREAD COUNT
-		# MIGRATE THIS LATER TO SPREAD 
 		gossip_database[gossipID]['spread_count'] = gossip_database[gossipID]['spread_count'] + 1
 
 
