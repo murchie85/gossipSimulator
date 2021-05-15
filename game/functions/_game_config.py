@@ -98,10 +98,25 @@ imageDict = {"mainBack":mainBack,
 #---------------CREATING BOT SPRITES------------------------
 
 spritePath  = '/Users/adammcmurchie/2021/fishwives/sprites/characters/'
-spriteNames = ['claude','Diane','Doug','Eberle','Ileyda','Jean','Philis','rick','Telmia','Vanrose','Yurald']
-botSprites = []
-for i in range(len(spriteNames)):
-	path = spritePath + spriteNames[i] +'/' + spriteNames[i] 
+males   = ['claude,male''Doug,male','Jean,male','rick,male','Vanrose,male','Yurald,male']
+females = ['Diane,female', 'Eberle,female','Ileyda,female', 'Philis,female', 'Telmia,female']
+
+
+
+botSprites  = []
+
+maleSprites = []
+for i in range(len(males)):
+	path = spritePath + males[i].split(',')[0] +'/' + males[i].split(',')[0] 
 	botSprite = initialiseImageSpriteGroups(path,9,32,32)
-	botSprites.append(botSprite)
+	maleSprites.append(botSprite)
+
+femaleSprites = []
+for i in range(len(females)):
+	path = spritePath + females[i].split(',')[0] +'/' + females[i].split(',')[0] 
+	botSprite = initialiseImageSpriteGroups(path,9,32,32)
+	femaleSprites.append(botSprite)
+
+botSprites.append(maleSprites)
+botSprites.append(femaleSprites)
 

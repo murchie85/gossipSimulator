@@ -1,8 +1,8 @@
-Kimberly Turnbow told Kevin Munoz a rumour. They received 2 status points. They had 5 
-Lisa Addington was gosssiped about, the sentiment was 186 they had 9 status points. They now have 26 
-Tyrone Byrd told Elsie Coppenger a rumour. They received 1 status points. They had 86 
-Maurice Briggs was gosssiped about, the sentiment was -229 they had 43 status points. They now have -55 
-Maurice Briggs told Andres Romansky a rumour. They received 7 status points. They had -55 
-Tyrone Byrd was gosssiped about, the sentiment was 54 they had 87 status points. They now have 134 
-Jason Jackson told Tyrone Byrd a rumour. They received 5 status points. They had 86 
-Kenneth Moody was gosssiped about, the sentiment was 79 they had 68 status points. They now have 122 
+Matthew Majeski told Catarina Nesslein a rumour. They received 22 status points. They had 4 
+Felicia Cohen was gosssiped about, the sentiment was 244 they had 85 status points. They now have 292 
+Catarina Nesslein told Felicia Cohen a rumour. They received 4 status points. They had 51 
+Christopher Gibson was gosssiped about, the sentiment was 48 they had 21 status points. They now have 31 
+Matthew Majeski told Felicia Cohen a rumour. They received 3 status points. They had 26 
+Felicia Cohen was gosssiped about, the sentiment was -10 they had 292 status points. They now have 263 
+Catarina Nesslein told Matthew Majeski a rumour. They received 12 status points. They had 55 
+Christopher Gibson was gosssiped about, the sentiment was 55 they had 31 status points. They now have 48 

@@ -13,7 +13,7 @@ from functions._game_functions import *
 from functions._game_options import *
 from functions._game_start_game import *
 from functions._game_sprite_functions import *
-from functions._game_printer import *
+from functions._game_draw import *
 
 ## Internal libraries
 from functions.utils import *
@@ -96,16 +96,15 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 	chosenGossip      = ""
 
 
-	#pygame
+	# Generates citizens once start selected
 	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,LOG_DICT['RECEIVE_LOGFILE'])
-	spriteCounter = 0
+	spriteCounter = [0,0]
 	SCREEN.fill((0,0,0))
 
 	# initialise bot characteristics
 	for key in citizen_list:
 		citizen  = citizen_list[key]
 		citizen,spriteCounter = initializeMovement(citizen,botSprites,backgroundObjectMasks,spriteCounter)
-		spriteCounter+=1
 
 
 
@@ -201,22 +200,14 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 			# Print Gossip bubble
 			citizenAction = citizen['action']
 			if(len(citizenAction) > 0):
-				if(citizenAction[0] == 'gossiping'):
-					citizenAction[1] = (citizenAction[1] -1)
-					draw_speechBubble(SCREEN,fonts,citizen['movement']['pos'].x , citizen['movement']['pos'].y  -32, 'Rumour!',sprite_frame,snap,offset)
-					# reset once it hits 0
-					if(citizenAction[1] <1):
-						citizen['action'] = []
-
-			# Print Gossip bubble
-			citizenAction = citizen['action']
-			if(len(citizenAction) > 0):
-				if(citizenAction[0] == 'receiving'):
-					citizenAction[1] = (citizenAction[1] -1)
-					draw_speechBubble(SCREEN,fonts,citizen['movement']['pos'].x , citizen['movement']['pos'].y  -32, 'Really?',sprite_frame,snap,offset)
-					# reset once it hits 0
-					if(citizenAction[1] <1):
-						citizen['action'] = []
+				comment = ""
+				if(citizenAction[0] == 'gossiping'): comment = 'Rumour!'
+				if(citizenAction[0] == 'receiving'): comment = 'Really?'
+				citizenAction[1] = (citizenAction[1] -1)
+				draw_speechBubble(SCREEN,fonts,citizen['movement']['pos'].x , citizen['movement']['pos'].y  -32, comment,sprite_frame,snap,offset)
+				
+				# reset once the counter in citizenAction hits 0
+				if(citizenAction[1] <1): citizen['action'] = []
 
 
 

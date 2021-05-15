@@ -1,6 +1,7 @@
 
 import pygame
 from ._game_functions import *
+from ._game_draw import *
 from .processCitizen import *
 import csv
 

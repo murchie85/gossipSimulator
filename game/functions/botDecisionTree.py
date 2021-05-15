@@ -41,6 +41,7 @@ from .rules import *
 def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipObject,position,LOG_DICT):
 	# ACTION    ------CREATE GOSSIP & UPDATE KNOWN RUMOURS------
 
+	# TODO: Ensure action is checked to be empty when spreading/gossiping
 	## CHECK IF POSTION IS NEAR THEN SHARE GOSSIP
 	thisCitizen = citizen
 	myPosition = position
@@ -48,6 +49,7 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 	# don't go thru list in same order every time
 	keys = list(citizen_list.keys())
 	random.shuffle(keys)
+	# loop other citizen
 	for key in keys:
 		other_citizen                  = citizen_list[key]
 		if(other_citizen == thisCitizen): continue
@@ -66,8 +68,6 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 		talkingDistance   = int(getRules("rules/RULES.txt",'talkingDistance'))
 		luckyChance       = int(getRules("rules/RULES.txt",'luckyChance'))
 
-
-
 		# PARAMETERS 
 		chance       = random.randint(0,int(gossipStimulation))
 		
@@ -82,45 +82,109 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 
 		# Luck in general
 		luckyChance  = random.randint(0,luckyChance)
-		
-		# WONT GOSSIP AGAIN UNTIL COUNTER IS RESET
-		citizenAction = citizen['action']
-		if(('gossiping' in str(citizen['action'])) or ('receiving' in str(citizen['action']))): 
-			return(citizen,citizen_list,gossip_database,gossipObject)
-
 
 		# RULE 
 		# prevent them from just gossiping to the same person every time 
+		# This works for create/spread but not for new ones
 		if(limitGossipWithSamePerson(thisCitizen,other_citizen) == 'False'): return(citizen,citizen_list,gossip_database,gossipObject)
 
 
-		# CREATE RUMOUR 
-		if((createChance > 80) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
+		citizenChoice = random.choice(['createGos','spreadGos'])
+		
+		# CREATE GOSSIP 
+		if(citizenChoice=='createGos'): citizen,gossip_database, gossipObject,citizen_list = createGossip(citizen,citizen_list,gossip_database,gossipObject,createChance,other_citizen,distanceApart,talkingDistance,luckyChance,gossip_file,LOG_DICT)
 
-			# Creates a gossip object
-			gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
-			
-			# updates the fishwifes internal reference
-			citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'create',LOG_DICT)
+		# SPREAD GOSSIP
+		if(citizenChoice=='spreadGos'): citizen,gossip_database, gossipObject,citizen_list = spreadGossip(citizen,citizen_list,gossip_database,gossipObject,spreadChance,other_citizen,distanceApart,talkingDistance,luckyChance,gossip_file,LOG_DICT)
 
-			# Reciever accepts rumour (at a given trust value)
-			citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'acceptRumour',LOG_DICT)
-
-			# put action = ['gossiping',5]
-			# TODO manage the clash for recieving and gossiping at same time. 
-			citizen['action']        = ['gossiping',20]
-			other_citizen['action']  = ['receiving',15]
 
 
 	return(citizen,citizen_list,gossip_database,gossipObject)
 
 
 
-def spreadGossip(myPosition,other_citizen_position,thisCitizen,other_citizen):
-	distanceApart             = abs(myPosition - other_citizen_position)
-
-	return(distanceApart)
 
 
+def createGossip(citizen,citizen_list,gossip_database,gossipObject,createChance,other_citizen,distanceApart,talkingDistance,luckyChance,gossip_file,LOG_DICT):
+	
+	# WONT GOSSIP AGAIN UNTIL COUNTER IS RESET
+	citizenAction = citizen['action']
+	if(('gossiping' in str(citizen['action'])) or ('receiving' in str(citizen['action'])) or ('spreading' in str(citizen['action'])) ):
+			return(citizen,gossip_database, gossipObject,citizen_list)
+	
+	# CREATE RUMOUR 
+	if((createChance > 80) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
+		
+		# Creates a gossip object
+		gossip_database, gossipObject = createRumour(gossip_database, citizen_list, creator=citizen['name'], gossip_file=gossip_file)  
+		
+		# updates SELF: the fishwifes internal reference
+		citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'create',LOG_DICT)
+
+		# Reciever accepts rumour (at a given trust value)
+		citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'acceptRumour',LOG_DICT)
+
+		# put action = ['gossiping',5]
+		# TODO manage the clash for recieving and gossiping at same time.
+		# this is different from citizen['known_rumours']['action'] 
+		citizen['action']        = ['gossiping',20]
+		other_citizen['action']  = ['receiving',15]
+
+	return(citizen,gossip_database, gossipObject,citizen_list)
+
+
+def spreadGossip(citizen,citizen_list,gossip_database,gossipObject,spreadChance,other_citizen,distanceApart,talkingDistance,luckyChance,gossip_file,LOG_DICT):
+
+	# WONT GOSSIP AGAIN UNTIL COUNTER IS RESET
+	citizenAction = citizen['action']
+	if(('gossiping' in str(citizen['action'])) or ('receiving' in str(citizen['action'])) or ('spreading' in str(citizen['action'])) ):
+			return(citizen,gossip_database, gossipObject,citizen_list)
+
+	if(len(citizen['knownRumours']) <1): return(citizen,gossip_database, gossipObject,citizen_list)
+
+	
+	# SPREAD RUMOUR 
+	# if spread high trigger
+	# check if existing gossip exists 
+	# select a rumour to spread
+	# update internal reference using 'spread'
+	# 
+
+
+	if((spreadChance > 100) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
+
+
+		# CONDITION TO DOCUMENT
+		# Get the most sensational
+		keys, values = [],[]
+		for gossip in citizen['knownRumours']:
+			keys.append(int(gossip))
+			values.append(int(citizen['knownRumours'][gossip]['sensationalism']))
+
+		arrayIndex   = values.index(max(values))
+		chosenIndex  = str(keys[int(arrayIndex)])
+		chosenGossip = citizen['knownRumours'][chosenIndex]
+
+		gossipObject = {
+		'gossipID': str(chosenIndex),
+		'creator': gossip_database[str(chosenIndex)]['creator'],
+		'target': gossip_database[str(chosenIndex)]['target'],
+		'sentiment': gossip_database[str(chosenIndex)]['sentiment'],
+		'rumour': gossip_database[str(chosenIndex)]['rumour'],
+		'risk': gossip_database[str(chosenIndex)]['risk'],
+		'persistence': gossip_database[str(chosenIndex)]['persistence'],
+		'sensationalism': gossip_database[str(chosenIndex)]['sensationalism'],
+		'spread_count': gossip_database[str(chosenIndex)]['spread_count'],
+		'associated_citizens':  gossip_database[str(chosenIndex)]['associated_citizens'],
+		}
+
+		# updates SELF: the fishwifes internal reference
+		citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'spread',LOG_DICT)
+
+
+	return(citizen,gossip_database, gossipObject,citizen_list)
+
+
+	
 
 	

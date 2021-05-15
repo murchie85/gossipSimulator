@@ -1,8 +1,6 @@
 """
 
 
-
-
 GLOBAL TRACKER
 | Object                      | Values |
 | ----------- | ----------- |
@@ -63,10 +61,10 @@ def gossipDecision(citizen,citizen_list,key,gossip_database,gossip_file,gossipOb
 	thisCitizen = citizen
 	myPosition = position
 
-	# FOR GIVEN CITIZEN LOOP EVERY OTHER CITIZEN
-	# IF CLOSEBY...
+	# don't go thru list in same order every time
 	keys = list(citizen_list.keys())
 	random.shuffle(keys)
+	# loop other citizen
 	for key in keys:
 		other_citizen                  = citizen_list[key]
 		if(other_citizen == thisCitizen): continue
@@ -142,7 +140,8 @@ def createGossip(citizen,citizen_list,gossip_database,gossipObject,createChance,
 		citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'acceptRumour',LOG_DICT)
 
 		# put action = ['gossiping',5]
-		# TODO manage the clash for recieving and gossiping at same time. 
+		# TODO manage the clash for recieving and gossiping at same time.
+		# this is different from citizen['known_rumours']['action'] 
 		citizen['action']        = ['gossiping',20]
 		other_citizen['action']  = ['receiving',15]
 

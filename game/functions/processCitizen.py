@@ -35,7 +35,8 @@ def catalogue():
 
 
 def createCitizen():
-	name            = str(names.get_first_name() + ' ' + names.get_last_name())
+	gender          = random.choice(['male','female'])
+	name            = str(names.get_full_name(gender=gender))
 	location        = [random.randint(0,100),random.randint(0,100)]
 	sp              = random.randint(0,100)
 	cgp             = random.randint(0,100)
@@ -48,7 +49,7 @@ def createCitizen():
 	emotion         = '😐'
 	action          = []
 
-	citizen = {"name": name, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "movement":movement, "knownRumours": knownRumours, "sprite":sprite,'emotion':emotion,"action":action}
+	citizen = {"name": name, "gender":gender, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "movement":movement, "knownRumours": knownRumours, "sprite":sprite,'emotion':emotion,"action":action}
 	return(citizen)
 
 

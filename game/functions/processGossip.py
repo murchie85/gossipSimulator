@@ -19,6 +19,16 @@
 | **persistence**                 | `random(0,100)` |
 | **spread_count**              | `int(value)`value increments |
 | **associated_citizens**         | initialised as `random(0,1000)` |
+
+
+
+LOCAL 
+
+		gossipID      = gossipObject['gossipID']
+		action        = 'created'
+		associated    = citizen_list[key]['name']
+		trust         = int(0,100)
+		..
 """
 
 
@@ -84,76 +94,96 @@ def createRumour(gossip_database, citizen_list, creator,gossip_file):
 
 
 
+"""
+NOTES
+
+Gossip object is just a row from the gossip global database 
 
 
-def updateKnownRumours(citizen_list,spreader, receivingAudience,gossipObject,gossip_database, type,LOG_DICT):
+"""
+
+def updateKnownRumours(citizen_list,spreader, other_citizen,gossipObject,gossip_database, type,LOG_DICT):
 
 	## THIS UPDATES THE CHARACTERS REFERENCE ONLY
 	## ITS SUBJECTIVE BASED UPON THE ACTION
 
 	# THE CREATOR KNOWS HE/SHE CREATED IT
 	if type=='create':
-		gossipID      = gossipObject['gossipID']
-		action        = 'created'
-		confidant     = receivingAudience['name']
+		gossipID       = gossipObject['gossipID']
+		action         = 'created'
+		confidant      = other_citizen['name']
 		sensationalism = gossipObject['sensationalism']
-		trust         = 100
+		trust          = 100
+		spread_count   = 1
 
-		subjectiveGossip = {str(gossipID): {'action': action, 'confidant': confidant,'sensationalism':sensationalism, 'trust': trust}}
+		subjectiveGossip = {str(gossipID): {'action': action, 'confidant': confidant,'sensationalism':sensationalism, 'trust': trust, 'spread_count':spread_count}}
 		# use the source name as key update spreader
 		citizen_list[spreader['name']]['knownRumours'].update(subjectiveGossip)
 
 
-
 	# THE SPREADER KNOWS WHO THEY SPREAD IT TO
 	if type=='spread':
-		gossipID      = gossipObject['gossipID']
-		action        = 'spreaded'
-		confidant     = receivingAudience['name']
-		trust         = random.randint(40,70)
+		# Update self spread count
+		# global updated upon reciept 
+		gossipID       = gossipObject['gossipID']
+		action         = str(spreader['knownRumours'][gossipID]['action'] + 'S ')
+		confidant      = other_citizen['name']
+		spread_count   = spreader['knownRumours'][str(gossipID)]['spread_count'] + 1
+		sensationalism = spreader['knownRumours'][str(gossipID)]['sensationalism']
+		trust          = spreader['knownRumours'][str(gossipID)]['trust']
 
-		subjectiveGossip = {str(gossipID): {'action': action, 'confidant': confidant, 'trust': trust}}
+		subjectiveGossip = {str(gossipID): {'action': action, 'confidant': confidant, 'spread_count': spread_count, 'sensationalism':sensationalism,'trust':trust}}
+		
 		#update spreader 
 		citizen_list[spreader['name']]['knownRumours'].update(subjectiveGossip)
+
+		# UPDATE SPREAD COUNT
+		gossip_database[gossipID]['spread_count'] = gossip_database[gossipID]['spread_count'] + 1
+
+		logUpdateMessage(str(spreader['name'] + ' spreaded a rumour for the ' + str(spread_count) + ' time \n'),LOG_DICT["GOSSIP_ACTIONS"])
 
 
 	# the reciever knows the source
 	if type=='acceptRumour':
-		gossipID       = gossipObject['gossipID']
-		action         = 'received'
-		source         = spreader['name']
-		sensationalism = gossipObject['sensationalism']
-		trust          = random.randint(0,65)
-		subjectiveGossip = {str(gossipID): {'action': action, 'source': source,'sensationalism':sensationalism, 'trust': trust}}
-		# update reciever 
-		citizen_list[receivingAudience['name']]['knownRumours'].update(subjectiveGossip)
+		# TODO 
+		# If I know this rumour, reject it 
 
-		# award status points
+		gossipID         = gossipObject['gossipID']
+		if(gossipID  in other_citizen['knownRumours']):
+			print('I already know this')
+			input()
+		action           = "Received"
+		source           = spreader['name']
+		sensationalism   = gossipObject['sensationalism']
+		trust            = random.randint(0,65)
+		spread_count     = 0
+		
+		subjectiveGossip = {str(gossipID): {'action': action, 'source': source,'sensationalism':sensationalism, 'trust': trust, 'spread_count':0}}
+		
+		# UPDATE RECEIVER
+		citizen_list[other_citizen['name']]['knownRumours'].update(subjectiveGossip)
+
+		# AWARD STATUS POINTS
 		sourceCitizensSP = citizen_list[spreader['name']]['SP']
 		awardedSP        = round((1/random.randint(1,9)) * trust) # a fraction of trust
 		totalSP          = sourceCitizensSP + awardedSP 
-
 		rumourTarget    = gossipObject['target']
 		sentiment       = gossipObject['sentiment']
-		
-		#print(citizen_list[spreader['name']]['SP'])
 		citizen_list[spreader['name']]['SP'] = totalSP
 
+
+		# REPUTATION DAMAGE TO TARGET
+		# status points change as a fraction of their original SP
+		# modified by the sentiment
 		tSP = citizen_list[rumourTarget]['SP']
 		if(sentiment!=0): citizen_list[rumourTarget]['SP'] = round(tSP + ((sentiment/100)*abs(tSP)))
 
 
-		logReceivedGossip(LOG_DICT["RECEIVE_LOGFILE"],gossipID,spreader['name'],receivingAudience['name'],awardedSP,sourceCitizensSP,receivingAudience['knownRumours'],citizen_list,rumourTarget,sentiment)
+		# LOGGING
+		logReceivedGossip(LOG_DICT["RECEIVE_LOGFILE"],gossipID,spreader['name'],other_citizen['name'],awardedSP,sourceCitizensSP,other_citizen['knownRumours'],citizen_list,rumourTarget,sentiment)
 		# Random updates to log
-		logUpdateMessage(str(spreader['name'] + ' told ' + str(receivingAudience['name']) + ' a rumour. They received ' + str(awardedSP) + ' status points. They had ' + str(sourceCitizensSP) + ' \n'),LOG_DICT["GOSSIP_ACTIONS"])
+		logUpdateMessage(str(spreader['name'] + ' told ' + str(other_citizen['name']) + ' a rumour. They received ' + str(awardedSP) + ' status points. They had ' + str(sourceCitizensSP) + ' \n'),LOG_DICT["GOSSIP_ACTIONS"])
 		logUpdateMessage(str(str(rumourTarget) + ' was gosssiped about, the sentiment was ' + str(sentiment) + ' they had ' + str(tSP) + ' status points. They now have ' + str(citizen_list[rumourTarget]['SP'])+ ' \n' ),LOG_DICT["GOSSIP_ACTIONS"])
-
-
-		# TODO
-		# UPDATE SPREAD COUNT
-		# MIGRATE THIS LATER TO SPREAD 
-		gossip_database[gossipID]['spread_count'] = gossip_database[gossipID]['spread_count'] + 1
-
 
 
 

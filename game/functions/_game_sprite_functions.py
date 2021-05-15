@@ -30,10 +30,28 @@ def initializeMovement(citizen,botSprites,backgroundObjectMasks,spriteCounter):
 								"facing": 'down',
 								"moving": 0}
 
-		if(spriteCounter>= len(botSprites)):
-			spriteCounter =0
 
-		citizen['sprite'] = botSprites[spriteCounter]
+
+		"""
+		spritecounter is two counters in an array
+		firstindex= male, secondindex=female
+		the increment for the respective botsprite array
+		which also has two nested arrays, one for male sprites
+		the other for female
+		by ticking through, we don't have too many of the same sprites
+		if we overshoot, it goes back to zero
+		"""
+		gender = citizen['gender']
+		if(gender=='male'):    
+			citizen['sprite'] = botSprites[0][spriteCounter[0]]
+			spriteCounter[0] +=1
+			if(spriteCounter[0]>=len(botSprites[0])): spriteCounter[0]=0
+		if(gender=='female'): 
+			citizen['sprite'] = botSprites[1][spriteCounter[1]]
+			spriteCounter[1] +=1
+			if(spriteCounter[1]>=len(botSprites[1])): spriteCounter[1]=0
+
+		
 		return(citizen,spriteCounter)
 
 
