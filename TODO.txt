@@ -1,10 +1,13 @@
 DONE: Add in scandal factor very important 
 DONE: update that to subjective db
+DONE: spread gossip
 
-spread gossip
+TICK DOWN PERSISTENCE A GIVEN ITERATION LOOP
+TICK UP PERSISTENCE BASED ON SHARE
 
-Delete/Archive rumours where persistence < 0 
-Delete rumours from subjective DB
+
+DELETE/Archive rumours where persistence < 0 
+Delete rumours from subjective DB OR MAKE SENSATIONALISM =0
 
 Sensationalism drops over time.
 

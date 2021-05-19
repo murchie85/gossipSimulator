@@ -185,6 +185,12 @@ def updateKnownRumours(citizen_list,spreader, other_citizen,gossipObject,gossip_
 
 	return(citizen_list,gossip_database)
 
-#def pickRumour():
-	# pick a rumour to spread 
+def reducePersistence(gossip_database):
+
+	for gossip in gossip_database:
+		print(gossip_database[gossip]['persistence'])
+		gossip_database[gossip]['persistence'] = gossip_database[gossip]['persistence'] -1
+		print(gossip_database[gossip]['persistence'])
+
+	return(gossip_database)
 

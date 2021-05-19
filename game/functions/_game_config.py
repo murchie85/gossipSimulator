@@ -85,6 +85,21 @@ mOptionFive  = pygame.image.load(menuOptionFive)
 mOptionArray = [mOptionOne,mOptionTwo,mOptionThree,mOptionFour,mOptionFive]
 
 
+emoji1  = "/Users/adammcmurchie/2021/fishwives/sprites/emoji/emojis1.png"
+emoji2  = "/Users/adammcmurchie/2021/fishwives/sprites/emoji/emojis2.png"
+emoji3  = "/Users/adammcmurchie/2021/fishwives/sprites/emoji/emojis3.png"
+emoji4  = "/Users/adammcmurchie/2021/fishwives/sprites/emoji/emojis4.png"
+emoji5  = "/Users/adammcmurchie/2021/fishwives/sprites/emoji/emojis5.png"
+emoji1   = pygame.image.load(emoji1)
+emoji2   = pygame.image.load(emoji2)
+emoji3   = pygame.image.load(emoji3)
+emoji4   = pygame.image.load(emoji4)
+emoji5   = pygame.image.load(emoji5)
+emojis = [emoji1,emoji2,emoji3,emoji4,emoji5]
+
+
+speechBubble = "/Users/adammcmurchie/2021/fishwives/sprites/speech/bubble.png"
+speechBubble  = pygame.image.load(speechBubble)
 
 
 
@@ -92,7 +107,9 @@ imageDict = {"mainBack":mainBack,
 			 "Dialoguebox":Dialoguebox, 
 			 "arrowLeft":arrowLeft,
 			 "arrowRight":arrowRight,
-			 "mOptionArray":mOptionArray}  
+			 "mOptionArray":mOptionArray,
+			 "emojis": emojis,
+			 "speechBubble": speechBubble}  
   
 
 #---------------CREATING BOT SPRITES------------------------

@@ -138,6 +138,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 			position                       = citizen['movement']['pos']
 			gossipObject                   = {} # flush every time 
 			citizen_list                   = processEmotion(citizen,citizen_list,numberOfCitizens)
+			citizenAction 				   = citizen['action']
 
 			#  ------WALK------
 			citizen = processMovement(citizen,citizen_list,position,BOTVEL,WIDTH,HEIGHT,backgroundObjectMasks)
@@ -146,7 +147,11 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 			# UPATES
 			if (len(gossipObject) > 0): gossipUpdates.append(gossipObject)
 
-
+			
+			# Tick down action Counter
+			if(len(citizenAction) > 0):
+				citizenAction[1] = (citizenAction[1] -1)
+				if(citizenAction[1] <1): citizen['action'] = []
 
 
 
@@ -181,33 +186,34 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 		offset,offset_float = scroll(ark_pos,offset,offset_float,CONST)
 		# background
 		draw_back(SCREEN,mainBack,0,0,snap,offset,2)
-		#draw_back(SCREEN,mainBack,0,0,offset)
-		"""
-		for item in backgroundObjectMasks:
-			pygame.draw.rect(SCREEN, (255,255,255), item)
-		
-		"""
+
 		#-----DRAW SPRITES
 		# Ark
 		draw_sprite(SCREEN, Ark,ark_pos,moving,facing,sprite_frame,snap,offset,2)
-		#draw_sprite(SCREEN, Ark,ark_pos,moving,facing,sprite_frame,offset)
+		
 		# Sprites
 		for key in citizen_list:
 			citizen  = citizen_list[key]
 			draw_sprite(SCREEN, citizen['sprite'],citizen['movement']['pos'],citizen['movement']['moving'],citizen['movement']['facing'],sprite_frame,snap,offset,2)
-			#draw_sprite(SCREEN, citizen['sprite'],citizen['movement']['pos'],citizen['movement']['moving'],citizen['movement']['facing'],sprite_frame,offset)
 			
-			# Print Gossip bubble
+
+
+			citizen['notifyTimer'] = citizen['notifyTimer'] -1
 			citizenAction = citizen['action']
-			if(len(citizenAction) > 0):
+
+			if(citizen['notifyTimer'] < 10):
+				# draw emotoin
+				emotion = int(citizen['emotion'].split(',')[0])
+				#draw_back(SCREEN,imageDict['speechBubble'],citizen['movement']['pos'].x -15,citizen['movement']['pos'].y -40 ,snap,offset,fudge=2,zoomhScale=2,zoomvScale=3, nhScale=1,nvScale=2)
+				draw_back(SCREEN,imageDict['emojis'][emotion-1],citizen['movement']['pos'].x ,citizen['movement']['pos'].y -40 ,snap,offset,fudge=2,zoomhScale=2,zoomvScale=2, nhScale=1,nvScale=1)
+				if(citizen['notifyTimer'] <0): citizen['notifyTimer'] = random.randint(50,200)
+			elif(len(citizenAction) > 0):
+				# Print Gossip bubble
 				comment = ""
 				if(citizenAction[0] == 'gossiping'): comment = 'Rumour!'
 				if(citizenAction[0] == 'receiving'): comment = 'Really?'
-				citizenAction[1] = (citizenAction[1] -1)
-				draw_speechBubble(SCREEN,fonts,citizen['movement']['pos'].x , citizen['movement']['pos'].y  -32, comment,sprite_frame,snap,offset)
-				
-				# reset once the counter in citizenAction hits 0
-				if(citizenAction[1] <1): citizen['action'] = []
+				draw_speechBubble(SCREEN,fonts,imageDict,citizen['movement']['pos'].x , citizen['movement']['pos'].y  -32, comment,snap,offset)
+
 
 
 
@@ -216,13 +222,11 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 		#              ---------------DEBUG PRINT----------------                          *
 		#
 		#************************************************************************************
-
+		# top left box
 		draw_backScaled(SCREEN,Dialoguebox,0.028*WIDTH, 0.085*HEIGHT ,170,60)
 		drawText(SCREEN,myfont,str("TIME: " + str(timeCounter)),0.05*WIDTH, 0.1*HEIGHT)
-		for key in citizen_list:
-			kt = sum(len(x['knownRumours']) for x in citizen_list.values() if x)
-			out = 'Known Rumours: ' + str(kt)
-			#out = "known Rumours are: " + str(len(citizen_list[key]['knownRumours']))	
+		kt = sum(len(x['knownRumours']) for x in citizen_list.values() if x)
+		out = 'Known Rumours: ' + str(kt)
 		drawText(SCREEN,myfont,str(out),0.05*WIDTH, 0.14*HEIGHT)
 
 		# Choses a random gossip string to write, skips if no new updates

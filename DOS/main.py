@@ -138,27 +138,8 @@ for i in range(0, month_len):
 		# UPATES
 		if (len(gossipObject) > 0): gossipUpdates.append(gossipObject)
 
-
-
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	# END CITIZEN LOOP
+	gossip_database = reducePersistence(gossip_database)
 
 	#************************************************************************************
 	#

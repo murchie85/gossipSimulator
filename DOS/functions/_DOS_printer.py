@@ -350,7 +350,8 @@ def stats(printString,gossip_database):
 		print('Target: ' + str(gossip_database[key]['target'])  + ' Creator: ' + str(gossip_database[key]['creator']) )
 		print('SpreadCount: ' + str(gossip_database[key]['spread_count']) + ' Sentiment: ' + str(gossip_database[key]['sentiment']) + ' Sensationalism: ' + str(gossip_database[key]['sensationalism']) + ' persistence: ' + str(gossip_database[key]['persistence']) ) 
 		print('	')
-
+	print("Number of Rumours: " + str(len(gossip_database)))
+	print('')
 	input('press any key to continue \n')
 	print("\033c")
 

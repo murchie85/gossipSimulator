@@ -1,42 +1,17 @@
-Francisco Roberts told Dale Mcconnell a rumour. They received 12 status points. They had 30 
-Ellen Stitt was gosssiped about, the sentiment was -135 they had 77 status points. They now have -27 
-Charles Logan told Linda Irving a rumour. They received 22 status points. They had 12 
-Elizabeth Stovall was gosssiped about, the sentiment was -135 they had 85 status points. They now have -30 
-John Hopkins told Leland Watson a rumour. They received 24 status points. They had 64 
-Charles Logan was gosssiped about, the sentiment was -128 they had 34 status points. They now have -10 
-Ellen Stitt told Leland Watson a rumour. They received 0 status points. They had -27 
-John Hopkins was gosssiped about, the sentiment was -119 they had 88 status points. They now have -17 
-Elizabeth Stovall told Ellen Stitt a rumour. They received 1 status points. They had -30 
-Linda Irving was gosssiped about, the sentiment was 146 they had 67 status points. They now have 165 
-Marie Miller told Victoria Chirinos a rumour. They received 4 status points. They had 51 
-Dale Mcconnell was gosssiped about, the sentiment was -67 they had 59 status points. They now have 19 
-Kristen Guieb told Charles Logan a rumour. They received 2 status points. They had 90 
-Wendell Chacon was gosssiped about, the sentiment was 195 they had 55 status points. They now have 162 
-Dale Mcconnell told Wendell Chacon a rumour. They received 0 status points. They had 19 
-Kristen Guieb was gosssiped about, the sentiment was 185 they had 92 status points. They now have 262 
-Linda Irving told Charles Logan a rumour. They received 6 status points. They had 165 
-John Hopkins was gosssiped about, the sentiment was 133 they had -17 status points. They now have 6 
-John Hopkins told Ellen Stitt a rumour. They received 0 status points. They had 6 
-Linda Irving was gosssiped about, the sentiment was -69 they had 171 status points. They now have 53 
-Francisco Roberts told Wendell Chacon a rumour. They received 6 status points. They had 42 
-Kristen Guieb was gosssiped about, the sentiment was 164 they had 262 status points. They now have 692 
-Victoria Chirinos told Marie Miller a rumour. They received 11 status points. They had 72 
-Donald Lei was gosssiped about, the sentiment was 107 they had 3 status points. They now have 6 
-Elizabeth Stovall told John Hopkins a rumour. They received 57 status points. They had -29 
-John Hopkins was gosssiped about, the sentiment was 193 they had 6 status points. They now have 18 
-Charles Logan told Kristen Guieb a rumour. They received 29 status points. They had -10 
-Margaret Jones was gosssiped about, the sentiment was 20 they had 7 status points. They now have 8 
-Dale Mcconnell spreaded a rumour for the 1 time 
-Dale Mcconnell spreaded a rumour for the 2 time 
-Linda Irving told Kristen Guieb a rumour. They received 30 status points. They had 53 
-Charles Logan was gosssiped about, the sentiment was 140 they had 19 status points. They now have 46 
-Francisco Roberts told Dale Mcconnell a rumour. They received 0 status points. They had 48 
-Jessica Lindblom was gosssiped about, the sentiment was -129 they had 38 status points. They now have -11 
-Marie Miller told Victoria Chirinos a rumour. They received 7 status points. They had 55 
-Linda Irving was gosssiped about, the sentiment was 29 they had 83 status points. They now have 107 
-Donald Lei told Jessica Lindblom a rumour. They received 8 status points. They had 6 
-Victoria Chirinos was gosssiped about, the sentiment was -64 they had 83 status points. They now have 30 
-John Hopkins told Francisco Roberts a rumour. They received 6 status points. They had 18 
-Dale Mcconnell was gosssiped about, the sentiment was 147 they had 19 status points. They now have 47 
-Charles Logan told Linda Irving a rumour. They received 27 status points. They had 46 
-Francisco Roberts was gosssiped about, the sentiment was 75 they had 48 status points. They now have 84 
+David Okane told Chad Green a rumour. They received 62 status points. They had 27 
+Rupert Sparks was gosssiped about, the sentiment was 188 they had 42 status points. They now have 121 
+Duane Detweiler told Alicia Touhey a rumour. They received 30 status points. They had 93 
+David Okane was gosssiped about, the sentiment was 32 they had 89 status points. They now have 117 
+Nancy Cooper told Muriel Patterson a rumour. They received 11 status points. They had 93 
+Rupert Sparks was gosssiped about, the sentiment was 94 they had 121 status points. They now have 235 
+Alan Husk told Sam Anders a rumour. They received 4 status points. They had 15 
+Daniel Shin was gosssiped about, the sentiment was -110 they had 68 status points. They now have -7 
+Rupert Sparks told Duane Detweiler a rumour. They received 62 status points. They had 235 
+Cindy Garcia was gosssiped about, the sentiment was -139 they had 14 status points. They now have -5 
+Cindy Garcia told David Okane a rumour. They received 0 status points. They had -5 
+Laurice Belliveau was gosssiped about, the sentiment was -110 they had 13 status points. They now have -1 
+Alicia Touhey told Duane Detweiler a rumour. They received 2 status points. They had 90 
+Shelia Banks was gosssiped about, the sentiment was -21 they had 18 status points. They now have 14 
+Chad Green told David Okane a rumour. They received 4 status points. They had 10 
+Nancy Cooper was gosssiped about, the sentiment was 148 they had 104 status points. They now have 258 
+Sam Anders spreaded a rumour for the 1 time 

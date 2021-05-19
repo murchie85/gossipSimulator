@@ -48,8 +48,9 @@ def createCitizen():
 	sprite          = {}
 	emotion         = '😐'
 	action          = []
+	notifyTimer     = random.randint(20,100)
 
-	citizen = {"name": name, "gender":gender, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "movement":movement, "knownRumours": knownRumours, "sprite":sprite,'emotion':emotion,"action":action}
+	citizen = {"name": name, "gender":gender, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "movement":movement, "knownRumours": knownRumours, "sprite":sprite,'emotion':emotion,"action":action,"notifyTimer":notifyTimer}
 	return(citizen)
 
 

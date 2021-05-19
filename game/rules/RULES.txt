@@ -1,1 +1,1 @@
-gossipStimulation:45,talkingDistance:60,luckyChance:10000,citizenWalkSpeed:4,reputationImpact:250
+gossipStimulation:45,talkingDistance:50,luckyChance:10000,citizenWalkSpeed:2,reputationImpact:250
