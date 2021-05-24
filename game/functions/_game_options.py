@@ -22,7 +22,7 @@ def menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,im
 	# -----------Append all background images
 
 	for i in range(1,12):
-		backPath = "/Users/adammcmurchie/2021/fishwives/sprites/menu/blackblue" + str(i) + ".png"
+		backPath = "/Users/adammcmurchie/2021/Celestus/sprites/menu/blackblue" + str(i) + ".png"
 		back   = pygame.image.load(backPath)
 		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
 		backgroundArray.append(back)
@@ -108,7 +108,7 @@ def characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEI
 	# -----------Append all background images
 
 	for i in range(1,12):
-		backPath = "/Users/adammcmurchie/2021/fishwives/sprites/menu/blackblue" + str(i) + ".png"
+		backPath = "/Users/adammcmurchie/2021/Celestus/sprites/menu/blackblue" + str(i) + ".png"
 		back   = pygame.image.load(backPath)
 		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
 		backgroundArray.append(back)
@@ -259,7 +259,7 @@ def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,H
 	# -----------Append all background images
 
 	for i in range(1,12):
-		backPath = "/Users/adammcmurchie/2021/fishwives/sprites/advancedOptions/blackblue" + str(i) + ".png"
+		backPath = "/Users/adammcmurchie/2021/Celestus/sprites/advancedOptions/blackblue" + str(i) + ".png"
 		back   = pygame.image.load(backPath)
 		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
 		backgroundArray.append(back)
@@ -409,7 +409,7 @@ def statsOption(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HE
 	# -----------Append all background images
 
 	for i in range(1,12):
-		backPath = "/Users/adammcmurchie/2021/fishwives/sprites/advancedOptions/blackblue" + str(i) + ".png"
+		backPath = "/Users/adammcmurchie/2021/Celestus/sprites/advancedOptions/blackblue" + str(i) + ".png"
 		back   = pygame.image.load(backPath)
 		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
 		backgroundArray.append(back)

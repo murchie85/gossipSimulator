@@ -153,7 +153,9 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 				citizenAction[1] = (citizenAction[1] -1)
 				if(citizenAction[1] <1): citizen['action'] = []
 
-
+		
+		# END CITIZEN LOOP
+		gossip_database,citizen_list = reducePersistence(gossip_database,citizen_list,LOG_DICT)
 
 		#************************************************************************************
 		#
@@ -247,8 +249,9 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 		#************************************************************************************
 
 
+		# PRINT DIALOGUE BLUE BOX
 		# ------UPDATE NOTIFICATION TIMER 
-		noticationStatus,messageTime = printNotification(message, messageTime,SCREEN,WIDTH,HEIGHT,Dialoguebox)
+		noticationStatus,messageTime = printNotification(message, messageTime,SCREEN,WIDTH,HEIGHT,Dialoguebox,imageDict)
 
 		# PULL A NOTIFICATION
 		if((len(gossipUpdates) > 0)):

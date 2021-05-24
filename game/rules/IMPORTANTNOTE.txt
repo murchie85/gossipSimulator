@@ -1,0 +1,1 @@
+The Schema numbers in the schema are really important, because the final number after the : on each paragraph represents the incrment amount. This is how the game knows what ot increment each part when you push left or right/ up down 

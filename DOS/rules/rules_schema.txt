@@ -12,3 +12,7 @@ gossipStimulation: A maximum random value added to users gossip probability, the
 ;gameSpeed: This is the speed how fast the simulation runs. suggested default =5
 
 ;reputationImpact: Also known as (sentiment), This value acts as a % multiplier to reputation damage/boost. It impacts status points by reputationImpact/100, Default=100
+
+;dropOffRate: This value is how quickly a rumour will drop off, the lower the value, the longer the rumour will persist, Default=5
+
+;spreadPersistenceBoost: How much does the spread of the rumour contribute to the persistence of the rumour. The higher the value, means the more the rumour is spread, the higher it will persist, Default=5

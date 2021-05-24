@@ -348,7 +348,7 @@ def stats(printString,gossip_database):
 	for key in gossip_database:
 		print('Rumour: ' + str(gossip_database[key]['rumour']))
 		print('Target: ' + str(gossip_database[key]['target'])  + ' Creator: ' + str(gossip_database[key]['creator']) )
-		print('SpreadCount: ' + str(gossip_database[key]['spread_count']) + ' Sentiment: ' + str(gossip_database[key]['sentiment']) + ' Sensationalism: ' + str(gossip_database[key]['sensationalism']) + ' persistence: ' + str(gossip_database[key]['persistence']) ) 
+		print('SpreadCount: ' + str(gossip_database[key]['spread_count']) + ' Sentiment: ' + str(gossip_database[key]['sentiment']) + ' Sensationalism: ' + str(gossip_database[key]['sensationalism']) + ' persistence: ' + str(gossip_database[key]['persistence']) + ' status: ' + str(gossip_database[key]['status']) ) 
 		print('	')
 	print("Number of Rumours: " + str(len(gossip_database)))
 	print('')

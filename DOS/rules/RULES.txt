@@ -1,1 +1,1 @@
-gossipStimulation:35,talkingDistance:55,luckyChance:1000,gameSpeed:20,reputationImpact:200
+gossipStimulation:35,talkingDistance:55,luckyChance:1000,gameSpeed:10,reputationImpact:200,dropOffRate:4,spreadPersistenceBoost:20

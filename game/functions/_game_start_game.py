@@ -36,7 +36,7 @@ def startGame(FPS,SCREEN,myfont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,LOGF
 	# -----------Append all background images
 
 	for i in range(1,14):
-		backPath = "/Users/adammcmurchie/2021/fishwives/sprites/Title/title" + str(i) + ".png"
+		backPath = "/Users/adammcmurchie/2021/Celestus/sprites/Title/title" + str(i) + ".png"
 		back   = pygame.image.load(backPath)
 		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
 		backgroundArray.append(back)

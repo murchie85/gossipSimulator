@@ -47,7 +47,7 @@ def stringMod(string,blockLen=50):
 
 #  this will print a messages for a given time.
 #  it counts down a timer to keep printing message
-def printNotification(message, messageTime,SCREEN,WIDTH,HEIGHT,dialogueBox):
+def printNotification(message, messageTime,SCREEN,WIDTH,HEIGHT,dialogueBox,imageDict):
     if message == "":
         return('free',messageTime)
 
@@ -66,6 +66,10 @@ def printNotification(message, messageTime,SCREEN,WIDTH,HEIGHT,dialogueBox):
                 words = ""
                 i+=1
         if(words!=""): drawText(SCREEN,updateFont,str(words),0.26*WIDTH,(0.735 + (i * spacing) )*HEIGHT)
+
+
+        #draw_backScaled(SCREEN,imageDict['boyProfile'],0.8*WIDTH,0.6*HEIGHT,200,240)
+        draw_backScaled(SCREEN,imageDict['girlProfile'],0.045*WIDTH,0.6*HEIGHT,180,220)
 
         messageTime -=1
         return('running',messageTime)

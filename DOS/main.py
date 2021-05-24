@@ -81,13 +81,14 @@ gameSpeed = int(getRules("rules/RULES.txt",'gameSpeed'))
 
 # Print start 
 init_files(RECEIVE_LOGFILE)
+# set to yes to skip intro
 startMesssage(citizen_count,citizen_list,'yes')
-defaultSettings()
-# time buffered by sleep
-# This clears the screen
+# TODO: makes this Universal so a library of settings can be picked
+#defaultSettings()
 
 
 
+# clear screen
 print("\033c")
 
 ## This loops until it gets the a full month
@@ -139,7 +140,7 @@ for i in range(0, month_len):
 		if (len(gossipObject) > 0): gossipUpdates.append(gossipObject)
 
 	# END CITIZEN LOOP
-	gossip_database = reducePersistence(gossip_database)
+	gossip_database,citizen_list = reducePersistence(gossip_database,citizen_list,LOG_DICT)
 
 	#************************************************************************************
 	#

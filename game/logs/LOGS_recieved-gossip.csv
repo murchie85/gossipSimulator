@@ -1,12 +1,5 @@
 Time,ID,Spreader,Audience,SP,Originalsp,AudienceKnownRumours,rumour target,sentiment,TotalRumours
-05/19/2021 21:45:59:488221,1,James Mills,Tina Porter,2,5,1,Ronald Mccroskey,209,2
-05/19/2021 21:46:00:249991,2,Lydia Shirk,Emma Jensen,9,96,1,Lillian Ferrara,47,4
-05/19/2021 21:46:00:648112,3,Howard Bryant,Ronald Mccroskey,1,46,1,Lindsey Loughmiller,-4,6
-05/19/2021 21:46:03:151669,4,Lydia Shirk,Emma Jensen,3,105,2,Tina Porter,105,8
-05/19/2021 21:46:05:949244,5,Neil Kazunas,Emma Jensen,6,33,3,Kathleen Kilcrest,-237,10
-05/19/2021 21:46:06:189402,6,Lydia Shirk,Kathleen Kilcrest,3,108,1,Lillian Ferrara,-84,12
-05/19/2021 21:46:09:031108,7,Lydia Shirk,Emma Jensen,7,111,4,Ronald Mccroskey,237,14
-05/19/2021 21:46:12:840110,8,Lydia Shirk,Kathleen Kilcrest,3,118,2,Spencer Eller,-27,16
-05/19/2021 21:46:16:873458,9,Spencer Eller,Neil Kazunas,21,13,2,Lillian Ferrara,12,18
-05/19/2021 21:46:18:811737,10,Neil Kazunas,Spencer Eller,2,39,2,Howard Bryant,-83,20
-05/19/2021 21:46:20:839664,11,Spencer Eller,Neil Kazunas,1,34,4,Emma Jensen,79,22
+05/24/2021 09:50:16:583669,1,Millard Rodriguez,Robert Morris,8,46,1,Benjamin Alicea,-90,2
+05/24/2021 09:50:16:593431,2,Ronald Simonetti,Angela Okuhara,10,75,1,Dorian Kaplan,-84,4
+05/24/2021 09:50:16:715438,3,John Koualeski,Carroll Singh,40,88,1,Millard Rodriguez,108,6
+05/24/2021 09:50:16:728271,4,Tanya Lindo,Carroll Singh,1,2,2,Kristina Littlefield,182,8

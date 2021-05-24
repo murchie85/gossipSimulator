@@ -12,3 +12,7 @@ Example Usage: if((myChance > 90) and (distanceApart < talkingDistance) or (luck
 ;citizenWalkSpeed: This is the speed the citizens walk around at, the faster they walk the more likely they will meet people to gossip. BE WARNED, to fast and things will glitch out, you won't be able to keep up!:1
 
 ;reputationImpact: Also known as (sentiment), This value acts as a % multiplier to reputation damage/boost. It impacts status points by reputationImpact/100, Default=100:5
+
+;dropOffRate: This value is how quickly a rumour will drop off, the lower the value, the longer the rumour will persist, Default=5:1
+
+;spreadPersistenceBoost: How much does the spread of the rumour contribute to the persistence of the rumour. The higher the value, means the more the rumour is spread, the higher it will persist, Default=5:1

@@ -1,8 +1,6 @@
 """
 
 
-
-
 GLOBAL TRACKER
 | Object                      | Values |
 | ----------- | ----------- |
@@ -148,39 +146,28 @@ def spreadGossip(citizen,citizen_list,gossip_database,gossipObject,spreadChance,
 	# check if existing gossip exists 
 	# select a rumour to spread
 	# update internal reference using 'spread'
-	# 
-
-
+	# ONLY SPREAD ACTIVE RUMOURS
 	if((spreadChance > 100) and (distanceApart < talkingDistance) or (distanceApart < talkingDistance and luckyChance == 10)):
 
 
-		# CONDITION TO DOCUMENT
-		# Get the most sensational
-		keys, values = [],[]
-		for gossip in citizen['knownRumours']:
-			keys.append(int(gossip))
-			values.append(int(citizen['knownRumours'][gossip]['sensationalism']))
 
-		arrayIndex   = values.index(max(values))
-		chosenIndex  = str(keys[int(arrayIndex)])
+		# CONDITION TO DOCUMENT
+		# FILTER ACTIVE ONLY
+		tempArray = [x for x in citizen['knownRumours'] if citizen['knownRumours'][x]['status'] == 'active']
+		tempDict = {}
+		for key in tempArray: tempDict[key] = citizen['knownRumours'][key]
+		
+		# Want to spread but no rumours to spread 
+		if(len(tempDict) <1): return(citizen,gossip_database, gossipObject,citizen_list)
+		
+		# Get highest sensationalism index
+		chosenIndex  = max(tempDict, key=lambda x: tempDict[x]['sensationalism'])
 		chosenGossip = citizen['knownRumours'][chosenIndex]
 
-		gossipObject = {
-		'gossipID': str(chosenIndex),
-		'creator': gossip_database[str(chosenIndex)]['creator'],
-		'target': gossip_database[str(chosenIndex)]['target'],
-		'sentiment': gossip_database[str(chosenIndex)]['sentiment'],
-		'rumour': gossip_database[str(chosenIndex)]['rumour'],
-		'risk': gossip_database[str(chosenIndex)]['risk'],
-		'persistence': gossip_database[str(chosenIndex)]['persistence'],
-		'sensationalism': gossip_database[str(chosenIndex)]['sensationalism'],
-		'spread_count': gossip_database[str(chosenIndex)]['spread_count'],
-		'associated_citizens':  gossip_database[str(chosenIndex)]['associated_citizens'],
-		}
+		gossipObject = gossip_database[str(chosenIndex)]
 
 		# updates SELF: the fishwifes internal reference
 		citizen_list,gossip_database = updateKnownRumours(citizen_list,citizen, other_citizen ,gossipObject,gossip_database, 'spread',LOG_DICT)
-
 
 	return(citizen,gossip_database, gossipObject,citizen_list)
 
