@@ -5,7 +5,7 @@ from ._game_draw import *
 from .rules import *
 import math
 
-def menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict):
+def menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir, imageDict):
 	# Initialisation
 	backgroundArray = []
 	backgroundFrame = 0
@@ -22,7 +22,7 @@ def menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,im
 	# -----------Append all background images
 
 	for i in range(1,12):
-		backPath = "/Users/adammcmurchie/2021/Celestus/sprites/menu/blackblue" + str(i) + ".png"
+		backPath = baseDir + "/sprites/menu/blackblue" + str(i) + ".png"
 		back   = pygame.image.load(backPath)
 		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
 		backgroundArray.append(back)
@@ -34,7 +34,7 @@ def menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,im
 		citizenPrintArray = []	
 
 		keys_pressed = pygame.key.get_pressed()
-		if keys_pressed[pygame.K_r]: rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
+		if keys_pressed[pygame.K_r]: rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir,imageDict)
 		# INCREMENT CHARACTER SELECTOR 
 
 		# Get input without spamming
@@ -56,11 +56,11 @@ def menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,im
 
 		if keys_pressed[pygame.K_RETURN]:
 			if(menuSelected==0):
-				characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
+				characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir, imageDict)
 			if(menuSelected==2):
-				rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
+				rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir, imageDict)
 			if(menuSelected==3):
-				statsOption(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
+				statsOption(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir,imageDict)
 
 			if(menuSelected==4):
 				menuRun = False
@@ -91,7 +91,7 @@ def menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,im
 
 
 
-def characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict):
+def characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir, imageDict):
 	# Initialisation
 	SCREEN.fill((0,0,0))
 	backgroundArray = []
@@ -108,7 +108,7 @@ def characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEI
 	# -----------Append all background images
 
 	for i in range(1,12):
-		backPath = "/Users/adammcmurchie/2021/Celestus/sprites/menu/blackblue" + str(i) + ".png"
+		backPath = baseDir + "/sprites/menu/blackblue" + str(i) + ".png"
 		back   = pygame.image.load(backPath)
 		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
 		backgroundArray.append(back)
@@ -124,7 +124,7 @@ def characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEI
 
 
 		keys_pressed = pygame.key.get_pressed()
-		if keys_pressed[pygame.K_r]: rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
+		if keys_pressed[pygame.K_r]: rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir, imageDict)
 		# INCREMENT CHARACTER SELECTOR 
 
 		# Get input without spamming
@@ -237,7 +237,7 @@ def characters(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEI
 
 
 
-def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict):
+def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir,imageDict):
 
 	SCREEN.fill((0,0,0))
 	backgroundArray = []
@@ -259,7 +259,7 @@ def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,H
 	# -----------Append all background images
 
 	for i in range(1,12):
-		backPath = "/Users/adammcmurchie/2021/Celestus/sprites/advancedOptions/blackblue" + str(i) + ".png"
+		backPath = baseDir + "/sprites/advancedOptions/blackblue" + str(i) + ".png"
 		back   = pygame.image.load(backPath)
 		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
 		backgroundArray.append(back)
@@ -388,7 +388,7 @@ def rulesOptions(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,H
 
 
 
-def statsOption(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict):
+def statsOption(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir,imageDict):
 
 	SCREEN.fill((0,0,0))
 	backgroundArray = []
@@ -409,7 +409,7 @@ def statsOption(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HE
 	# -----------Append all background images
 
 	for i in range(1,12):
-		backPath = "/Users/adammcmurchie/2021/Celestus/sprites/advancedOptions/blackblue" + str(i) + ".png"
+		backPath = baseDir + "/sprites/advancedOptions/blackblue" + str(i) + ".png"
 		back   = pygame.image.load(backPath)
 		back   = pygame.transform.scale(back, (WIDTH, HEIGHT))
 		backgroundArray.append(back)

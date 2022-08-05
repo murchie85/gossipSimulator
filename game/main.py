@@ -72,8 +72,7 @@ rulesFile   = 'rules/RULES.txt'
 #citizen_list = generateCitizens(15)
 citizen_list = {}
 gossip_database = {}
-
-
+baseDir  = os.path.dirname(os.getcwd())
 
 
 
@@ -97,7 +96,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 
 
 	# Generates citizens once start selected
-	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,LOG_DICT['RECEIVE_LOGFILE'])
+	citizen_list = startGame(FPS,SCREEN,menuFont,citizen_list,numberOfCitizens, WIDTH,HEIGHT,baseDir,LOG_DICT['RECEIVE_LOGFILE'])
 	spriteCounter = [0,0]
 	SCREEN.fill((0,0,0))
 
@@ -168,7 +167,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 		ark_pos, facing, moving = moveSprite(keys_pressed,ark_pos,VEL,facing,moving,WIDTH,HEIGHT,citizen_list,backgroundObjectMasks)
 
 		#---MENU
-		if keys_pressed[pygame.K_o]: menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,imageDict)
+		if keys_pressed[pygame.K_o]: menu(FPS,SCREEN,myfont,menuFont,citizen_list,gossip_database,WIDTH,HEIGHT,baseDir,imageDict)
 		if keys_pressed[pygame.K_c]: run = False     # QUIT GAME
 
 		# SPRITE 

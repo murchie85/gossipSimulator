@@ -67,14 +67,19 @@ and finally...
 
  This project endeavours to pit various ML optimisers into the simulation, the hope is to observe emergent behaviour as agents look to increase their status,
   
+## INPUTS 
 
+**F** = Zoom in/out
+**O** = MENU
+**B** = Back if in menu
+**R** = Rules if in menu
 
- # Warning 
+# Warning 
 
- It gets a **bit convoluted from here on**, including scribble notes, please star the repo or follow me if you like the idea and I will have a blog or two out soon! 
+It gets a **bit convoluted from here on**, including scribble notes, please star the repo or follow me if you like the idea and I will have a blog or two out soon! 
 
- Thanks!
-    
+Thanks!
+ 
 
 
 [![IMAGE ALT TEXT HERE](sprites/concept/simstarting.png)](https://youtu.be/gvTg6wm78iM)  

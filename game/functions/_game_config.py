@@ -1,6 +1,6 @@
 import pygame
 from ._game_functions import *
-
+import os
 
 WIDTH, HEIGHT = 1000 ,700
 tileSize = 32
@@ -9,7 +9,7 @@ SCREEN  = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.font.init() 
 myfont   = pygame.font.Font("resources/nokiafc.ttf", 8)
 menuFont = pygame.font.Font("resources/nokiafc.ttf", 16)
-
+baseDir  = os.path.dirname(os.getcwd())
 
 
 ## CAMERA
@@ -29,7 +29,7 @@ clock       = pygame.time.Clock()
 run         = True                 # When False game exits
 gameCounter = 0                    # loop count 
 frameSwitch = 0                    # var to let us know the frame has been switched and to wait
-FPS         = 60                   # PS
+FPS         = 20                   # PS
 facing      = 'down'
 nextFrame   = pygame.time.get_ticks()
 
@@ -56,28 +56,28 @@ BOTVEL = 1
 # SPRITES 
 #-------------------
 
-Ark    = initialiseImageSpriteGroups('/Users/adammcmurchie/2021/Celestus/sprites/characters/ark/ark',12,32,32)
+Ark    = initialiseImageSpriteGroups(baseDir + '/sprites/characters/ark/ark',12,32,32)
 
 
 
-mainBackPath = "/Users/adammcmurchie/2021/Celestus/sprites/backgrounds/test.png"
+mainBackPath = baseDir + "/sprites/backgrounds/test.png"
 mainBack     = pygame.image.load(mainBackPath).convert()
 mainBack     = pygame.transform.scale(mainBack, (WIDTH, HEIGHT))
 
-DialoguePath = "/Users/adammcmurchie/2021/Celestus/sprites/dialoguebox/dbox.png"
+DialoguePath = baseDir + "/sprites/dialoguebox/dbox.png"
 Dialoguebox  = pygame.image.load(DialoguePath).convert()
 
-arrowLeft      = "/Users/adammcmurchie/2021/Celestus/sprites/arrow/arrow1.png"
+arrowLeft      = baseDir + "/sprites/arrow/arrow1.png"
 arrowLeft      = pygame.image.load(arrowLeft)
-arrowRight     = "/Users/adammcmurchie/2021/Celestus/sprites/arrow/arrow2.png"
+arrowRight     = baseDir + "/sprites/arrow/arrow2.png"
 arrowRight     = pygame.image.load(arrowRight)
 
 
-menuOptionOne   = "/Users/adammcmurchie/2021/Celestus/sprites/menu/menuOptions1.png"
-menuOptionTwo   = "/Users/adammcmurchie/2021/Celestus/sprites/menu/menuOptions2.png"
-menuOptionThree = "/Users/adammcmurchie/2021/Celestus/sprites/menu/menuOptions3.png"
-menuOptionFour  = "/Users/adammcmurchie/2021/Celestus/sprites/menu/menuOptions4.png"
-menuOptionFive  = "/Users/adammcmurchie/2021/Celestus/sprites/menu/menuOptions5.png"
+menuOptionOne   = baseDir + "/sprites/menu/menuOptions1.png"
+menuOptionTwo   = baseDir + "/sprites/menu/menuOptions2.png"
+menuOptionThree = baseDir + "/sprites/menu/menuOptions3.png"
+menuOptionFour  = baseDir + "/sprites/menu/menuOptions4.png"
+menuOptionFive  = baseDir + "/sprites/menu/menuOptions5.png"
 mOptionOne   = pygame.image.load(menuOptionOne)
 mOptionTwo   = pygame.image.load(menuOptionTwo)
 mOptionThree = pygame.image.load(menuOptionThree)
@@ -86,11 +86,11 @@ mOptionFive  = pygame.image.load(menuOptionFive)
 mOptionArray = [mOptionOne,mOptionTwo,mOptionThree,mOptionFour,mOptionFive]
 
 
-emoji1  = "/Users/adammcmurchie/2021/Celestus/sprites/emoji/emojis1.png"
-emoji2  = "/Users/adammcmurchie/2021/Celestus/sprites/emoji/emojis2.png"
-emoji3  = "/Users/adammcmurchie/2021/Celestus/sprites/emoji/emojis3.png"
-emoji4  = "/Users/adammcmurchie/2021/Celestus/sprites/emoji/emojis4.png"
-emoji5  = "/Users/adammcmurchie/2021/Celestus/sprites/emoji/emojis5.png"
+emoji1  = baseDir + "/sprites/emoji/emojis1.png"
+emoji2  = baseDir + "/sprites/emoji/emojis2.png"
+emoji3  = baseDir + "/sprites/emoji/emojis3.png"
+emoji4  = baseDir + "/sprites/emoji/emojis4.png"
+emoji5  = baseDir + "/sprites/emoji/emojis5.png"
 emoji1   = pygame.image.load(emoji1)
 emoji2   = pygame.image.load(emoji2)
 emoji3   = pygame.image.load(emoji3)
@@ -99,15 +99,15 @@ emoji5   = pygame.image.load(emoji5)
 emojis = [emoji1,emoji2,emoji3,emoji4,emoji5]
 
 
-speechBubble = "/Users/adammcmurchie/2021/Celestus/sprites/speech/bubble.png"
+speechBubble = baseDir + "/sprites/speech/bubble.png"
 speechBubble  = pygame.image.load(speechBubble)
 
-girlProfile  = "/Users/adammcmurchie/2021/Celestus/sprites/characterProfile/small/Erika.png"
+girlProfile  = baseDir + "/sprites/characterProfile/small/Erika.png"
 girlProfile  = pygame.image.load(girlProfile)
 lGirl,wGirl  = 346, 461
 girlProfile  = pygame.transform.scale(girlProfile, (lGirl,wGirl ))
 
-boyProfile  = "/Users/adammcmurchie/2021/Celestus/sprites/characterProfile/boy.png"
+boyProfile  = baseDir + "/sprites/characterProfile/boy.png"
 boyProfile  = pygame.image.load(boyProfile)
 boyProfile  = pygame.transform.scale(boyProfile, (200, 240))
 
@@ -124,7 +124,7 @@ imageDict = {"mainBack":mainBack,
 
 #---------------CREATING BOT SPRITES------------------------
 
-spritePath  = '/Users/adammcmurchie/2021/Celestus/sprites/characters/'
+spritePath  = baseDir + '/sprites/characters/'
 males   = ['claude,male''Doug,male','Jean,male','rick,male','Vanrose,male','Yurald,male']
 females = ['Diane,female', 'Eberle,female','Ileyda,female', 'Philis,female', 'Telmia,female']
 
