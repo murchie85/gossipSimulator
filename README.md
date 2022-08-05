@@ -550,7 +550,7 @@ Run number 999: Target Label = StatusPoints
 **items for backlog review**
 
 
-Ideas provided by Geoffrey Curtis  
+Ideas provided by Others
   
 Rules for recipients (friends, family, neighbours)
 Include a variable for scale of filtering received gossip ranging from one, for completely gullible, to ten, for completely sceptical. This affects whether and with what enthusiasm the gossip is passed on. Should age have an effect?
@@ -574,7 +574,6 @@ Content indicator for type (person, object or event)
 ## Contributors  
 
 - Adam McMurchie
-- HaoYu Chen 
   
 ## If you liked this...  
  

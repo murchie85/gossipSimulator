@@ -101,7 +101,7 @@ def main(citizen_list,numberOfCitizens,sprite_frame,vec, offset, offset_float,CO
 	spriteCounter = [0,0]
 	SCREEN.fill((0,0,0))
 
-	# initialise bot characteristics
+	# INITIALISE SPRITES TO GIVEN CITIZEN
 	for key in citizen_list:
 		citizen  = citizen_list[key]
 		citizen,spriteCounter = initializeMovement(citizen,botSprites,backgroundObjectMasks,spriteCounter)

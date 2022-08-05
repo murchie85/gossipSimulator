@@ -1,5 +1,13 @@
 Time,ID,Spreader,Audience,SP,Originalsp,AudienceKnownRumours,rumour target,sentiment,TotalRumours
-05/24/2021 09:50:16:583669,1,Millard Rodriguez,Robert Morris,8,46,1,Benjamin Alicea,-90,2
-05/24/2021 09:50:16:593431,2,Ronald Simonetti,Angela Okuhara,10,75,1,Dorian Kaplan,-84,4
-05/24/2021 09:50:16:715438,3,John Koualeski,Carroll Singh,40,88,1,Millard Rodriguez,108,6
-05/24/2021 09:50:16:728271,4,Tanya Lindo,Carroll Singh,1,2,2,Kristina Littlefield,182,8
+06/27/2021 18:27:47:259896,1,Jean Howell,Dorothy Ellinwood,5,22,1,Angeline Muth,-21,2
+06/27/2021 18:27:47:266902,2,Lydia Brown,Angeline Muth,7,10,1,Kimberly Lynch,123,4
+06/27/2021 18:27:47:294674,3,Luther Mcleod,Barbara Larimer,19,38,1,Lydia Brown,-112,6
+06/27/2021 18:27:47:390563,4,Michelle Shao,Jean Howell,30,80,2,Dorothy Ellinwood,58,8
+06/27/2021 18:27:47:392499,5,Sean Carson,Ryan Vargas,8,19,1,Michelle Shao,-110,10
+06/27/2021 18:27:47:402938,6,Herma Adams,Lydia Brown,9,94,2,Barbara Larimer,-106,12
+06/27/2021 18:27:47:735533,7,Dorothy Ellinwood,Jean Howell,0,144,3,Lydia Brown,174,14
+06/27/2021 18:27:47:760077,8,Barbara Larimer,Luther Mcleod,2,-3,2,Sherry Peters,-224,16
+06/27/2021 18:27:47:881902,9,Lydia Brown,Herma Adams,8,1,2,Ryan Vargas,-224,18
+06/27/2021 18:27:48:239694,10,Jean Howell,Dorothy Ellinwood,3,27,3,Luther Mcleod,-241,20
+06/27/2021 18:27:48:242002,11,Luther Mcleod,Barbara Larimer,24,-80,3,Michelle Shao,-227,22
+06/27/2021 18:27:48:341846,12,Herma Adams,Lydia Brown,10,103,4,Dorothy Ellinwood,-209,24

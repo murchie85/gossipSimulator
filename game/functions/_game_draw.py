@@ -53,23 +53,22 @@ def printNotification(message, messageTime,SCREEN,WIDTH,HEIGHT,dialogueBox,image
 
     if messageTime >= 0:
 
+        # Draw character
+        draw_backScaled(SCREEN,imageDict['girlProfile']['sprite'],0.015*WIDTH,0.4*HEIGHT,imageDict['girlProfile']['l'],imageDict['girlProfile']['w'])
+
         # THIS DRAWS THE BACKGROUND DIALOGUE BOX
-        draw_backScaled(SCREEN,dialogueBox,0.2*WIDTH,0.7*HEIGHT,600,120)
+        draw_backScaled(SCREEN,dialogueBox,0.28*WIDTH,0.7*HEIGHT,600,120)
         spacing = 0.04
         # THIS WRITES ROWS IN EQUAL LENGTH, PREVENTS LETTER CUTOFF
         rowLen,maxRL,words,i = 0,42,"",0
-        if(len(message) <= maxRL):drawText(SCREEN,updateFont,str(message),0.026*WIDTH, 0.735*HEIGHT)
+        if(len(message) <= maxRL):drawText(SCREEN,updateFont,str(message),0.035*WIDTH, 0.735*HEIGHT)
         for word in message.split():
             words+= word + ' '
             if(len(words) >= maxRL):
-                drawText(SCREEN,updateFont,str(words),0.26*WIDTH, (0.735 + (i * spacing) )*HEIGHT)
+                drawText(SCREEN,updateFont,str(words),0.35*WIDTH, (0.735 + (i * spacing) )*HEIGHT)
                 words = ""
                 i+=1
-        if(words!=""): drawText(SCREEN,updateFont,str(words),0.26*WIDTH,(0.735 + (i * spacing) )*HEIGHT)
-
-
-        #draw_backScaled(SCREEN,imageDict['boyProfile'],0.8*WIDTH,0.6*HEIGHT,200,240)
-        draw_backScaled(SCREEN,imageDict['girlProfile'],0.045*WIDTH,0.6*HEIGHT,180,220)
+        if(words!=""): drawText(SCREEN,updateFont,str(words),0.35*WIDTH,(0.735 + (i * spacing) )*HEIGHT)
 
         messageTime -=1
         return('running',messageTime)

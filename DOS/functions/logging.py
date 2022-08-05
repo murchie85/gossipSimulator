@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime
+import json
 
 def init_files(file):
 	with open(file, 'w', newline='') as csvfile:
@@ -24,6 +25,17 @@ def logReceivedGossip(file,gossipID,spreader,audience,awardedSP,targetCitizensSP
 
 
 def logUpdateMessage(message,file,action='a'):
-	f = open(file, action)
-	f.write(message)
-	f.close()
+
+	if(action=='a'):
+		f = open(file, action)
+		f.write(message)
+		f.close()
+
+	if(action=='w'):
+		f = open(file, action)
+		f.write(message)
+		f.close()
+
+	if(action=='j'):
+		with open(file, 'w') as f:
+		    json.dump(message, f)

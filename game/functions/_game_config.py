@@ -4,6 +4,7 @@ from ._game_functions import *
 
 WIDTH, HEIGHT = 1000 ,700
 tileSize = 32
+#, pygame.NOFRAME
 SCREEN  = pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.font.init() 
 myfont   = pygame.font.Font("resources/nokiafc.ttf", 8)
@@ -47,7 +48,7 @@ noticationStatus = ""
 
 fonts = {'myfont':myfont,'menuFont':menuFont}
 
-VEL    = 5
+VEL    = 8
 BOTVEL = 1
 
 
@@ -101,9 +102,10 @@ emojis = [emoji1,emoji2,emoji3,emoji4,emoji5]
 speechBubble = "/Users/adammcmurchie/2021/Celestus/sprites/speech/bubble.png"
 speechBubble  = pygame.image.load(speechBubble)
 
-girlProfile  = "/Users/adammcmurchie/2021/Celestus/sprites/characterProfile/girl.png"
+girlProfile  = "/Users/adammcmurchie/2021/Celestus/sprites/characterProfile/small/Erika.png"
 girlProfile  = pygame.image.load(girlProfile)
-girlProfile  = pygame.transform.scale(girlProfile, (200, 240))
+lGirl,wGirl  = 346, 461
+girlProfile  = pygame.transform.scale(girlProfile, (lGirl,wGirl ))
 
 boyProfile  = "/Users/adammcmurchie/2021/Celestus/sprites/characterProfile/boy.png"
 boyProfile  = pygame.image.load(boyProfile)
@@ -116,7 +118,7 @@ imageDict = {"mainBack":mainBack,
 			 "mOptionArray":mOptionArray,
 			 "emojis": emojis,
 			 "speechBubble": speechBubble,
-			 "girlProfile":girlProfile,
+			 "girlProfile":{'sprite': girlProfile, 'l':lGirl,'w':wGirl},
 			 "boyProfile":boyProfile}  
   
 
@@ -128,8 +130,8 @@ females = ['Diane,female', 'Eberle,female','Ileyda,female', 'Philis,female', 'Te
 
 
 
+# POPULATES botSprites with two lists of male,female and their sprite associations
 botSprites  = []
-
 maleSprites = []
 for i in range(len(males)):
 	path = spritePath + males[i].split(',')[0] +'/' + males[i].split(',')[0] 

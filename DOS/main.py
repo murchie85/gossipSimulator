@@ -23,6 +23,7 @@ import time
 import random
 import os
 import pprint
+import json
 
 
 #LOGS_gossip_actions
@@ -199,6 +200,8 @@ for i in range(0, month_len):
 	# Save latest Gossip data structure
 	pout = pprint.pformat(gossip_database, indent=4)
 	logUpdateMessage(pout,DATABASE_GOSSIP,'w')
+	
+	logUpdateMessage(gossip_database,'logs/gossipDB.json','j')
 
 
 	# NEXT DAY 	

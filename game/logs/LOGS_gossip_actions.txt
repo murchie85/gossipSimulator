@@ -1,8 +1,27 @@
-Millard Rodriguez told Robert Morris a rumour. They received 8 status points. They had 46 
-Benjamin Alicea was gosssiped about, the sentiment was -90 they had 80 status points. They now have 8 
-Ronald Simonetti told Angela Okuhara a rumour. They received 10 status points. They had 75 
-Dorian Kaplan was gosssiped about, the sentiment was -84 they had 99 status points. They now have 16 
-John Koualeski told Carroll Singh a rumour. They received 40 status points. They had 88 
-Millard Rodriguez was gosssiped about, the sentiment was 108 they had 54 status points. They now have 112 
-Tanya Lindo told Carroll Singh a rumour. They received 1 status points. They had 2 
-Kristina Littlefield was gosssiped about, the sentiment was 182 they had 50 status points. They now have 141 
+Jean Howell told Dorothy Ellinwood a rumour. They received 5 status points. They had 22 
+Angeline Muth was gosssiped about, the sentiment was -21 they had 14 status points. They now have 11 
+Lydia Brown told Angeline Muth a rumour. They received 7 status points. They had 10 
+Kimberly Lynch was gosssiped about, the sentiment was 123 they had 100 status points. They now have 223 
+Luther Mcleod told Barbara Larimer a rumour. They received 19 status points. They had 38 
+Lydia Brown was gosssiped about, the sentiment was -112 they had 17 status points. They now have -2 
+Michelle Shao told Jean Howell a rumour. They received 30 status points. They had 80 
+Dorothy Ellinwood was gosssiped about, the sentiment was 58 they had 91 status points. They now have 144 
+Sean Carson told Ryan Vargas a rumour. They received 8 status points. They had 19 
+Michelle Shao was gosssiped about, the sentiment was -110 they had 110 status points. They now have -11 
+Herma Adams told Lydia Brown a rumour. They received 9 status points. They had 94 
+Barbara Larimer was gosssiped about, the sentiment was -106 they had 53 status points. They now have -3 
+Dorothy Ellinwood told Jean Howell a rumour. They received 0 status points. They had 144 
+Lydia Brown was gosssiped about, the sentiment was 174 they had -2 status points. They now have 1 
+**Rumour is dead**, the rumour was  Angeline Muth came into work drunk last week and has been sent on forced leave 
+Barbara Larimer told Luther Mcleod a rumour. They received 2 status points. They had -3 
+Sherry Peters was gosssiped about, the sentiment was -224 they had 33 status points. They now have -41 
+**Rumour is dead**, the rumour was  Lydia Brown got caught drink driving. 
+Lydia Brown told Herma Adams a rumour. They received 8 status points. They had 1 
+Ryan Vargas was gosssiped about, the sentiment was -224 they had 17 status points. They now have -21 
+Michelle Shao spreaded a rumour for the 2 time 
+Jean Howell told Dorothy Ellinwood a rumour. They received 3 status points. They had 27 
+Luther Mcleod was gosssiped about, the sentiment was -241 they had 57 status points. They now have -80 
+Luther Mcleod told Barbara Larimer a rumour. They received 24 status points. They had -80 
+Michelle Shao was gosssiped about, the sentiment was -227 they had -11 status points. They now have -36 
+Herma Adams told Lydia Brown a rumour. They received 10 status points. They had 103 
+Dorothy Ellinwood was gosssiped about, the sentiment was -209 they had 144 status points. They now have -157 

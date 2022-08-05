@@ -42,12 +42,12 @@ def createCitizen():
 	cgp             = random.randint(0,100)
 	sgp             = random.randint(0,100)
 	age             = random.randint(0,80)
-	friends         = {}
+	relationships   = {}
 	knownRumours    = {}
 	emotion         = '😐'
 	action          = []
 
-	citizen = {"name": name, "gender":gender, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "knownRumours": knownRumours, 'emotion':emotion,"action":action}
+	citizen = {"name": name, "gender":gender, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "relationships": relationships, "knownRumours": knownRumours, 'emotion':emotion,"action":action}
 	return(citizen)
 
 
@@ -84,7 +84,7 @@ def generateCitizens(citizen_count):
 		print("Citizen's spread gossip probability is {}".format(citizen['SGP']))
 		print(' ')
 
-		print("Citizen's friends are {}".format(citizen['friends']))
+		print("Citizen's relationships are {}".format(citizen['relationships']))
 		print(' ')
 
 		print("Citizen's known rumours are {}".format(citizen['knownRumours']))

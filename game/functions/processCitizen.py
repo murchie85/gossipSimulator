@@ -13,7 +13,7 @@ Citizen Initialisation
 - `create_gossip_probability` = random int 0-100
 - `spread_gossip_probability` = random int 0-100
 - `age` = 0
-- `friends` = empty
+- `relationships` = empty
 - `subjective_rumour_tracker` empty / knownRumours
 
 """
@@ -42,7 +42,7 @@ def createCitizen():
 	cgp             = random.randint(0,100)
 	sgp             = random.randint(0,100)
 	age             = random.randint(0,80)
-	friends         = {}
+	relationships   = {}
 	movement        = {}
 	knownRumours    = {}
 	sprite          = {}
@@ -50,7 +50,7 @@ def createCitizen():
 	action          = []
 	notifyTimer     = random.randint(20,100)
 
-	citizen = {"name": name, "gender":gender, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "friends": friends, "movement":movement, "knownRumours": knownRumours, "sprite":sprite,'emotion':emotion,"action":action,"notifyTimer":notifyTimer}
+	citizen = {"name": name, "gender":gender, "location": location, "SP": sp, "CGP": cgp, "SGP": sgp, "age": age, "relationships": relationships, "movement":movement, "knownRumours": knownRumours, "sprite":sprite,'emotion':emotion,"action":action,"notifyTimer":notifyTimer}
 	return(citizen)
 
 

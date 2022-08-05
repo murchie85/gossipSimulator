@@ -8,6 +8,8 @@ DONE: Log when a rumour dies
 
 
 TODO: Make Sensationalism grow,drop inline with a normal distribution. 
+TODO: Build a relationship model (0-x)
+TODO: Gossip affects relationships. 
 TODO: Personality Model
 TODO: UNIT TESTS
 TODO: Give the finger emoji
